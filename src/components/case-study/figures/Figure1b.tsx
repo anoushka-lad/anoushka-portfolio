@@ -1,0 +1,108 @@
+import { motion } from "framer-motion";
+import craveLogo from "@/assets/logos/crave.png";
+import ctvLogo from "@/assets/logos/ctv.png";
+import noovoLogo from "@/assets/logos/noovo.png";
+import bnnBloombergLogo from "@/assets/logos/bnn-bloomberg.png";
+import cp24Logo from "@/assets/logos/cp24.png";
+import ctvNewsLogo from "@/assets/logos/ctv-news.png";
+import tsnRdsLogo from "@/assets/logos/tsn-rds-combined.png";
+
+interface HexagonProps {
+  logos: { src: string; alt: string; className?: string }[];
+  label: string;
+  variant: "left" | "center" | "right";
+}
+
+const Hexagon = ({ logos, label }: HexagonProps) => {
+  // Same hexagon shape for all - pointed top and bottom
+  const hexPath = "M 50 5 L 92 28 L 92 72 L 50 95 L 8 72 L 8 28 Z";
+
+  return (
+    <motion.div 
+      className="flex flex-col items-center cursor-pointer"
+      whileHover={{ scale: 1.02, y: -3 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    >
+      <motion.div 
+        className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+        whileHover={{ rotate: 1 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        {/* Hexagon outline */}
+        <svg 
+          viewBox="0 0 100 100" 
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <motion.path
+            d={hexPath}
+            fill="none"
+            stroke="hsl(35 25% 35%)"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
+          />
+        </svg>
+        
+        {/* Logos container - centered within hexagon */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 md:gap-4 p-6 md:p-8">
+          {logos.map((logo, index) => (
+            <motion.img
+              key={index}
+              src={logo.src}
+              alt={logo.alt}
+              className={`h-auto object-contain ${logo.className || ""}`}
+              style={{ 
+                maxWidth: logos.length === 1 ? "80%" : "70%",
+                maxHeight: logos.length === 1 ? "65%" : "24%" 
+              }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+      
+      {/* Label */}
+      <motion.span 
+        className="mt-4 font-serif font-bold text-lg md:text-xl lg:text-2xl text-foreground/90"
+        whileHover={{ letterSpacing: "0.05em" }}
+        transition={{ duration: 0.2 }}
+      >
+        {label}
+      </motion.span>
+    </motion.div>
+  );
+};
+
+const Figure1b = () => {
+  const entertainmentLogos = [
+    { src: craveLogo, alt: "Crave" },
+    { src: ctvLogo, alt: "CTV" },
+    { src: noovoLogo, alt: "Noovo" },
+  ];
+
+  const newsLogos = [
+    { src: bnnBloombergLogo, alt: "BNN Bloomberg" },
+    { src: cp24Logo, alt: "CP24" },
+    { src: ctvNewsLogo, alt: "CTV News" },
+  ];
+
+  const sportsLogos = [
+    { src: tsnRdsLogo, alt: "TSN and RDS" },
+  ];
+
+  return (
+    <div className="w-full py-6 md:py-8">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
+        <Hexagon logos={entertainmentLogos} label="Entertainment" variant="left" />
+        <Hexagon logos={newsLogos} label="News" variant="center" />
+        <Hexagon logos={sportsLogos} label="Sports" variant="right" />
+      </div>
+    </div>
+  );
+};
+
+export default Figure1b;

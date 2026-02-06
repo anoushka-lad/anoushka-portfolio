@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Anoushka Portfolio Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Warm parchment palette */
+    --background: 38 35% 92%;
+    --foreground: 35 20% 20%;
+
+    --card: 40 40% 96%;
+    --card-foreground: 35 20% 20%;
+
+    --popover: 40 40% 96%;
+    --popover-foreground: 35 20% 20%;
+
+    --primary: 35 20% 20%;
+    --primary-foreground: 40 40% 96%;
+
+    --secondary: 38 30% 88%;
+    --secondary-foreground: 35 20% 25%;
+
+    --muted: 38 25% 85%;
+    --muted-foreground: 35 15% 40%;
+
+    --accent: 30 90% 50%;
+    --accent-foreground: 40 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 25% 80%;
+    --input: 35 25% 80%;
+    --ring: 35 20% 20%;
+
+    --radius: 0.5rem;
+
+    /* Constellation colors */
+    --constellation-line: 35 15% 55%;
+    --constellation-node: 35 20% 30%;
+    --constellation-center: 30 90% 50%;
+    --decorative-blue: 200 60% 55%;
+
+    /* Sidebar tokens */
+    --sidebar-background: 40 40% 96%;
+    --sidebar-foreground: 35 20% 25%;
+    --sidebar-primary: 35 20% 20%;
+    --sidebar-primary-foreground: 40 40% 96%;
+    --sidebar-accent: 38 30% 88%;
+    --sidebar-accent-foreground: 35 20% 25%;
+    --sidebar-border: 35 25% 80%;
+    --sidebar-ring: 35 20% 20%;
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 35 20% 92%;
+    --card: 30 12% 12%;
+    --card-foreground: 35 20% 92%;
+    --popover: 30 15% 8%;
+    --popover-foreground: 35 20% 92%;
+    --primary: 35 20% 92%;
+    --primary-foreground: 30 15% 8%;
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 35 20% 88%;
+    --muted: 30 12% 18%;
+    --muted-foreground: 35 15% 55%;
+    --accent: 30 90% 50%;
+    --accent-foreground: 35 20% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 12% 20%;
+    --input: 30 12% 20%;
+    --ring: 35 20% 80%;
+    --constellation-line: 35 15% 45%;
+    --constellation-node: 35 20% 70%;
+    --constellation-center: 30 90% 50%;
+    --decorative-blue: 200 60% 55%;
+    --sidebar-background: 30 12% 10%;
+    --sidebar-foreground: 35 20% 88%;
+    --sidebar-primary: 35 20% 92%;
+    --sidebar-primary-foreground: 30 15% 8%;
+    --sidebar-accent: 30 12% 18%;
+    --sidebar-accent-foreground: 35 20% 88%;
+    --sidebar-border: 30 12% 20%;
+    --sidebar-ring: 35 20% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100%;
+  }
+
+  #root {
+    min-height: 100%;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex items-center justify-between py-3 px-4 text-foreground hover:bg-secondary/50 transition-colors cursor-pointer;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24;
+  }
+
+  .prose-portfolio {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  .case-study-card {
+    @apply relative overflow-hidden rounded-2xl bg-card transition-all duration-500 ease-out;
+    box-shadow: 0 4px 20px -4px hsl(30 10% 15% / 0.08);
+  }
+
+  .case-study-card:hover {
+    box-shadow: 0 12px 40px -8px hsl(30 10% 15% / 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+}

@@ -1,0 +1,49 @@
+interface GoalSection2Props {
+  goal: string;
+}
+
+const GoalSection2 = ({ goal }: GoalSection2Props) => {
+  return (
+    <section className="section-padding pt-4 pb-4 md:pt-6 md:pb-6">
+      <div className="max-w-3xl mx-auto">
+        {/* Section Title with sunburst icon */}
+        <div className="flex items-center gap-4 mb-6">
+          <svg viewBox="0 0 40 40" className="w-8 h-8">
+            {[...Array(16)].map((_, i) => {
+              const angle = (i * 22.5) * Math.PI / 180;
+              const x1 = 20 + Math.cos(angle) * 8;
+              const y1 = 20 + Math.sin(angle) * 8;
+              const x2 = 20 + Math.cos(angle) * 16;
+              const y2 = 20 + Math.sin(angle) * 16;
+              return (
+                <line 
+                  key={i} 
+                  x1={x1} y1={y1} x2={x2} y2={y2} 
+                  stroke="currentColor" 
+                  strokeWidth="1.5" 
+                  className="text-foreground" 
+                />
+              );
+            })}
+            <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
+          </svg>
+          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+            The Goal
+          </h2>
+        </div>
+
+        {/* Divider line */}
+        <div className="w-full h-px bg-foreground/30 mb-8" />
+
+        {/* Dark quote box */}
+        <div className="bg-foreground text-background p-8 md:p-12">
+          <p className="font-serif text-xl md:text-2xl italic leading-relaxed text-center">
+            {goal}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default GoalSection2;
