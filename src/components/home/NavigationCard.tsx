@@ -1,8 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
-import rusticPaperBg from "@/assets/rustic-paper-bg.png";
+
+const rusticPaperBg = "/images/rustic-paper-bg.jpg";
 
 interface NavSection {
   id: string;
@@ -92,6 +95,26 @@ const navSections: NavSection[] = [
   },
 ];
 
+const ConstellationStar = () => (
+  <svg viewBox="0 0 16 16" className="w-3 h-3">
+    <circle cx="8" cy="8" r="2" fill="hsl(35 18% 35%)" />
+    {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+      const rad = (angle * Math.PI) / 180;
+      return (
+        <line
+          key={angle}
+          x1={8 + Math.cos(rad) * 2.5}
+          y1={8 + Math.sin(rad) * 2.5}
+          x2={8 + Math.cos(rad) * 5}
+          y2={8 + Math.sin(rad) * 5}
+          stroke="hsl(35 18% 35%)"
+          strokeWidth="0.8"
+        />
+      );
+    })}
+  </svg>
+);
+
 const NavigationCard = () => {
   const [expandedId, setExpandedId] = useState<string>("about");
 
@@ -99,28 +122,8 @@ const NavigationCard = () => {
     setExpandedId(expandedId === id ? "" : id);
   };
 
-  const ConstellationStar = () => (
-    <svg viewBox="0 0 16 16" className="w-3 h-3">
-      <circle cx="8" cy="8" r="2" fill="hsl(35 18% 35%)" />
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
-        const rad = (angle * Math.PI) / 180;
-        return (
-          <line
-            key={angle}
-            x1={8 + Math.cos(rad) * 2.5}
-            y1={8 + Math.sin(rad) * 2.5}
-            x2={8 + Math.cos(rad) * 5}
-            y2={8 + Math.sin(rad) * 5}
-            stroke="hsl(35 18% 35%)"
-            strokeWidth="0.8"
-          />
-        );
-      })}
-    </svg>
-  );
-
   return (
-    <div 
+    <div
       className="group relative w-72 overflow-hidden rounded-lg"
       style={{
         backgroundImage: `url(${rusticPaperBg})`,
@@ -131,53 +134,53 @@ const NavigationCard = () => {
       {/* SVG Frame decorations - matching persona cards */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 288 400" preserveAspectRatio="none">
         {/* Outer thick frame border */}
-        <rect 
-          x="3" y="3" 
-          width="282" height="394" 
-          fill="none" 
-          stroke="hsl(35 18% 35%)" 
+        <rect
+          x="3" y="3"
+          width="282" height="394"
+          fill="none"
+          stroke="hsl(35 18% 35%)"
           strokeWidth="3"
           rx="8"
         />
-        
+
         {/* Outer dotted border */}
-        <rect 
-          x="8" y="8" 
-          width="272" height="384" 
-          fill="none" 
-          stroke="hsl(35 18% 45%)" 
+        <rect
+          x="8" y="8"
+          width="272" height="384"
+          fill="none"
+          stroke="hsl(35 18% 45%)"
           strokeWidth="1"
           strokeDasharray="4 2"
           rx="6"
         />
-        
+
         {/* Inner solid frame border */}
-        <rect 
-          x="12" y="12" 
-          width="264" height="376" 
-          fill="none" 
-          stroke="hsl(35 18% 50%)" 
+        <rect
+          x="12" y="12"
+          width="264" height="376"
+          fill="none"
+          stroke="hsl(35 18% 50%)"
           strokeWidth="1"
           rx="4"
         />
-        
+
         {/* Top-left corner flourish - elegant double curve */}
         <path d="M 18 34 Q 18 18 34 18" fill="none" stroke="hsl(35 18% 35%)" strokeWidth="1.5" />
         <path d="M 22 40 Q 22 22 40 22" fill="none" stroke="hsl(35 18% 45%)" strokeWidth="1" />
-        
+
         {/* Top-right corner flourish */}
         <path d="M 254 18 Q 270 18 270 34" fill="none" stroke="hsl(35 18% 35%)" strokeWidth="1.5" />
         <path d="M 248 22 Q 266 22 266 40" fill="none" stroke="hsl(35 18% 45%)" strokeWidth="1" />
-        
+
         {/* Bottom-left corner flourish */}
         <path d="M 34 382 Q 18 382 18 366" fill="none" stroke="hsl(35 18% 35%)" strokeWidth="1.5" />
         <path d="M 40 378 Q 22 378 22 360" fill="none" stroke="hsl(35 18% 45%)" strokeWidth="1" />
-        
+
         {/* Bottom-right corner flourish */}
         <path d="M 270 366 Q 270 382 254 382" fill="none" stroke="hsl(35 18% 35%)" strokeWidth="1.5" />
         <path d="M 266 360 Q 266 378 248 378" fill="none" stroke="hsl(35 18% 45%)" strokeWidth="1" />
       </svg>
-      
+
       {/* Constellation star corners with hover glow */}
       <div className="absolute top-2 left-2 z-20 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(180,160,120,0.8)]">
         <ConstellationStar />
@@ -191,13 +194,13 @@ const NavigationCard = () => {
       <div className="absolute bottom-2 right-2 z-20 transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(180,160,120,0.8)]">
         <ConstellationStar />
       </div>
-      
+
       {/* Content container */}
       <div className="relative z-10 py-2">
         {navSections.map((section, index) => (
           <div key={section.id}>
             {index > 0 && <div className="h-px mx-6" style={{ backgroundColor: 'hsl(35 18% 45%)' }} />}
-            
+
             {/* Header */}
             <motion.div
               className="flex items-center justify-between py-3 px-6 cursor-pointer select-none"
@@ -206,9 +209,9 @@ const NavigationCard = () => {
               transition={{ duration: 0.15 }}
             >
               <div className="flex items-center gap-3">
-                <div 
+                <div
                   className="w-7 h-7 rounded-full flex items-center justify-center"
-                  style={{ 
+                  style={{
                     border: '1.5px solid hsl(35 18% 35%)',
                     backgroundColor: 'hsl(38 35% 92% / 0.6)',
                     color: 'hsl(35 18% 30%)'
@@ -216,7 +219,7 @@ const NavigationCard = () => {
                 >
                   <section.icon className="w-4 h-4" />
                 </div>
-                <span 
+                <span
                   className="text-sm font-sans font-medium tracking-widest"
                   style={{ color: 'hsl(35 18% 22%)' }}
                 >
@@ -246,7 +249,7 @@ const NavigationCard = () => {
                   className="overflow-hidden"
                 >
                   <div className="px-6 pb-4 pt-1">
-                    <p 
+                    <p
                       className="text-sm leading-relaxed mb-3 font-serif italic"
                       style={{ color: 'hsl(35 18% 35%)' }}
                     >
@@ -254,7 +257,7 @@ const NavigationCard = () => {
                     </p>
                     {section.href && (
                       <Link
-                        to={section.href}
+                        href={section.href}
                         className="text-sm underline underline-offset-4 hover:text-accent transition-colors font-sans"
                         style={{ color: 'hsl(35 18% 30%)' }}
                       >

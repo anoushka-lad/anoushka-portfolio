@@ -1,46 +1,46 @@
 // Persona icon imports
-import platformSurferIcon from "@/assets/persona-platform-surfer.png";
-import bingeWatcherIcon from "@/assets/persona-binge-watcher.png";
-import avidViewerIcon from "@/assets/persona-avid-viewer.png";
-import backgroundStreamerIcon from "@/assets/persona-background-streamer.png";
-import socialStreamerIcon from "@/assets/persona-social-streamer.png";
-import rewatcherIcon from "@/assets/persona-rewatcher.png";
+const platformSurferIcon = "/images/persona-platform-surfer.png";
+const bingeWatcherIcon = "/images/persona-binge-watcher.png";
+const avidViewerIcon = "/images/persona-avid-viewer.png";
+const backgroundStreamerIcon = "/images/persona-background-streamer.png";
+const socialStreamerIcon = "/images/persona-social-streamer.png";
+const rewatcherIcon = "/images/persona-rewatcher.png";
 
 // Movie poster imports - Platform Surfer
-import posterBarbie from "@/assets/persona-poster-barbie.jpg";
-import posterBillions from "@/assets/persona-poster-billions.jpg";
-import posterTokyoVice from "@/assets/persona-poster-tokyo-vice.jpg";
-import posterColorPurple from "@/assets/persona-poster-color-purple.jpg";
+const posterBarbie = "/images/persona-poster-barbie.jpg";
+const posterBillions = "/images/persona-poster-billions.jpg";
+const posterTokyoVice = "/images/persona-poster-tokyo-vice.jpg";
+const posterColorPurple = "/images/persona-poster-color-purple.jpg";
 
 // Movie poster imports - Binge Watcher
-import posterEuphoria from "@/assets/persona-poster-euphoria.jpg";
-import posterGOT from "@/assets/persona-poster-got.jpg";
-import posterSuccession from "@/assets/persona-poster-succession.jpg";
-import posterBigLittleLies from "@/assets/persona-poster-big-little-lies.jpg";
+const posterEuphoria = "/images/persona-poster-euphoria.jpg";
+const posterGOT = "/images/persona-poster-got.jpg";
+const posterSuccession = "/images/persona-poster-succession.jpg";
+const posterBigLittleLies = "/images/persona-poster-big-little-lies.jpg";
 
 // Movie poster imports - Avid Viewer
-import posterBanshees from "@/assets/persona-poster-banshees.jpg";
-import posterInception from "@/assets/persona-poster-inception.jpg";
-import posterLadybird from "@/assets/persona-poster-ladybird.jpg";
-import posterNope from "@/assets/persona-poster-nope.jpg";
+const posterBanshees = "/images/persona-poster-banshees.jpg";
+const posterInception = "/images/persona-poster-inception.jpg";
+const posterLadybird = "/images/persona-poster-ladybird.jpg";
+const posterNope = "/images/persona-poster-nope.jpg";
 
 // Movie poster imports - Background Streamer
-import posterFriends from "@/assets/persona-poster-friends.webp";
-import posterBigBangTheory from "@/assets/persona-poster-big-bang-theory.jpg";
-import posterTraitors from "@/assets/persona-poster-traitors.jpg";
-import posterDragRace from "@/assets/persona-poster-drag-race.webp";
+const posterFriends = "/images/persona-poster-friends.webp";
+const posterBigBangTheory = "/images/persona-poster-big-bang-theory.jpg";
+const posterTraitors = "/images/persona-poster-traitors.jpg";
+const posterDragRace = "/images/persona-poster-drag-race.webp";
 
 // Movie poster imports - Social Streamer
-import posterHarryPotter from "@/assets/persona-poster-harry-potter.jpg";
-import posterLOTR from "@/assets/persona-poster-lotr.jpg";
-import posterAquaman from "@/assets/persona-poster-aquaman.jpg";
-import posterGhostbusters from "@/assets/persona-poster-ghostbusters.jpg";
+const posterHarryPotter = "/images/persona-poster-harry-potter.jpg";
+const posterLOTR = "/images/persona-poster-lotr.jpg";
+const posterAquaman = "/images/persona-poster-aquaman.jpg";
+const posterGhostbusters = "/images/persona-poster-ghostbusters.jpg";
 
 // Movie poster imports - Rewatcher
-import posterHangover from "@/assets/persona-poster-hangover.jpg";
-import posterDevilWearsPrada from "@/assets/persona-poster-devil-wears-prada.jpg";
-import posterWire from "@/assets/persona-poster-wire.jpg";
-import posterTheOC from "@/assets/persona-poster-the-oc.webp";
+const posterHangover = "/images/persona-poster-hangover.jpg";
+const posterDevilWearsPrada = "/images/persona-poster-devil-wears-prada.jpg";
+const posterWire = "/images/persona-poster-wire.jpg";
+const posterTheOC = "/images/persona-poster-the-oc.webp";
 
 export interface PersonaData {
   number: number;

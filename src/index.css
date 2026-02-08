@@ -4,8 +4,6 @@
 
 /* Anoushka Portfolio Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
-
 @layer base {
   :root {
     /* Warm parchment palette */
@@ -44,16 +42,6 @@
     --constellation-node: 35 20% 30%;
     --constellation-center: 30 90% 50%;
     --decorative-blue: 200 60% 55%;
-
-    /* Sidebar tokens */
-    --sidebar-background: 40 40% 96%;
-    --sidebar-foreground: 35 20% 25%;
-    --sidebar-primary: 35 20% 20%;
-    --sidebar-primary-foreground: 40 40% 96%;
-    --sidebar-accent: 38 30% 88%;
-    --sidebar-accent-foreground: 35 20% 25%;
-    --sidebar-border: 35 25% 80%;
-    --sidebar-ring: 35 20% 20%;
   }
 
   .dark {
@@ -80,14 +68,6 @@
     --constellation-node: 35 20% 70%;
     --constellation-center: 30 90% 50%;
     --decorative-blue: 200 60% 55%;
-    --sidebar-background: 30 12% 10%;
-    --sidebar-foreground: 35 20% 88%;
-    --sidebar-primary: 35 20% 92%;
-    --sidebar-primary-foreground: 30 15% 8%;
-    --sidebar-accent: 30 12% 18%;
-    --sidebar-accent-foreground: 35 20% 88%;
-    --sidebar-border: 30 12% 20%;
-    --sidebar-ring: 35 20% 80%;
   }
 }
 
@@ -98,11 +78,6 @@
 
   html, body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Cormorant Garamond', serif;
-    min-height: 100%;
-  }
-
-  #root {
     min-height: 100%;
   }
 }
@@ -128,15 +103,5 @@
   .case-study-card:hover {
     box-shadow: 0 12px 40px -8px hsl(30 10% 15% / 0.15);
     transform: translateY(-4px);
-  }
-}
-
-@layer utilities {
-  .font-serif {
-    font-family: 'Cormorant Garamond', serif;
-  }
-
-  .font-sans {
-    font-family: 'Inter', sans-serif;
   }
 }

@@ -1,11 +1,12 @@
+"use client";
 import { motion } from "framer-motion";
-import craveLogo from "@/assets/logos/crave.png";
-import ctvLogo from "@/assets/logos/ctv.png";
-import noovoLogo from "@/assets/logos/noovo.png";
-import bnnBloombergLogo from "@/assets/logos/bnn-bloomberg.png";
-import cp24Logo from "@/assets/logos/cp24.png";
-import ctvNewsLogo from "@/assets/logos/ctv-news.png";
-import tsnRdsLogo from "@/assets/logos/tsn-rds-combined.png";
+const craveLogo = "/images/logos/crave.png";
+const ctvLogo = "/images/logos/ctv.png";
+const noovoLogo = "/images/logos/noovo.png";
+const bnnBloombergLogo = "/images/logos/bnn-bloomberg.png";
+const cp24Logo = "/images/logos/cp24.png";
+const ctvNewsLogo = "/images/logos/ctv-news.png";
+const tsnRdsLogo = "/images/logos/tsn-rds-combined.png";
 
 interface HexagonProps {
   logos: { src: string; alt: string; className?: string }[];

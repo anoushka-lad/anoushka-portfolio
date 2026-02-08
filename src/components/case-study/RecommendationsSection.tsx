@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import FigureWrapper from "./FigureWrapper";
 import Figure4aRotator from "./figures/Figure4aRotator";
