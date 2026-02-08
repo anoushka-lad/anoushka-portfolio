@@ -31,7 +31,7 @@ const CaseStudyHeroUnified = ({
       />
 
       {/* Main Content */}
-      <div className="relative z-10 px-6 pt-16 pb-8 flex flex-col items-center">
+      <div className="relative z-10 section-padding pt-16 pb-8 flex flex-col items-center">
         {/* Illustration */}
         <motion.div
           initial={{ y: -20, opacity: 0, rotate: -5 }}
@@ -60,7 +60,7 @@ const CaseStudyHeroUnified = ({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="cs-display-title text-center max-w-4xl"
+            className="cs-display-title text-center case-column"
           >
             {titleParts.map((part, index) => {
               let className = "";

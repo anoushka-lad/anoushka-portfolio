@@ -7,7 +7,7 @@ const figure1a = "/images/figure-1a.png";
 const ProblemSection = () => {
   return (
     <section className="section-padding pt-8 pb-8 md:pt-12 md:pb-12">
-      <div className="max-w-3xl mx-auto">
+      <div className="case-column">
         {/* Section Title with sunburst icon */}
         <div className="flex items-center gap-4 mb-6">
           <svg viewBox="0 0 40 40" className="w-8 h-8">

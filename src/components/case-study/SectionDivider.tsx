@@ -10,27 +10,29 @@ const SectionDivider = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-        <div className="flex items-center justify-center gap-4">
-          {/* Left line */}
-          <div 
-            className="flex-1 max-w-[120px] h-[1px]"
-            style={{ backgroundColor: '#343434' }}
-          />
-          
-          {/* Center star/sunburst */}
-          <span 
-            className="text-xl"
-            style={{ color: '#343434' }}
-          >
-            ✺
-          </span>
-          
-          {/* Right line */}
-          <div 
-            className="flex-1 max-w-[120px] h-[1px]"
-            style={{ backgroundColor: '#343434' }}
-          />
+      <div className="section-padding">
+        <div className="case-column">
+          <div className="flex items-center justify-center gap-4">
+            {/* Left line */}
+            <div
+              className="flex-1 max-w-[120px] h-[1px]"
+              style={{ backgroundColor: '#343434' }}
+            />
+
+            {/* Center star/sunburst */}
+            <span
+              className="text-xl"
+              style={{ color: '#343434' }}
+            >
+              ✺
+            </span>
+
+            {/* Right line */}
+            <div
+              className="flex-1 max-w-[120px] h-[1px]"
+              style={{ backgroundColor: '#343434' }}
+            />
+          </div>
         </div>
       </div>
     </motion.div>

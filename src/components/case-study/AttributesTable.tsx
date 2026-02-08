@@ -105,7 +105,7 @@ const AttributesTable = () => {
 
   return (
     <div className="w-full overflow-x-auto py-8">
-      <table className="w-full max-w-3xl mx-auto">
+      <table className="w-full">
         <thead>
           <tr>
             <th className="w-32"></th>

@@ -34,7 +34,7 @@ const CaseStudy3Content = () => {
 
       {/* The Problem */}
       <section className="section-padding py-20">
-        <div className="max-w-4xl mx-auto">
+        <div className="case-column">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
             <h2 className="cs-section-heading">
@@ -57,21 +57,23 @@ const CaseStudy3Content = () => {
 
       {/* Dashboard Image */}
       <div className="bg-secondary py-16">
-        <div className="max-w-6xl mx-auto section-padding">
-          <img
-            src={heroImage}
-            alt="Healthcare dashboard interface"
-            className="w-full h-auto rounded-2xl shadow-2xl"
-          />
-          <p className="cs-caption mt-4 text-center">
-            The redesigned dashboard prioritizes actionable insights
-          </p>
+        <div className="section-padding">
+          <div className="case-column">
+            <img
+              src={heroImage}
+              alt="Healthcare dashboard interface"
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+            <p className="cs-caption mt-4 text-center">
+              The redesigned dashboard prioritizes actionable insights
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Research Approach */}
       <section className="section-padding py-20">
-        <div className="max-w-4xl mx-auto">
+        <div className="case-column">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
             <h2 className="cs-section-heading">
@@ -100,7 +102,7 @@ const CaseStudy3Content = () => {
 
       {/* Design Principles */}
       <section className="section-padding py-20">
-        <div className="max-w-4xl mx-auto">
+        <div className="case-column">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
             <h2 className="cs-section-heading">
@@ -141,7 +143,7 @@ const CaseStudy3Content = () => {
 
       {/* Impact */}
       <section className="section-padding py-20">
-        <div className="max-w-4xl mx-auto">
+        <div className="case-column">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
             <h2 className="cs-section-heading">

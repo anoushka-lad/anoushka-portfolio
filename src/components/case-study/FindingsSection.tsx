@@ -10,7 +10,7 @@ import FigureWrapper from "./FigureWrapper";
 const FindingsSection = () => {
   return (
     <section className="section-padding pt-8 pb-12 md:pt-10 md:pb-16 bg-background">
-      <div className="max-w-4xl mx-auto">
+      <div className="case-column">
         {/* Section Header */}
         <div className="flex items-center gap-4 mb-6">
           {/* Sunburst icon */}

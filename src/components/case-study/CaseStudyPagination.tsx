@@ -14,7 +14,7 @@ const CaseStudyPagination = () => {
 
   return (
     <div className="section-padding py-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="case-column">
         {/* Divider line */}
         <div
           className="w-full h-px mb-8 cs-divider"

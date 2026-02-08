@@ -103,7 +103,7 @@ const CaseStudyHeader = () => {
           className="relative flex items-center justify-between w-full mx-auto"
           style={{
             maxWidth: "1150px",
-            paddingInline: "clamp(16px, 4vw, 48px)",
+            paddingInline: "var(--case-gutter-x)",
           }}
         >
           <Link

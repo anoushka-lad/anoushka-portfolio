@@ -18,7 +18,7 @@ const PersonaGrid = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         {personas.map((persona) => (
           <div key={persona.number} className="flex flex-col items-center">
             <PersonaCard

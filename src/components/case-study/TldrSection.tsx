@@ -9,13 +9,13 @@ interface TldrSectionProps {
 const TldrSection = ({ summary }: TldrSectionProps) => {
   return (
     <motion.section 
-      className="section-padding py-16 max-w-2xl"
+      className="section-padding py-16"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="space-y-4">
+      <div className="case-column space-y-4">
         <h2 className="cs-tldr-label tracking-wide">
           tl;dr
         </h2>

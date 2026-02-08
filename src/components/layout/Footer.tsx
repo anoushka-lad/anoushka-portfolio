@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="section-padding py-16 border-t border-border">
-      <div className="max-w-7xl mx-auto">
+      <div className="case-column">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <h3 className="font-serif text-2xl font-medium text-foreground mb-2">

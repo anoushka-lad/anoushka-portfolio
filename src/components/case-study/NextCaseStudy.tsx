@@ -10,7 +10,7 @@ interface NextCaseStudyProps {
 const NextCaseStudy = ({ title, href, image }: NextCaseStudyProps) => {
   return (
     <section className="section-padding py-24 bg-secondary">
-      <div className="max-w-7xl mx-auto">
+      <div className="case-column">
         <p className="cs-nav-text mb-4">Next Project</p>
 
         <Link

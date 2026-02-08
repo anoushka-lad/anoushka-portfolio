@@ -6,7 +6,7 @@ import { r } from "@/lib/utils";
 const MethodSection2 = () => {
   return (
     <section className="section-padding pt-8 pb-8 md:pt-10 md:pb-10">
-      <div className="max-w-4xl mx-auto">
+      <div className="case-column">
         {/* Section Title with sunburst icon */}
         <div className="flex items-center gap-4 mb-6">
           <svg viewBox="0 0 40 40" className="w-8 h-8">
