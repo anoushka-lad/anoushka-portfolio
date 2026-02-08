@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 const iconFindShow = "/assets/cs2-icons/icon-find-show.png";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import PersonaCard from "./PersonaCard";
 import PersonaOverlay from "./PersonaOverlay";

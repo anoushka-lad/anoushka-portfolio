@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 type IconProps = { className?: string };
