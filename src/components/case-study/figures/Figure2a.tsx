@@ -5,7 +5,7 @@ import { r } from "@/lib/utils";
 
 const Figure2a = () => {
   return (
-    <div className="relative w-full max-w-3xl mx-auto py-8 px-4">
+    <div className="w-full py-4">
       <svg viewBox="0 0 700 280" className="w-full h-auto">
         {/* Node 1 - 8-pointed star (left top) */}
         <g transform="translate(140, 100)">

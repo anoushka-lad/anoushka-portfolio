@@ -61,7 +61,7 @@ const Figure3b = () => {
   ];
 
   return (
-    <div className="w-full py-4 md:py-6">
+    <div className="w-full py-4">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         {/* Main grid */}
         <div className="flex-1">
@@ -96,8 +96,8 @@ const Figure3b = () => {
               <div key={dIndex} className="flex items-center">
                 {/* Device label - bold */}
                 <div 
-                  className="w-14 md:w-16 shrink-0 font-body font-bold text-sm md:text-base pr-2"
-                  style={{ color: 'hsl(35 18% 28%)' }}
+                  className="w-14 md:w-16 shrink-0 font-body font-bold text-sm pr-2"
+                  style={{ color: '#343434' }}
                 >
                   {device}
                 </div>
@@ -125,7 +125,7 @@ const Figure3b = () => {
         
         {/* Legend */}
         <motion.div 
-          className="flex flex-row lg:flex-col justify-center lg:justify-start gap-3 lg:gap-2 text-xs pt-2 lg:pt-14"
+          className="flex flex-row lg:flex-col justify-center lg:justify-start gap-3 lg:gap-2 text-sm pt-2 lg:pt-14"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
@@ -155,8 +155,8 @@ const Figure3b = () => {
               
               {/* Label - bold */}
               <span 
-                className="font-body font-bold text-[10px] md:text-xs whitespace-nowrap"
-                style={{ color: 'hsl(35 16% 35%)' }}
+                className="font-body font-bold text-sm whitespace-nowrap"
+                style={{ color: '#343434' }}
               >
                 {item.label}
               </span>

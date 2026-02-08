@@ -40,7 +40,7 @@ const Figure2b = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center items-end gap-12 md:gap-20 py-10 px-4">
+    <div className="w-full flex flex-wrap justify-center items-end gap-12 md:gap-20 py-4">
       {items.map((item, index) => (
         <motion.div 
           key={index}

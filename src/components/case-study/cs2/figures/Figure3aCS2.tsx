@@ -204,7 +204,7 @@ const CircularGauge = ({
 
       {/* Label with fade in */}
       <motion.p
-        className="font-body text-lg font-bold text-[#343434] mt-8 text-center max-w-[280px]"
+        className="font-body text-sm font-bold text-[#343434] mt-8 text-center max-w-[280px]"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: delay + 0.8 }}
@@ -217,7 +217,7 @@ const CircularGauge = ({
 
 const Figure3aCS2 = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto py-10">
+    <div className="w-full py-4">
       <div className="flex justify-center gap-20 flex-wrap">
         <CircularGauge
           value={83.7}

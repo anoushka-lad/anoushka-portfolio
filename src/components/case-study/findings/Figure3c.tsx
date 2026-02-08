@@ -48,7 +48,7 @@ const Figure3c = () => {
   ];
 
   return (
-    <div className="w-full py-4 md:py-6">
+    <div className="w-full py-4">
       <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
         {/* ===== VENN DIAGRAM ===== */}
         <div className="flex-1 flex justify-center relative w-full">
@@ -148,11 +148,11 @@ const Figure3c = () => {
 
             {/* "Prefers to watch alone" Label - below left circle */}
             <motion.span
-              className="absolute font-body italic font-bold text-sm md:text-base"
+              className="absolute font-body italic font-bold text-sm"
               style={{ 
                 left: '4%', 
                 bottom: '0%',
-                color: 'hsl(35 18% 28%)'
+                color: '#343434'
               }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -164,11 +164,11 @@ const Figure3c = () => {
 
             {/* "Prefers to watch with others" Label - below right circle */}
             <motion.span
-              className="absolute font-body italic font-bold text-sm md:text-base"
+              className="absolute font-body italic font-bold text-sm"
               style={{ 
                 right: '0%', 
                 bottom: '0%',
-                color: 'hsl(35 18% 28%)'
+                color: '#343434'
               }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -312,8 +312,8 @@ const Figure3c = () => {
               
               {/* Label text - bold and bigger */}
               <span 
-                className="font-body font-bold text-sm md:text-base whitespace-nowrap"
-                style={{ color: 'hsl(35 16% 28%)' }}
+                className="font-body font-bold text-sm whitespace-nowrap"
+                style={{ color: '#343434' }}
               >
                 {item.name}
               </span>

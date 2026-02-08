@@ -34,7 +34,7 @@ const Figure3a = () => {
   ];
 
   return (
-    <div className="w-full py-4 md:py-6">
+    <div className="w-full py-4">
       <div className="flex flex-col">
         {/* Chart rows */}
         <div className="flex flex-col gap-3 md:gap-4">
@@ -50,8 +50,8 @@ const Figure3a = () => {
               {/* Persona label */}
               <div className="w-20 md:w-24 shrink-0 text-right pr-1">
                 <span 
-                  className="font-body italic font-bold text-xs md:text-sm whitespace-pre-line leading-tight"
-                  style={{ color: 'hsl(35 18% 25%)' }}
+                  className="font-body italic font-bold text-sm whitespace-pre-line leading-tight"
+                  style={{ color: '#343434' }}
                 >
                   {persona.name}
                 </span>
@@ -99,8 +99,8 @@ const Figure3a = () => {
             {timeLabels.map((label, i) => (
               <span
                 key={i}
-                className="flex-1 font-body italic font-bold text-xs md:text-sm text-center"
-                style={{ color: 'hsl(35 18% 28%)' }}
+                className="flex-1 font-body italic font-bold text-sm text-center"
+                style={{ color: '#343434' }}
               >
                 {label}
               </span>

@@ -124,7 +124,7 @@ const CalendarCell = ({
         className="bg-[hsl(35_18%_25%)] py-1.5 px-2 overflow-hidden relative"
         whileHover={{ backgroundColor: "hsl(35 18% 30%)" }}
       >
-        <p className="font-body text-xs font-bold text-[hsl(35_25%_90%)] text-center">
+        <p className="font-body text-sm font-bold text-[hsl(35_25%_90%)] text-center">
           {month}
         </p>
         <motion.div
@@ -161,7 +161,7 @@ const CalendarCell = ({
 
 const Figure2dCS2 = () => {
   return (
-    <div className="w-full max-w-2xl mx-auto py-4">
+    <div className="w-full py-4">
       <div className="flex gap-4">
         {/* Quarter labels */}
         <div className="flex flex-col justify-around py-2">

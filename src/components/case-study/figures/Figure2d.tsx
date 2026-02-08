@@ -181,7 +181,7 @@ const Figure2d = () => {
     .join(" ");
 
   return (
-    <div className="flex justify-center py-6">
+    <div className="w-full flex justify-center py-4">
       <motion.div
         className="relative w-80 h-80 md:w-[420px] md:h-[420px]"
         // Subtle whole-figure motion that stays contained (no scaling)

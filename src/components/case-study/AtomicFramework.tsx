@@ -1,6 +1,6 @@
 const AtomicFramework = () => {
   return (
-    <div className="flex flex-wrap justify-center items-end gap-8 md:gap-12 py-8">
+    <div className="w-full flex flex-wrap justify-center items-end gap-8 md:gap-12 py-4">
       {/* Key Moments - Single circle with dot */}
       <div className="flex flex-col items-center gap-3">
         <div className="relative w-16 h-16">

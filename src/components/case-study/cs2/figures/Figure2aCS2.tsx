@@ -107,10 +107,10 @@ const Figure2aCS2 = () => {
   const outerRingRadius = 185; // Outer decorative ring
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto py-2">
+    <div className="w-full py-4">
       {/* Goal 1 - Top */}
       <div className="text-center mb-1">
-        <p className="font-body text-xl font-bold text-[#343434]">Goal 1</p>
+        <p className="font-body text-sm font-bold text-[#343434]">Goal 1</p>
         <p className="font-body text-sm font-semibold italic text-[#343434]/90">
           Start watching content (discovery &amp; findability)
         </p>
@@ -375,7 +375,7 @@ const Figure2aCS2 = () => {
 
       {/* Goal 2 - Bottom */}
       <div className="text-center mt-1">
-        <p className="font-body text-xl font-bold text-[#343434]">Goal 2</p>
+        <p className="font-body text-sm font-bold text-[#343434]">Goal 2</p>
         <p className="font-body text-sm font-semibold italic text-[#343434]/90">
           Manage and use non-browsing service features
         </p>

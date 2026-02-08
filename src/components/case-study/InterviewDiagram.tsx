@@ -2,7 +2,7 @@ import { r } from "@/lib/utils";
 
 const InterviewDiagram = () => {
   return (
-    <div className="relative w-full max-w-xl mx-auto py-8">
+    <div className="w-full py-4">
       <svg viewBox="0 0 500 300" className="w-full h-auto">
         {/* Connection lines with arrows */}
         <line x1="100" y1="80" x2="230" y2="200" stroke="currentColor" strokeWidth="1" className="text-foreground" />
@@ -31,7 +31,7 @@ const InterviewDiagram = () => {
             fill="currentColor" 
             className="text-foreground"
           />
-          <text y="40" textAnchor="middle" className="text-lg font-body fill-[#343434]">Engaging in Content</text>
+          <text y="40" textAnchor="middle" className="text-sm font-body fill-[#343434]">Engaging in Content</text>
           <text y="2" textAnchor="middle" className="text-xs font-bold fill-background">2</text>
         </g>
         

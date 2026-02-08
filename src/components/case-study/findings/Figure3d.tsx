@@ -23,7 +23,7 @@ const Figure3d = () => {
   ];
 
   return (
-    <div className="w-full py-6 md:py-8">
+    <div className="w-full py-4">
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
         
         {/* ===== AD TOLERANCE SCALE ===== */}
@@ -157,8 +157,8 @@ const Figure3d = () => {
                 <div className="absolute left-0 right-0" style={{ bottom: 0 }}>
                   <div className="flex justify-between px-2 md:px-4">
                     <motion.span
-                      className="font-body italic font-bold text-base md:text-lg text-center"
-                      style={{ color: "hsl(35 18% 26%)", width: "25%" }}
+                      className="font-body italic font-bold text-sm text-center"
+                      style={{ color: "#343434", width: "25%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.55 }}
@@ -167,8 +167,8 @@ const Figure3d = () => {
                       Intolerant
                     </motion.span>
                     <motion.span
-                      className="font-body italic font-bold text-base md:text-lg text-center"
-                      style={{ color: "hsl(35 18% 26%)", width: "50%" }}
+                      className="font-body italic font-bold text-sm text-center"
+                      style={{ color: "#343434", width: "50%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.6 }}
@@ -177,8 +177,8 @@ const Figure3d = () => {
                       Neutral
                     </motion.span>
                     <motion.span
-                      className="font-body italic font-bold text-base md:text-lg text-center"
-                      style={{ color: "hsl(35 18% 26%)", width: "25%" }}
+                      className="font-body italic font-bold text-sm text-center"
+                      style={{ color: "#343434", width: "25%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.65 }}
@@ -221,8 +221,8 @@ const Figure3d = () => {
               
               {/* Label text */}
               <span 
-                className="font-body font-bold text-sm md:text-base whitespace-nowrap"
-                style={{ color: 'hsl(35 16% 28%)' }}
+                className="font-body font-bold text-sm whitespace-nowrap"
+                style={{ color: '#343434' }}
               >
                 {item.name}
               </span>
