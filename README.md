@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# Anoushka Lad — UX Portfolio
 
-## Project info
+A UX research and design portfolio built with Next.js, featuring 3 interactive case studies with Framer Motion animations on a warm parchment design theme.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech Stack
 
-## How can I edit this code?
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS 3 + CSS custom properties
+- **Animations:** Framer Motion
+- **UI Primitives:** Radix UI (dialog, tooltip, toast)
+- **Fonts:** Cormorant Garamond + Inter (via `next/font`)
+- **Deployment:** Vercel
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start dev server (localhost:3000)
 npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm start
+
+# Lint
+npm run lint
 ```
 
-**Edit a file directly in GitHub**
+## Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── app/                        # Next.js App Router pages
+│   ├── layout.tsx              # Root layout (fonts, providers)
+│   ├── page.tsx                # Home — constellation diagram
+│   ├── case-study-1/           # Persona development case study
+│   ├── case-study-2/           # Usability benchmarking case study
+│   ├── case-study-3/           # Healthcare analytics case study
+│   ├── (pages)/                # Route group with shared Header/Footer
+│   │   ├── about/
+│   │   ├── contact/
+│   │   └── resume/
+│   ├── not-found.tsx
+│   ├── error.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── pages/                  # "use client" content components per route
+│   ├── case-study/             # Case study sections, figures, findings
+│   │   ├── cs2/                # CS2-specific sections & figures
+│   │   ├── figures/            # CS1 figure components
+│   │   ├── findings/           # Persona cards, grid, overlay
+│   │   └── icons/
+│   ├── home/                   # Constellation diagram, nav card, decorative
+│   ├── layout/                 # Header, Footer
+│   ├── shared/                 # ConstellationStar
+│   └── ui/                     # shadcn/ui primitives (badge, button, dialog, toast, tooltip)
+├── hooks/                      # use-mobile, use-toast
+├── lib/                        # utils (cn helper)
+└── index.css                   # Tailwind + design system tokens
+public/
+└── images/                     # All static assets (logos, personas, figures, etc.)
+```
 
-**Use GitHub Codespaces**
+## Architecture Notes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Each `page.tsx` is a **Server Component** that exports metadata and renders a `"use client"` content component
+- The home page is a full-screen constellation view — no shared Header/Footer
+- CS1 and CS2 have inline headers inside their hero components
+- Only `/about`, `/contact`, `/resume` share a Header+Footer via the `(pages)` route group layout
+- All pages are **statically generated** at build time
+- Images in Framer Motion wrappers (`motion.img`) use plain `<img>` tags; `next/image` is not compatible with motion wrapping
