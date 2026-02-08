@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 interface NextCaseStudyProps {
@@ -14,7 +14,7 @@ const NextCaseStudy = ({ title, href, image }: NextCaseStudyProps) => {
         <p className="text-sm text-muted-foreground mb-4 font-sans">Next Project</p>
         
         <Link 
-          to={href}
+          href={href}
           className="group block"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

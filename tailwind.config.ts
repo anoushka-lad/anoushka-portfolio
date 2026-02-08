@@ -64,8 +64,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['var(--font-cormorant)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

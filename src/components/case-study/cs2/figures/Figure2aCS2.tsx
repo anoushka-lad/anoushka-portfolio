@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
-import iconFindShow from "@/assets/cs2-icons/icon-find-show.png";
-import iconGiftCard from "@/assets/cs2-icons/icon-gift-card.png";
-import iconSaveFavorite from "@/assets/cs2-icons/icon-save-favorite.png";
-import iconAccount from "@/assets/cs2-icons/icon-account.png";
-import iconFilter from "@/assets/cs2-icons/icon-filter.png";
-import iconSeasonEpisode from "@/assets/cs2-icons/icon-season-episode.png";
-import iconPromoTeaser from "@/assets/cs2-icons/icon-promo-teaser.png";
-import iconGenre from "@/assets/cs2-icons/icon-genre.png";
-import iconRotator from "@/assets/cs2-icons/icon-rotator.png";
-import iconOnAir from "@/assets/cs2-icons/icon-on-air.png";
+
+const iconFindShow = "/assets/cs2-icons/icon-find-show.png";
+const iconGiftCard = "/assets/cs2-icons/icon-gift-card.png";
+const iconSaveFavorite = "/assets/cs2-icons/icon-save-favorite.png";
+const iconAccount = "/assets/cs2-icons/icon-account.png";
+const iconFilter = "/assets/cs2-icons/icon-filter.png";
+const iconSeasonEpisode = "/assets/cs2-icons/icon-season-episode.png";
+const iconPromoTeaser = "/assets/cs2-icons/icon-promo-teaser.png";
+const iconGenre = "/assets/cs2-icons/icon-genre.png";
+const iconRotator = "/assets/cs2-icons/icon-rotator.png";
+const iconOnAir = "/assets/cs2-icons/icon-on-air.png";
 
 type Figure2aTask = {
   id: number;

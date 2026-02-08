@@ -1,15 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
-  const location = useLocation();
+  const pathname = usePathname();
   
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <nav className="section-padding py-4 flex items-center justify-between max-w-7xl mx-auto">
         <Link 
-          to="/" 
+          href="/" 
           className="font-serif text-xl font-medium text-foreground hover:text-accent transition-colors"
         >
           Anoushka
@@ -18,7 +21,7 @@ const Header = () => {
         <ul className="flex items-center gap-8">
           <li>
             <Link 
-              to="/" 
+              href="/" 
               className={`text-sm font-medium transition-colors ${
                 isActive('/') ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
               }`}
@@ -28,7 +31,7 @@ const Header = () => {
           </li>
           <li>
             <Link 
-              to="/about" 
+              href="/about" 
               className={`text-sm font-medium transition-colors ${
                 isActive('/about') ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
               }`}

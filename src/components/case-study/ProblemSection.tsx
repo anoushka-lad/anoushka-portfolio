@@ -1,4 +1,4 @@
-import figure1a from "@/assets/figure-1a.png";
+const figure1a = "/assets/figure-1a.png";
 import FigureWrapper from "./FigureWrapper";
 import Figure1b from "./figures/Figure1b";
 

@@ -1,8 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
-import rusticPaperBg from "@/assets/rustic-paper-bg.png";
+
+const rusticPaperBg = "/assets/rustic-paper-bg.png";
 
 interface NavSection {
   id: string;
@@ -254,7 +257,7 @@ const NavigationCard = () => {
                     </p>
                     {section.href && (
                       <Link
-                        to={section.href}
+                        href={section.href}
                         className="text-sm underline underline-offset-4 hover:text-accent transition-colors font-sans"
                         style={{ color: 'hsl(35 18% 30%)' }}
                       >

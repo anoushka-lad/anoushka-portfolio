@@ -1,4 +1,4 @@
-import rusticPaperBg from "@/assets/rustic-paper-bg.png";
+const rusticPaperBg = "/assets/rustic-paper-bg.png";
 
 interface FigureWrapperProps {
   children: React.ReactNode;

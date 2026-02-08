@@ -1,15 +1,18 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import rotatorIcons from "@/assets/rotator-icons.png";
-import slide1 from "@/assets/rotator-slide-1.png";
-import slide2 from "@/assets/rotator-slide-2.png";
-import slide3 from "@/assets/rotator-slide-3.png";
-import slide4 from "@/assets/rotator-slide-4.png";
-import slide5 from "@/assets/rotator-slide-5.png";
-import slide6 from "@/assets/rotator-slide-6.png";
-import slide7 from "@/assets/rotator-slide-7.png";
-import slide8 from "@/assets/rotator-slide-8.png";
-import slide9 from "@/assets/rotator-slide-9.png";
+
+const rotatorIcons = "/assets/rotator-icons.png";
+const slide1 = "/assets/rotator-slide-1.png";
+const slide2 = "/assets/rotator-slide-2.png";
+const slide3 = "/assets/rotator-slide-3.png";
+const slide4 = "/assets/rotator-slide-4.png";
+const slide5 = "/assets/rotator-slide-5.png";
+const slide6 = "/assets/rotator-slide-6.png";
+const slide7 = "/assets/rotator-slide-7.png";
+const slide8 = "/assets/rotator-slide-8.png";
+const slide9 = "/assets/rotator-slide-9.png";
 
 interface SlideData {
   category: string;

@@ -1,8 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const CaseStudyPagination = () => {
-  const location = useLocation();
-  const currentPage = location.pathname;
+  const currentPage = usePathname();
 
   const pages = [
     { number: 1, path: "/case-study-1" },
@@ -26,7 +28,7 @@ const CaseStudyPagination = () => {
             return (
               <Link
                 key={page.number}
-                to={page.path}
+                href={page.path}
                 className={`
                   w-10 h-10 flex items-center justify-center
                   font-serif text-lg border-2 rounded-sm

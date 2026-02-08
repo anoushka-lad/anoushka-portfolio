@@ -1,7 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Home } from "lucide-react";
-import compassIllustration from "@/assets/compass-illustration.png";
+
+const compassIllustration = "/assets/compass-illustration.png";
 
 interface TitlePart {
   text: string;
@@ -28,7 +31,7 @@ const CaseStudyHeroNew = ({ titleParts, avatarImage }: CaseStudyHeroNewProps) =>
       <header className="relative z-10 section-padding py-6">
         <div className="relative flex items-center justify-between">
           <Link 
-            to="/" 
+            href="/" 
             className="font-serif text-lg font-medium text-foreground hover:text-accent transition-colors"
           >
             Anoushka Lad
@@ -36,7 +39,7 @@ const CaseStudyHeroNew = ({ titleParts, avatarImage }: CaseStudyHeroNewProps) =>
           
           {/* Centered Home Icon */}
           <Link 
-            to="/"
+            href="/"
             className="absolute left-1/2 -translate-x-1/2 p-2 rounded-full transition-all duration-300 hover:bg-foreground/10"
             style={{ color: 'hsl(35 18% 25%)' }}
           >

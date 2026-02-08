@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import rusticPaperBg from "@/assets/rustic-paper-bg.png";
-import platformSurferIcon from "@/assets/persona-platform-surfer.png";
-import bingeWatcherIcon from "@/assets/persona-binge-watcher.png";
-import avidViewerIcon from "@/assets/persona-avid-viewer.png";
-import backgroundStreamerIcon from "@/assets/persona-background-streamer.png";
-import socialStreamerIcon from "@/assets/persona-social-streamer.png";
-import rewatcherIcon from "@/assets/persona-rewatcher.png";
+
+const rusticPaperBg = "/assets/rustic-paper-bg.png";
+const platformSurferIcon = "/assets/persona-platform-surfer.png";
+const bingeWatcherIcon = "/assets/persona-binge-watcher.png";
+const avidViewerIcon = "/assets/persona-avid-viewer.png";
+const backgroundStreamerIcon = "/assets/persona-background-streamer.png";
+const socialStreamerIcon = "/assets/persona-social-streamer.png";
+const rewatcherIcon = "/assets/persona-rewatcher.png";
 
 interface PersonaCardProps {
   title: string;

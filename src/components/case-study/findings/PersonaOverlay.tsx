@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import rusticPaperBg from "@/assets/rustic-paper-bg.png";
+const rusticPaperBg = "/assets/rustic-paper-bg.png";
 import { personaData, PersonaData } from "./personaData";
 
 interface PersonaOverlayProps {
