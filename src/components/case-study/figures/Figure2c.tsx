@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/trig";
 import { 
   AvidViewerIcon, 
   PlatformSurferIcon, 
@@ -89,10 +90,10 @@ const AdToleranceIcon = ({ size = 36 }: { size?: number }) => (
     <circle cx="22" cy="18" r="1" fill="white" opacity="0.8" />
     {[...Array(12)].map((_, i) => {
       const angle = (i * 30) * Math.PI / 180;
-      const x1 = 20 + Math.cos(angle) * 3;
-      const y1 = 20 + Math.sin(angle) * 3;
-      const x2 = 20 + Math.cos(angle) * 6.5;
-      const y2 = 20 + Math.sin(angle) * 6.5;
+      const x1 = r(20 + Math.cos(angle) * 3);
+      const y1 = r(20 + Math.sin(angle) * 3);
+      const x2 = r(20 + Math.cos(angle) * 6.5);
+      const y2 = r(20 + Math.sin(angle) * 6.5);
       return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="0.3" opacity="0.5" />;
     })}
     <path d="M6 18 Q4 16, 5 14" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.6" />

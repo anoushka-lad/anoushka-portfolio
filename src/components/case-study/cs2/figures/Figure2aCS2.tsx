@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { r } from "@/lib/trig";
 const iconFindShow = "/images/cs2-icons/icon-find-show.png";
 const iconGiftCard = "/images/cs2-icons/icon-gift-card.png";
 const iconSaveFavorite = "/images/cs2-icons/icon-save-favorite.png";
@@ -132,8 +133,8 @@ const Figure2aCS2 = () => {
             {tasks.map((task) => {
               const rad = (task.angle * Math.PI) / 180;
               const labelOffset = task.labelPosition === "left" ? -32 : 32;
-              const baseX = centerX + Math.cos(rad) * iconRadius + labelOffset;
-              const baseY = centerY + Math.sin(rad) * iconRadius + (task.labelYOffset ?? 0);
+              const baseX = r(centerX + Math.cos(rad) * iconRadius + labelOffset);
+              const baseY = r(centerY + Math.sin(rad) * iconRadius + (task.labelYOffset ?? 0));
 
               const lines = task.label.split("\n");
               const textWidth = 140;
@@ -233,8 +234,8 @@ const Figure2aCS2 = () => {
         {/* Dashed lines from sun center to each icon (attached to icon center) */}
         {tasks.map((task) => {
           const rad = (task.angle) * Math.PI / 180;
-          const x2 = centerX + Math.cos(rad) * iconRadius;
-          const y2 = centerY + Math.sin(rad) * iconRadius;
+          const x2 = r(centerX + Math.cos(rad) * iconRadius);
+          const y2 = r(centerY + Math.sin(rad) * iconRadius);
           return (
             <motion.line 
               key={`line-${task.id}`} 
@@ -260,10 +261,10 @@ const Figure2aCS2 = () => {
         >
           {[...Array(16)].map((_, i) => {
             const angle = (i * 22.5) * Math.PI / 180;
-            const x1 = centerX + Math.cos(angle) * 10;
-            const y1 = centerY + Math.sin(angle) * 10;
-            const x2 = centerX + Math.cos(angle) * 30;
-            const y2 = centerY + Math.sin(angle) * 30;
+            const x1 = r(centerX + Math.cos(angle) * 10);
+            const y1 = r(centerY + Math.sin(angle) * 10);
+            const x2 = r(centerX + Math.cos(angle) * 30);
+            const y2 = r(centerY + Math.sin(angle) * 30);
             return (
               <line 
                 key={i} 
@@ -297,8 +298,8 @@ const Figure2aCS2 = () => {
         {/* Icon circles with dashed borders - bigger + subtle hover */}
         {tasks.map((task) => {
           const rad = (task.angle) * Math.PI / 180;
-          const x = centerX + Math.cos(rad) * iconRadius;
-          const y = centerY + Math.sin(rad) * iconRadius;
+          const x = r(centerX + Math.cos(rad) * iconRadius);
+          const y = r(centerY + Math.sin(rad) * iconRadius);
           
           return (
             <motion.g
@@ -346,8 +347,8 @@ const Figure2aCS2 = () => {
           const lines = task.label.split("\n");
 
           const labelOffset = task.labelPosition === "left" ? -32 : 32;
-          const labelX = centerX + Math.cos(rad) * iconRadius + labelOffset;
-          const labelY = centerY + Math.sin(rad) * iconRadius + (task.labelYOffset ?? 0);
+          const labelX = r(centerX + Math.cos(rad) * iconRadius + labelOffset);
+          const labelY = r(centerY + Math.sin(rad) * iconRadius + (task.labelYOffset ?? 0));
 
           return (
             <text 

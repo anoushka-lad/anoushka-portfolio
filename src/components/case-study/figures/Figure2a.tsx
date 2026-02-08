@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/trig";
 
 const Figure2a = () => {
   return (
@@ -66,10 +67,10 @@ const Figure2a = () => {
           >
             {[...Array(24)].map((_, i) => {
               const angle = (i * 15) * Math.PI / 180;
-              const x1 = Math.cos(angle) * 8;
-              const y1 = Math.sin(angle) * 8;
-              const x2 = Math.cos(angle) * 20;
-              const y2 = Math.sin(angle) * 20;
+              const x1 = r(Math.cos(angle) * 8);
+              const y1 = r(Math.sin(angle) * 8);
+              const x2 = r(Math.cos(angle) * 20);
+              const y2 = r(Math.sin(angle) * 20);
               return (
                 <line 
                   key={i} 

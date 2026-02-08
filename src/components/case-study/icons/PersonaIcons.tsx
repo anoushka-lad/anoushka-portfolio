@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/trig";
 
 interface IconProps {
   className?: string;
@@ -22,10 +23,10 @@ export const AvidViewerIcon = ({ className = "", size = 60, animate = true }: Ic
     {[...Array(13)].map((_, i) => {
       const angle = -90 + (i - 6) * 12;
       const rad = angle * Math.PI / 180;
-      const x1 = 50 + Math.cos(rad) * 28;
-      const y1 = 40 + Math.sin(rad) * 22;
-      const x2 = 50 + Math.cos(rad) * 38;
-      const y2 = 40 + Math.sin(rad) * 30;
+      const x1 = r(50 + Math.cos(rad) * 28);
+      const y1 = r(40 + Math.sin(rad) * 22);
+      const x2 = r(50 + Math.cos(rad) * 38);
+      const y2 = r(40 + Math.sin(rad) * 30);
       return (
         <line 
           key={i} 
@@ -344,10 +345,10 @@ export const SunburstStar = ({ className = "", size = 24 }: { className?: string
   <svg viewBox="0 0 24 24" width={size} height={size} className={className}>
     {[...Array(16)].map((_, i) => {
       const angle = (i * 22.5) * Math.PI / 180;
-      const x1 = 12 + Math.cos(angle) * 4;
-      const y1 = 12 + Math.sin(angle) * 4;
-      const x2 = 12 + Math.cos(angle) * 11;
-      const y2 = 12 + Math.sin(angle) * 11;
+      const x1 = r(12 + Math.cos(angle) * 4);
+      const y1 = r(12 + Math.sin(angle) * 4);
+      const x2 = r(12 + Math.cos(angle) * 11);
+      const y2 = r(12 + Math.sin(angle) * 11);
       return (
         <line 
           key={i} 

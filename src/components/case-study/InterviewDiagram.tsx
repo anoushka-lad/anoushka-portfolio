@@ -1,3 +1,5 @@
+import { r } from "@/lib/trig";
+
 const InterviewDiagram = () => {
   return (
     <div className="relative w-full max-w-xl mx-auto py-8">
@@ -38,10 +40,10 @@ const InterviewDiagram = () => {
           {/* Outer rays */}
           {[...Array(16)].map((_, i) => {
             const angle = (i * 22.5) * Math.PI / 180;
-            const x1 = Math.cos(angle) * 12;
-            const y1 = Math.sin(angle) * 12;
-            const x2 = Math.cos(angle) * 22;
-            const y2 = Math.sin(angle) * 22;
+            const x1 = r(Math.cos(angle) * 12);
+            const y1 = r(Math.sin(angle) * 12);
+            const x2 = r(Math.cos(angle) * 22);
+            const y2 = r(Math.sin(angle) * 22);
             return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2" className="text-foreground" />;
           })}
           <circle r="12" fill="currentColor" className="text-foreground" />
