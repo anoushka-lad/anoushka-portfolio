@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/utils";
 
 const Sunburst = () => {
   const numRays = 16;
@@ -41,12 +42,12 @@ const Sunburst = () => {
           const nextAngleRad = ((angle + 360 / numRays) * Math.PI) / 180;
           const midAngleRad = ((angle + 180 / numRays) * Math.PI) / 180;
           
-          const x1 = 60 + innerRadius * Math.cos(angleRad);
-          const y1 = 60 + innerRadius * Math.sin(angleRad);
-          const x2 = 60 + outerRadius * Math.cos(midAngleRad);
-          const y2 = 60 + outerRadius * Math.sin(midAngleRad);
-          const x3 = 60 + innerRadius * Math.cos(nextAngleRad);
-          const y3 = 60 + innerRadius * Math.sin(nextAngleRad);
+          const x1 = r(60 + innerRadius * Math.cos(angleRad));
+          const y1 = r(60 + innerRadius * Math.sin(angleRad));
+          const x2 = r(60 + outerRadius * Math.cos(midAngleRad));
+          const y2 = r(60 + outerRadius * Math.sin(midAngleRad));
+          const x3 = r(60 + innerRadius * Math.cos(nextAngleRad));
+          const y3 = r(60 + innerRadius * Math.sin(nextAngleRad));
           
           return (
             <motion.polygon

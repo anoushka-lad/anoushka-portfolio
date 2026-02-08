@@ -1,3 +1,5 @@
+import { r } from "@/lib/utils";
+
 const PersonaIcon = ({ type }: { type: number }) => {
   const icons = [
     // Moon over waves
@@ -23,8 +25,8 @@ const PersonaIcon = ({ type }: { type: number }) => {
       <circle cx="20" cy="20" r="5" fill="currentColor" className="text-foreground" />
       {[...Array(8)].map((_, i) => {
         const angle = (i * 45 - 90) * Math.PI / 180;
-        const x = 20 + Math.cos(angle) * 9;
-        const y = 20 + Math.sin(angle) * 5;
+        const x = r(20 + Math.cos(angle) * 9);
+        const y = r(20 + Math.sin(angle) * 5);
         return <circle key={i} cx={x} cy={y} r="0.5" fill="currentColor" className="text-foreground" />;
       })}
     </svg>,
@@ -72,10 +74,10 @@ const StarIcon = ({ variant }: { variant: number }) => {
       <circle cx="10" cy="10" r="4" fill="currentColor" className="text-foreground" />
       {[...Array(12)].map((_, i) => {
         const angle = (i * 30) * Math.PI / 180;
-        const x1 = 10 + Math.cos(angle) * 5;
-        const y1 = 10 + Math.sin(angle) * 5;
-        const x2 = 10 + Math.cos(angle) * 9;
-        const y2 = 10 + Math.sin(angle) * 9;
+        const x1 = r(10 + Math.cos(angle) * 5);
+        const y1 = r(10 + Math.sin(angle) * 5);
+        const x2 = r(10 + Math.cos(angle) * 9);
+        const y2 = r(10 + Math.sin(angle) * 9);
         return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="1.5" className="text-foreground" />;
       })}
     </svg>,

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/utils";
 
 const rusticPaperBg = "/images/rustic-paper-bg.jpg";
 const platformSurferIcon = "/images/persona-platform-surfer.png";
@@ -43,10 +44,10 @@ const ConstellationStar = () => (
       return (
         <line
           key={angle}
-          x1={8 + Math.cos(rad) * 2.5}
-          y1={8 + Math.sin(rad) * 2.5}
-          x2={8 + Math.cos(rad) * 5}
-          y2={8 + Math.sin(rad) * 5}
+          x1={r(8 + Math.cos(rad) * 2.5)}
+          y1={r(8 + Math.sin(rad) * 2.5)}
+          x2={r(8 + Math.cos(rad) * 5)}
+          y2={r(8 + Math.sin(rad) * 5)}
           stroke="hsl(35 18% 35%)"
           strokeWidth="0.8"
         />
@@ -151,10 +152,10 @@ const PersonaCard = ({ title, number, onClick }: PersonaCardProps) => {
           <svg viewBox="0 0 20 20" className="w-4 h-4 flex-shrink-0" style={{ color: 'hsl(35 18% 22%)' }}>
             {[...Array(12)].map((_, i) => {
               const angle = (i * 30) * Math.PI / 180;
-              const x1 = 10 + Math.cos(angle) * 3;
-              const y1 = 10 + Math.sin(angle) * 3;
-              const x2 = 10 + Math.cos(angle) * 7;
-              const y2 = 10 + Math.sin(angle) * 7;
+              const x1 = r(10 + Math.cos(angle) * 3);
+              const y1 = r(10 + Math.sin(angle) * 3);
+              const x2 = r(10 + Math.cos(angle) * 7);
+              const y2 = r(10 + Math.sin(angle) * 7);
               return (
                 <line 
                   key={i} 

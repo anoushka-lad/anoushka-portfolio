@@ -5,6 +5,7 @@ import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
+import { r } from "@/lib/utils";
 
 const heroImage = "/images/case-study-3-hero.jpg";
 
@@ -183,10 +184,10 @@ const SunburstIcon = () => (
       return (
         <line
           key={i}
-          x1={16 + Math.cos(rad) * 6}
-          y1={16 + Math.sin(rad) * 6}
-          x2={16 + Math.cos(rad) * 12}
-          y2={16 + Math.sin(rad) * 12}
+          x1={r(16 + Math.cos(rad) * 6)}
+          y1={r(16 + Math.sin(rad) * 6)}
+          x2={r(16 + Math.cos(rad) * 12)}
+          y2={r(16 + Math.sin(rad) * 12)}
           stroke="currentColor"
           strokeWidth="1"
           opacity="0.6"

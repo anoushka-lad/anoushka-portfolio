@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/utils";
 
 const months = [
   ["January", "February", "March"],
@@ -67,10 +68,10 @@ const StarIcon = ({ variant }: { variant: StarVariant }) => {
       <g filter={`url(#glow-${variant})`}>
         {[...Array(rays)].map((_, i) => {
           const angle = (i * (360 / rays)) * (Math.PI / 180);
-          const x1 = 12 + Math.cos(angle) * r1;
-          const y1 = 12 + Math.sin(angle) * r1;
-          const x2 = 12 + Math.cos(angle) * r2;
-          const y2 = 12 + Math.sin(angle) * r2;
+          const x1 = r(12 + Math.cos(angle) * r1);
+          const y1 = r(12 + Math.sin(angle) * r1);
+          const x2 = r(12 + Math.cos(angle) * r2);
+          const y2 = r(12 + Math.sin(angle) * r2);
           return (
             <motion.line
               key={i}

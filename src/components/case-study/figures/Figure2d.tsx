@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { r } from "@/lib/utils";
 
 type IconProps = { className?: string };
 
@@ -42,10 +43,10 @@ const HabitsIcon = ({ className }: IconProps) => (
     <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="0.35" opacity="0.4" />
     {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => {
       const rad = (deg - 90) * Math.PI / 180;
-      const x1 = 12 + Math.cos(rad) * 6.8;
-      const y1 = 12 + Math.sin(rad) * 6.8;
-      const x2 = 12 + Math.cos(rad) * 8.5;
-      const y2 = 12 + Math.sin(rad) * 8.5;
+      const x1 = r(12 + Math.cos(rad) * 6.8);
+      const y1 = r(12 + Math.sin(rad) * 6.8);
+      const x2 = r(12 + Math.cos(rad) * 8.5);
+      const y2 = r(12 + Math.sin(rad) * 8.5);
       const isCardinal = deg % 90 === 0;
       return (
         <line 
@@ -166,8 +167,8 @@ const Figure2d = () => {
   const polar = (angleDeg: number, radius: number) => {
     const rad = (angleDeg * Math.PI) / 180;
     return {
-      x: centerX + Math.cos(rad) * radius,
-      y: centerY + Math.sin(rad) * radius,
+      x: r(centerX + Math.cos(rad) * radius),
+      y: r(centerY + Math.sin(rad) * radius),
     };
   };
 
@@ -280,10 +281,10 @@ const Figure2d = () => {
               const rad = (angle * Math.PI) / 180;
               const inner = 14;
               const outer = i % 2 === 0 ? 78 : 62;
-              const x1 = Math.cos(rad) * inner;
-              const y1 = Math.sin(rad) * inner;
-              const x2 = Math.cos(rad) * outer;
-              const y2 = Math.sin(rad) * outer;
+              const x1 = r(Math.cos(rad) * inner);
+              const y1 = r(Math.sin(rad) * inner);
+              const x2 = r(Math.cos(rad) * outer);
+              const y2 = r(Math.sin(rad) * outer);
               return (
                 <line
                   key={i}

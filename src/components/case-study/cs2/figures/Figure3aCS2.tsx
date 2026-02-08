@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { r } from "@/lib/utils";
 
 const SparkleIcon = ({ className = "", delay = 0 }: { className?: string; delay?: number }) => (
   <motion.svg
@@ -127,10 +128,10 @@ const CircularGauge = ({
           {/* Tick marks with staggered animation */}
           {[...Array(tickCount)].map((_, i) => {
             const angle = (i * (360 / tickCount) - 90) * (Math.PI / 180);
-            const x1 = center + Math.cos(angle) * (radius - 18);
-            const y1 = center + Math.sin(angle) * (radius - 18);
-            const x2 = center + Math.cos(angle) * (radius - 8);
-            const y2 = center + Math.sin(angle) * (radius - 8);
+            const x1 = r(center + Math.cos(angle) * (radius - 18));
+            const y1 = r(center + Math.sin(angle) * (radius - 18));
+            const x2 = r(center + Math.cos(angle) * (radius - 8));
+            const y2 = r(center + Math.sin(angle) * (radius - 8));
             return (
               <motion.line
                 key={i}

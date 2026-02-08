@@ -1,3 +1,5 @@
+import { r } from "@/lib/utils";
+
 const ConstellationStar = () => (
   <svg viewBox="0 0 16 16" className="w-4 h-4">
     <circle cx="8" cy="8" r="2" fill="hsl(35 18% 35%)" />
@@ -6,10 +8,10 @@ const ConstellationStar = () => (
       return (
         <line
           key={angle}
-          x1={8 + Math.cos(rad) * 2.5}
-          y1={8 + Math.sin(rad) * 2.5}
-          x2={8 + Math.cos(rad) * 5}
-          y2={8 + Math.sin(rad) * 5}
+          x1={r(8 + Math.cos(rad) * 2.5)}
+          y1={r(8 + Math.sin(rad) * 2.5)}
+          x2={r(8 + Math.cos(rad) * 5)}
+          y2={r(8 + Math.sin(rad) * 5)}
           stroke="hsl(35 18% 35%)"
           strokeWidth="0.8"
         />

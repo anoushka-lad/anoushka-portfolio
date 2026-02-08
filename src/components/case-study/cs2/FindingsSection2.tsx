@@ -2,6 +2,7 @@ import FigureWrapper from "../FigureWrapper";
 import Figure3aCS2 from "./figures/Figure3aCS2";
 import Figure3bCS2 from "./figures/Figure3bCS2";
 import Figure3cCS2 from "./figures/Figure3cCS2";
+import { r } from "@/lib/utils";
 
 const FindingsSection2 = () => {
   return (
@@ -13,10 +14,10 @@ const FindingsSection2 = () => {
           <svg viewBox="0 0 40 40" className="w-8 h-8">
             {[...Array(16)].map((_, i) => {
               const angle = (i * 22.5) * Math.PI / 180;
-              const x1 = 20 + Math.cos(angle) * 8;
-              const y1 = 20 + Math.sin(angle) * 8;
-              const x2 = 20 + Math.cos(angle) * 16;
-              const y2 = 20 + Math.sin(angle) * 16;
+              const x1 = r(20 + Math.cos(angle) * 8);
+              const y1 = r(20 + Math.sin(angle) * 8);
+              const x2 = r(20 + Math.cos(angle) * 16);
+              const y2 = r(20 + Math.sin(angle) * 16);
               return (
                 <line 
                   key={i} 

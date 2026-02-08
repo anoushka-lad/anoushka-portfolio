@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { r } from "@/lib/utils";
 
 // Icon path constants
 const iconAccount = "/images/cs2-icons/icon-account.png";
@@ -79,8 +80,8 @@ const Figure3cCS2 = () => {
   // Generate polygon points for dark center
   const polygonPoints = icons.map((_, i) => {
     const angle = (i * (360 / iconCount) - 90) * (Math.PI / 180);
-    const x = center + Math.cos(angle) * polygonRadius;
-    const y = center + Math.sin(angle) * polygonRadius;
+    const x = r(center + Math.cos(angle) * polygonRadius);
+    const y = r(center + Math.sin(angle) * polygonRadius);
     return `${x},${y}`;
   }).join(" ");
 
@@ -88,8 +89,8 @@ const Figure3cCS2 = () => {
   const getIconPosition = (index: number) => {
     const angle = (index * (360 / iconCount) - 90) * (Math.PI / 180);
     return {
-      x: center + Math.cos(angle) * iconRadius,
-      y: center + Math.sin(angle) * iconRadius,
+      x: r(center + Math.cos(angle) * iconRadius),
+      y: r(center + Math.sin(angle) * iconRadius),
       angle
     };
   };
@@ -201,22 +202,22 @@ const Figure3cCS2 = () => {
             const nextAngle = ((i + 1) * (360 / iconCount) - 90) * (Math.PI / 180);
             
             // Line from center to before icon
-            const x1 = center + Math.cos(angle) * 30;
-            const y1 = center + Math.sin(angle) * 30;
-            const x2 = center + Math.cos(angle) * (iconRadius - 35);
-            const y2 = center + Math.sin(angle) * (iconRadius - 35);
-            
+            const x1 = r(center + Math.cos(angle) * 30);
+            const y1 = r(center + Math.sin(angle) * 30);
+            const x2 = r(center + Math.cos(angle) * (iconRadius - 35));
+            const y2 = r(center + Math.sin(angle) * (iconRadius - 35));
+
             // Arc around icon - start and end points
-            const arcStartX = center + Math.cos(angle) * (iconRadius - 35);
-            const arcStartY = center + Math.sin(angle) * (iconRadius - 35);
-            const arcEndX = center + Math.cos(nextAngle) * (iconRadius - 35);
-            const arcEndY = center + Math.sin(nextAngle) * (iconRadius - 35);
-            
+            const arcStartX = r(center + Math.cos(angle) * (iconRadius - 35));
+            const arcStartY = r(center + Math.sin(angle) * (iconRadius - 35));
+            const arcEndX = r(center + Math.cos(nextAngle) * (iconRadius - 35));
+            const arcEndY = r(center + Math.sin(nextAngle) * (iconRadius - 35));
+
             // Outer arc path
-            const outerArcStartX = center + Math.cos(angle) * (iconRadius + 35);
-            const outerArcStartY = center + Math.sin(angle) * (iconRadius + 35);
-            const outerArcEndX = center + Math.cos(nextAngle) * (iconRadius + 35);
-            const outerArcEndY = center + Math.sin(nextAngle) * (iconRadius + 35);
+            const outerArcStartX = r(center + Math.cos(angle) * (iconRadius + 35));
+            const outerArcStartY = r(center + Math.sin(angle) * (iconRadius + 35));
+            const outerArcEndX = r(center + Math.cos(nextAngle) * (iconRadius + 35));
+            const outerArcEndY = r(center + Math.sin(nextAngle) * (iconRadius + 35));
 
             return (
               <g key={`radial-group-${i}`}>
@@ -285,10 +286,10 @@ const Figure3cCS2 = () => {
               const angle = (i * 10) * (Math.PI / 180);
               const innerR = 5;
               const outerR = i % 2 === 0 ? 28 : 18;
-              const x1 = center + Math.cos(angle) * innerR;
-              const y1 = center + Math.sin(angle) * innerR;
-              const x2 = center + Math.cos(angle) * outerR;
-              const y2 = center + Math.sin(angle) * outerR;
+              const x1 = r(center + Math.cos(angle) * innerR);
+              const y1 = r(center + Math.sin(angle) * innerR);
+              const x2 = r(center + Math.cos(angle) * outerR);
+              const y2 = r(center + Math.sin(angle) * outerR);
               return (
                 <motion.line
                   key={`sunburst-${i}`}
@@ -331,8 +332,8 @@ const Figure3cCS2 = () => {
           {/* ===== ICON CIRCLES WITH DOTTED BORDERS ===== */}
           {icons.map((icon, i) => {
             const angle = (i * (360 / iconCount) - 90) * (Math.PI / 180);
-            const x = center + Math.cos(angle) * iconRadius;
-            const y = center + Math.sin(angle) * iconRadius;
+            const x = r(center + Math.cos(angle) * iconRadius);
+            const y = r(center + Math.sin(angle) * iconRadius);
 
             return (
               <motion.g
@@ -465,8 +466,8 @@ const Figure3cCS2 = () => {
           {[...Array(8)].map((_, i) => {
             const angle = (i * 45) * (Math.PI / 180);
             const radius = 190 + (i % 3) * 15;
-            const x = center + Math.cos(angle) * radius;
-            const y = center + Math.sin(angle) * radius;
+            const x = r(center + Math.cos(angle) * radius);
+            const y = r(center + Math.sin(angle) * radius);
             
             return (
               <motion.circle

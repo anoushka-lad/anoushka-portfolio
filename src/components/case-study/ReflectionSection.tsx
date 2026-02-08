@@ -1,3 +1,5 @@
+import { r } from "@/lib/utils";
+
 interface ReflectionItem {
   title: string;
   description: string;
@@ -43,10 +45,10 @@ const ReflectionSection = () => {
           <svg viewBox="0 0 40 40" className="w-8 h-8">
             {[...Array(16)].map((_, i) => {
               const angle = (i * 22.5) * Math.PI / 180;
-              const x1 = 20 + Math.cos(angle) * 8;
-              const y1 = 20 + Math.sin(angle) * 8;
-              const x2 = 20 + Math.cos(angle) * 16;
-              const y2 = 20 + Math.sin(angle) * 16;
+              const x1 = r(20 + Math.cos(angle) * 8);
+              const y1 = r(20 + Math.sin(angle) * 8);
+              const x2 = r(20 + Math.cos(angle) * 16);
+              const y2 = r(20 + Math.sin(angle) * 16);
               return (
                 <line 
                   key={i} 

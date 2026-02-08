@@ -1,3 +1,5 @@
+import { r } from "@/lib/utils";
+
 const AnalysisWheel = () => {
   const labels = [
     { text: "Key Insights", angle: -60 },
@@ -29,8 +31,8 @@ const AnalysisWheel = () => {
           {/* Radial lines from center to edge */}
           {[0, 51, 102, 154, 205, 257, 308].map((angle, i) => {
             const rad = (angle - 90) * Math.PI / 180;
-            const x2 = 150 + Math.cos(rad) * 120;
-            const y2 = 150 + Math.sin(rad) * 120;
+            const x2 = r(150 + Math.cos(rad) * 120);
+            const y2 = r(150 + Math.sin(rad) * 120);
             return (
               <line key={i} x1="150" y1="150" x2={x2} y2={y2} stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" className="text-foreground" />
             );
@@ -40,10 +42,10 @@ const AnalysisWheel = () => {
           <circle cx="150" cy="150" r="8" fill="currentColor" className="text-foreground" />
           {[...Array(24)].map((_, i) => {
             const angle = (i * 15) * Math.PI / 180;
-            const x1 = 150 + Math.cos(angle) * 10;
-            const y1 = 150 + Math.sin(angle) * 10;
-            const x2 = 150 + Math.cos(angle) * 50;
-            const y2 = 150 + Math.sin(angle) * 50;
+            const x1 = r(150 + Math.cos(angle) * 10);
+            const y1 = r(150 + Math.sin(angle) * 10);
+            const x2 = r(150 + Math.cos(angle) * 50);
+            const y2 = r(150 + Math.sin(angle) * 50);
             return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="0.5" className="text-foreground" />;
           })}
         </svg>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
+import { r } from "@/lib/utils";
 
 const rusticPaperBg = "/images/rustic-paper-bg.jpg";
 
@@ -103,10 +104,10 @@ const ConstellationStar = () => (
       return (
         <line
           key={angle}
-          x1={8 + Math.cos(rad) * 2.5}
-          y1={8 + Math.sin(rad) * 2.5}
-          x2={8 + Math.cos(rad) * 5}
-          y2={8 + Math.sin(rad) * 5}
+          x1={r(8 + Math.cos(rad) * 2.5)}
+          y1={r(8 + Math.sin(rad) * 2.5)}
+          x2={r(8 + Math.cos(rad) * 5)}
+          y2={r(8 + Math.sin(rad) * 5)}
           stroke="hsl(35 18% 35%)"
           strokeWidth="0.8"
         />
