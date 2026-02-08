@@ -61,6 +61,8 @@ export default {
       fontFamily: {
         serif: ['var(--font-cormorant)', 'serif'],
         sans: ['var(--font-inter)', 'sans-serif'],
+        display: ['var(--font-playfair)', 'serif'],
+        body: ['"Times New Roman"', 'Times', 'serif'],
       },
       keyframes: {
         "accordion-down": {

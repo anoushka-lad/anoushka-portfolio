@@ -25,7 +25,7 @@ const FigureWrapper = ({ children, caption, figureNumber }: FigureWrapperProps) 
       </div>
       
       {/* Caption */}
-      <p className="text-center text-sm text-muted-foreground mt-4">
+      <p className="cs-caption text-center mt-4">
         <strong>{figureNumber}:</strong> {caption}
       </p>
     </div>

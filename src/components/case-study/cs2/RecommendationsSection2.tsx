@@ -25,16 +25,16 @@ const RecommendationsSection2 = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Recommendations
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Content */}
-        <p className="text-base leading-relaxed text-foreground">
+        <p className="cs-body">
           These results were handed off to the Crave product team, UX/design, web engineering, 
           search/metadata owners, and accessibility/inclusive design, so the benchmark informed 
           planning and prioritization for the quarter.

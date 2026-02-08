@@ -28,19 +28,19 @@ const PersonaGrid = () => {
             />
             <button
               onClick={() => setSelectedPersona(persona.number)}
-              className="mt-3 font-serif text-xs md:text-sm px-4 py-1.5 border-2 rounded-sm transition-all duration-300 hover:shadow-md"
-              style={{ 
-                color: 'hsl(35 18% 25%)',
-                borderColor: 'hsl(35 18% 35%)',
+              className="mt-3 font-body text-xs md:text-sm px-4 py-1.5 border-2 rounded-sm transition-all duration-300 hover:shadow-md"
+              style={{
+                color: '#343434',
+                borderColor: '#343434',
                 backgroundColor: 'transparent'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'hsl(35 18% 25%)';
-                e.currentTarget.style.color = 'hsl(35 25% 90%)';
+                e.currentTarget.style.backgroundColor = '#343434';
+                e.currentTarget.style.color = '#FCF9F3';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'hsl(35 18% 25%)';
+                e.currentTarget.style.color = '#343434';
               }}
             >
               Read more

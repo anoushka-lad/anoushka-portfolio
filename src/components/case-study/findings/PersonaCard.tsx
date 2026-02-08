@@ -140,8 +140,8 @@ const PersonaCard = ({ title, number, onClick }: PersonaCardProps) => {
       <div className="relative z-10 flex flex-col items-center px-4 py-4 h-full">
         {/* Title - BOLD */}
         <h3 
-          className="font-serif text-[11px] md:text-sm font-black text-center tracking-wide uppercase leading-tight mb-2"
-          style={{ color: 'hsl(35 18% 18%)' }}
+          className="font-body text-[11px] md:text-sm font-black text-center tracking-wide uppercase leading-tight mb-2"
+          style={{ color: '#343434' }}
         >
           {titleLines.line1}<br />{titleLines.line2}
         </h3>

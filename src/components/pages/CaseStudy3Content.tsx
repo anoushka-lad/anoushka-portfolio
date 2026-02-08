@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/layout/Footer";
+import CaseStudyHeader from "@/components/case-study/CaseStudyHeader";
 import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
@@ -21,7 +22,8 @@ const CaseStudy3Content = () => {
     "Healthcare professionals were drowning in data. We redesigned a dashboard to surface the right information at the right moment, resulting in 40% faster time to insight and 92% user satisfaction.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+      <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
         illustrationSrc="/images/compass-illustration.png"
@@ -35,17 +37,17 @@ const CaseStudy3Content = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="cs-section-heading">
               The Problem
             </h2>
           </div>
-          <div className="space-y-6 prose-portfolio">
-            <p className="text-lg leading-relaxed">
+          <div className="space-y-6 cs-body">
+            <p className="cs-body">
               Healthcare professionals were drowning in data. The existing dashboard
               presented too much information without clear hierarchy, making it difficult
               to identify critical insights quickly.
             </p>
-            <p className="text-lg leading-relaxed">
+            <p className="cs-body">
               In a field where time is literally life-saving, we needed to design
               an interface that surfaces the right information at the right moment.
             </p>
@@ -61,7 +63,7 @@ const CaseStudy3Content = () => {
             alt="Healthcare dashboard interface"
             className="w-full h-auto rounded-2xl shadow-2xl"
           />
-          <p className="text-sm text-muted-foreground mt-4 text-center">
+          <p className="cs-caption mt-4 text-center">
             The redesigned dashboard prioritizes actionable insights
           </p>
         </div>
@@ -72,24 +74,24 @@ const CaseStudy3Content = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="cs-section-heading">
               Research Approach
             </h2>
           </div>
-          <div className="space-y-6 prose-portfolio">
-            <p className="text-lg leading-relaxed">
+          <div className="space-y-6 cs-body">
+            <p className="cs-body">
               We spent three weeks embedded in clinical environments, shadowing
               doctors, nurses, and administrators to understand their daily workflows
               and pain points.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <div className="bg-card p-8 rounded-xl">
-                <span className="font-serif text-3xl text-foreground block mb-3">3 weeks</span>
-                <span className="text-muted-foreground">Field research in clinical settings</span>
+                <span className="font-display text-3xl text-[#343434] block mb-3">3 weeks</span>
+                <span className="cs-body">Field research in clinical settings</span>
               </div>
               <div className="bg-card p-8 rounded-xl">
-                <span className="font-serif text-3xl text-foreground block mb-3">47 users</span>
-                <span className="text-muted-foreground">Interviewed across 6 departments</span>
+                <span className="font-display text-3xl text-[#343434] block mb-3">47 users</span>
+                <span className="cs-body">Interviewed across 6 departments</span>
               </div>
             </div>
           </div>
@@ -101,34 +103,34 @@ const CaseStudy3Content = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="cs-section-heading">
               Design Principles
             </h2>
           </div>
           <div className="space-y-8">
             <div className="flex gap-6 items-start">
-              <span className="font-serif text-2xl text-accent">01</span>
+              <span className="font-display text-2xl text-accent">01</span>
               <div>
-                <h4 className="font-serif text-xl mb-2 text-foreground">Clarity Over Density</h4>
-                <p className="text-muted-foreground">
+                <h4 className="cs-subheading-l1 mb-2">Clarity Over Density</h4>
+                <p className="cs-body">
                   Less data on screen, but the right data. Every element earns its place.
                 </p>
               </div>
             </div>
             <div className="flex gap-6 items-start">
-              <span className="font-serif text-2xl text-accent">02</span>
+              <span className="font-display text-2xl text-accent">02</span>
               <div>
-                <h4 className="font-serif text-xl mb-2 text-foreground">Progressive Disclosure</h4>
-                <p className="text-muted-foreground">
+                <h4 className="cs-subheading-l1 mb-2">Progressive Disclosure</h4>
+                <p className="cs-body">
                   Details available on demand, keeping the primary view focused.
                 </p>
               </div>
             </div>
             <div className="flex gap-6 items-start">
-              <span className="font-serif text-2xl text-accent">03</span>
+              <span className="font-display text-2xl text-accent">03</span>
               <div>
-                <h4 className="font-serif text-xl mb-2 text-foreground">Accessibility First</h4>
-                <p className="text-muted-foreground">
+                <h4 className="cs-subheading-l1 mb-2">Accessibility First</h4>
+                <p className="cs-body">
                   Color choices and contrast ratios designed for clinical lighting conditions.
                 </p>
               </div>
@@ -142,23 +144,23 @@ const CaseStudy3Content = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-10">
             <SunburstIcon />
-            <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+            <h2 className="cs-section-heading">
               Impact
             </h2>
           </div>
-          <div className="space-y-6 prose-portfolio">
-            <p className="text-lg leading-relaxed">
+          <div className="space-y-6 cs-body">
+            <p className="cs-body">
               The redesigned dashboard has been deployed across 12 healthcare facilities,
               with measurable improvements in workflow efficiency and user satisfaction.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               <div className="bg-card p-8 rounded-xl">
-                <span className="font-serif text-5xl text-accent block mb-2">40%</span>
-                <span className="text-muted-foreground">Faster time to insight</span>
+                <span className="font-display text-5xl text-accent block mb-2">40%</span>
+                <span className="cs-body">Faster time to insight</span>
               </div>
               <div className="bg-card p-8 rounded-xl">
-                <span className="font-serif text-5xl text-accent block mb-2">92%</span>
-                <span className="text-muted-foreground">User satisfaction score</span>
+                <span className="font-display text-5xl text-accent block mb-2">92%</span>
+                <span className="cs-body">User satisfaction score</span>
               </div>
             </div>
           </div>

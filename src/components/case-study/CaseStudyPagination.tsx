@@ -17,8 +17,7 @@ const CaseStudyPagination = () => {
       <div className="max-w-4xl mx-auto">
         {/* Divider line */}
         <div
-          className="w-full h-px mb-8"
-          style={{ backgroundColor: 'hsl(35 18% 35%)' }}
+          className="w-full h-px mb-8 cs-divider"
         />
 
         {/* Pagination buttons */}
@@ -31,7 +30,7 @@ const CaseStudyPagination = () => {
                 href={page.path}
                 className={`
                   w-10 h-10 flex items-center justify-center
-                  font-serif text-lg border-2 rounded-sm
+                  cs-nav-text border-2 rounded-sm
                   transition-all duration-300
                   ${isActive
                     ? 'shadow-md'
@@ -39,20 +38,20 @@ const CaseStudyPagination = () => {
                   }
                 `}
                 style={{
-                  color: isActive ? 'hsl(35 25% 90%)' : 'hsl(35 18% 25%)',
-                  borderColor: 'hsl(35 18% 35%)',
-                  backgroundColor: isActive ? 'hsl(35 18% 25%)' : 'transparent'
+                  color: isActive ? '#FCF9F3' : '#343434',
+                  borderColor: '#343434',
+                  backgroundColor: isActive ? '#343434' : 'transparent'
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.backgroundColor = 'hsl(35 18% 25%)';
-                    e.currentTarget.style.color = 'hsl(35 25% 90%)';
+                    e.currentTarget.style.backgroundColor = '#343434';
+                    e.currentTarget.style.color = '#FCF9F3';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'hsl(35 18% 25%)';
+                    e.currentTarget.style.color = '#343434';
                   }
                 }}
               >

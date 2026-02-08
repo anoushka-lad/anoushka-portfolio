@@ -16,11 +16,11 @@ const TldrSection = ({ summary }: TldrSectionProps) => {
       transition={{ duration: 0.5 }}
     >
       <div className="space-y-4">
-        <h2 className="font-sans text-base font-semibold text-foreground tracking-wide">
+        <h2 className="cs-tldr-label tracking-wide">
           tl;dr
         </h2>
         <div className="w-full h-px bg-accent" />
-        <p className="font-sans text-sm leading-relaxed text-muted-foreground pt-2">
+        <p className="cs-body pt-2">
           {summary}
         </p>
       </div>

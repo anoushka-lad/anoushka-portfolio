@@ -31,17 +31,17 @@ const RecommendationsSection = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Recommendations
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Intro Text */}
         <motion.p
-          className="font-sans text-base leading-relaxed text-foreground mb-8"
+          className="cs-body mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,10 +58,10 @@ const RecommendationsSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
         >
-          <h3 className="font-serif font-bold text-lg mb-4">
+          <h3 className="cs-subheading-l1 mb-4">
             1. Making content discoverability and findability seamless
           </h3>
-          <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+          <p className="cs-body mb-6">
             Content discovery works best when the service reduces decision friction, the catalogue is legible at a glance and lets users either browse intentionally or find precisely (Rotator 4a).
           </p>
 
@@ -79,17 +79,17 @@ const RecommendationsSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <h3 className="font-serif font-bold text-lg mb-4">
+          <h3 className="cs-subheading-l1 mb-4">
             2. Creating a meaningful bilingual experience
           </h3>
-          <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+          <p className="cs-body mb-6">
             Unilingual and bilingual users have different preferences and discovery priorities so clear language labeling and language-specific browsing becomes essential for finding the right titles fast.
           </p>
 
           {/* Unilingual users */}
           <div className="mb-6">
-            <p className="font-serif italic text-base mb-3 text-foreground">Unilingual users</p>
-            <ul className="font-sans text-base leading-relaxed text-foreground space-y-2 ml-6">
+            <p className="cs-subheading-l2 mb-3 text-foreground">Unilingual users</p>
+            <ul className="cs-body space-y-2 ml-6">
               <li className="list-disc">
                 <span className="font-bold">English-only content:</span> Dominant English speakers tend not to seek content in French.
               </li>
@@ -104,8 +104,8 @@ const RecommendationsSection = () => {
 
           {/* Bilingual users */}
           <div className="mb-6">
-            <p className="font-serif italic text-base mb-3 text-foreground">Bilingual users</p>
-            <ul className="font-sans text-base leading-relaxed text-foreground space-y-2 ml-6">
+            <p className="cs-subheading-l2 mb-3 text-foreground">Bilingual users</p>
+            <ul className="cs-body space-y-2 ml-6">
               <li className="list-disc">
                 <span className="font-bold">Separate language-specific experiences:</span> Seek language content within language-specific experiences.
               </li>
@@ -127,10 +127,10 @@ const RecommendationsSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.25 }}
         >
-          <h3 className="font-serif font-bold text-lg mb-4">
+          <h3 className="cs-subheading-l1 mb-4">
             3. Elevating personalization and curation
           </h3>
-          <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+          <p className="cs-body mb-6">
             Personalization adds value when it turns viewing history and preferences into usable shortcuts without adding complexity (Rotator 4b).
           </p>
 

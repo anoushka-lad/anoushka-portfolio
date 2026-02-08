@@ -61,18 +61,18 @@ const ReflectionSection = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Reflection
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Reflection Items */}
         <div className="space-y-6">
           {reflections.map((item, index) => (
-            <p key={index} className="font-sans text-base leading-relaxed text-foreground">
+            <p key={index} className="cs-body">
               <span className="italic">{item.title}</span>
               <br />
               {item.description}

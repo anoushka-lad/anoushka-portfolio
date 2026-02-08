@@ -27,16 +27,16 @@ const ProblemSection2 = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Problem
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Intro paragraph */}
-        <p className="font-sans text-base leading-relaxed text-foreground mb-8">
+        <p className="cs-body mb-8">
           Bell Media owns 183 multilingual (English and French) brands, including 8 primary brands. 
           However, our design and implementation teams are relatively small.
         </p>
@@ -52,25 +52,25 @@ const ProblemSection2 = () => {
         </div>
 
         {/* Roadmap paragraph */}
-        <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+        <p className="cs-body mb-6">
           Though we have an annual roadmap, priorities shift as work is delivered and new asks emerge.
         </p>
 
         {/* Primary Challenges */}
-        <h3 className="font-serif font-bold text-base mb-4">Primary Challenges</h3>
+        <h3 className="cs-subheading-l1 mb-4">Primary Challenges</h3>
 
-        <p className="font-sans text-base leading-relaxed text-foreground mb-2">
-          <em className="font-serif">Prioritization</em>
+        <p className="cs-body mb-2">
+          <em className="font-body">Prioritization</em>
         </p>
-        <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+        <p className="cs-body mb-6">
           We don't have a consistent way to identify the biggest pain points. That means we can't 
           confidently decide what to tackle first across the year as competing priorities arise.
         </p>
 
-        <p className="font-sans text-base leading-relaxed text-foreground mb-2">
-          <em className="font-serif">Unclear impact</em>
+        <p className="cs-body mb-2">
+          <em className="font-body">Unclear impact</em>
         </p>
-        <p className="font-sans text-base leading-relaxed text-foreground mb-8">
+        <p className="cs-body mb-8">
           Even when we make changes, we don't have a reliable way to track whether the experience 
           has actually been improved.
         </p>

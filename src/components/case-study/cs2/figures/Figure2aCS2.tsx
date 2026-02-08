@@ -110,8 +110,8 @@ const Figure2aCS2 = () => {
     <div className="relative w-full max-w-3xl mx-auto py-2">
       {/* Goal 1 - Top */}
       <div className="text-center mb-1">
-        <p className="font-serif text-xl font-bold text-foreground">Goal 1</p>
-        <p className="font-serif text-sm font-semibold italic text-foreground/90">
+        <p className="font-body text-xl font-bold text-[#343434]">Goal 1</p>
+        <p className="font-body text-sm font-semibold italic text-[#343434]/90">
           Start watching content (discovery &amp; findability)
         </p>
       </div>
@@ -357,7 +357,7 @@ const Figure2aCS2 = () => {
               y={labelY}
               textAnchor={textAnchor}
               dominantBaseline="middle"
-              className="font-serif text-[9px] font-bold fill-foreground"
+              className="font-body text-[9px] font-bold fill-[#343434]"
             >
               {lines.map((line, i) => (
                 <tspan 
@@ -375,8 +375,8 @@ const Figure2aCS2 = () => {
 
       {/* Goal 2 - Bottom */}
       <div className="text-center mt-1">
-        <p className="font-serif text-xl font-bold text-foreground">Goal 2</p>
-        <p className="font-serif text-sm font-semibold italic text-foreground/90">
+        <p className="font-body text-xl font-bold text-[#343434]">Goal 2</p>
+        <p className="font-body text-sm font-semibold italic text-[#343434]/90">
           Manage and use non-browsing service features
         </p>
       </div>

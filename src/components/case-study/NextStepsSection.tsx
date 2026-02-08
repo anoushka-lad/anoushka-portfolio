@@ -25,16 +25,16 @@ const NextStepsSection = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Next Steps
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Content */}
-        <p className="font-sans text-base leading-relaxed text-foreground">
+        <p className="cs-body">
           Arguably, every recommendation is a testable hypothesis. Each one can be scoped into a small project with a clear question, a prototype to test, and measurable signals of success before investing in build.
         </p>
       </div>

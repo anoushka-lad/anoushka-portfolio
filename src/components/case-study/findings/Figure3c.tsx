@@ -148,7 +148,7 @@ const Figure3c = () => {
 
             {/* "Prefers to watch alone" Label - below left circle */}
             <motion.span
-              className="absolute font-serif italic font-bold text-sm md:text-base"
+              className="absolute font-body italic font-bold text-sm md:text-base"
               style={{ 
                 left: '4%', 
                 bottom: '0%',
@@ -164,7 +164,7 @@ const Figure3c = () => {
 
             {/* "Prefers to watch with others" Label - below right circle */}
             <motion.span
-              className="absolute font-serif italic font-bold text-sm md:text-base"
+              className="absolute font-body italic font-bold text-sm md:text-base"
               style={{ 
                 right: '0%', 
                 bottom: '0%',
@@ -312,7 +312,7 @@ const Figure3c = () => {
               
               {/* Label text - bold and bigger */}
               <span 
-                className="font-serif font-bold text-sm md:text-base whitespace-nowrap"
+                className="font-body font-bold text-sm md:text-base whitespace-nowrap"
                 style={{ color: 'hsl(35 16% 28%)' }}
               >
                 {item.name}

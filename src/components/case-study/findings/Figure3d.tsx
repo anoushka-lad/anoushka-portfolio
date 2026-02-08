@@ -157,7 +157,7 @@ const Figure3d = () => {
                 <div className="absolute left-0 right-0" style={{ bottom: 0 }}>
                   <div className="flex justify-between px-2 md:px-4">
                     <motion.span
-                      className="font-serif italic font-bold text-base md:text-lg text-center"
+                      className="font-body italic font-bold text-base md:text-lg text-center"
                       style={{ color: "hsl(35 18% 26%)", width: "25%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -167,7 +167,7 @@ const Figure3d = () => {
                       Intolerant
                     </motion.span>
                     <motion.span
-                      className="font-serif italic font-bold text-base md:text-lg text-center"
+                      className="font-body italic font-bold text-base md:text-lg text-center"
                       style={{ color: "hsl(35 18% 26%)", width: "50%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -177,7 +177,7 @@ const Figure3d = () => {
                       Neutral
                     </motion.span>
                     <motion.span
-                      className="font-serif italic font-bold text-base md:text-lg text-center"
+                      className="font-body italic font-bold text-base md:text-lg text-center"
                       style={{ color: "hsl(35 18% 26%)", width: "25%" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -221,7 +221,7 @@ const Figure3d = () => {
               
               {/* Label text */}
               <span 
-                className="font-serif font-bold text-sm md:text-base whitespace-nowrap"
+                className="font-body font-bold text-sm md:text-base whitespace-nowrap"
                 style={{ color: 'hsl(35 16% 28%)' }}
               >
                 {item.name}

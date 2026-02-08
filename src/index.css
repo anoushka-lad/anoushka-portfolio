@@ -104,4 +104,101 @@
     box-shadow: 0 12px 40px -8px hsl(30 10% 15% / 0.15);
     transform: translateY(-4px);
   }
+
+  /* Case Study Typography Scoping */
+  .case-study-page {
+    --background: 46 100% 98%;
+    --body-size: clamp(14px, 1.4vw + 10px, 21px);
+    --h1-size: clamp(38px, 5.5vw + 10px, 88px);
+    --h2-size: clamp(22px, 2.4vw + 8px, 34px);
+    --caption-size: clamp(13px, calc(var(--body-size) - 2px), 19px);
+  }
+
+  /* Case Study Typography Tokens */
+  .cs-display-title {
+    font-family: var(--font-playfair), serif;
+    font-size: var(--h1-size);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.05;
+    letter-spacing: 0;
+    color: #343434;
+  }
+
+  .cs-section-heading {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--h2-size);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.10;
+    letter-spacing: 0;
+    color: #343434;
+  }
+
+  .cs-subheading-l1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--body-size);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.35;
+    color: #343434;
+  }
+
+  .cs-subheading-l2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--body-size);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.35;
+    color: #343434;
+  }
+
+  .cs-body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--body-size);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.35;
+    color: #343434;
+  }
+
+  .cs-tldr-label {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--body-size);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.10;
+    color: #343434;
+  }
+
+  .cs-caption {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--caption-size);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.25;
+    color: #343434;
+  }
+
+  .cs-nav-text {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.1;
+    color: #343434;
+  }
+
+  .cs-callout {
+    font-family: "Times New Roman", Times, serif;
+    font-size: var(--body-size);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.35;
+    color: #FCF9F3;
+  }
+
+  .cs-divider {
+    background-color: #C1BFBA;
+  }
 }

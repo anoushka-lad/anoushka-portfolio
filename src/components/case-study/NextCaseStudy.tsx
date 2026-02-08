@@ -11,14 +11,14 @@ const NextCaseStudy = ({ title, href, image }: NextCaseStudyProps) => {
   return (
     <section className="section-padding py-24 bg-secondary">
       <div className="max-w-7xl mx-auto">
-        <p className="text-sm text-muted-foreground mb-4 font-sans">Next Project</p>
+        <p className="cs-nav-text mb-4">Next Project</p>
 
         <Link
           href={href}
           className="group block"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground group-hover:text-accent transition-colors">
+            <h3 className="cs-section-heading group-hover:text-accent transition-colors">
               {title}
             </h3>
             <ArrowRight className="w-8 h-8 text-foreground group-hover:text-accent group-hover:translate-x-2 transition-all" />

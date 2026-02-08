@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Home } from "lucide-react";
 
 interface TitlePart {
   text: string;
@@ -31,37 +29,6 @@ const CaseStudyHeroUnified = ({
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
-
-      {/* Header */}
-      <header className="relative z-10 section-padding py-6">
-        <div className="relative flex items-center justify-between">
-          <Link
-            href="/"
-            className="font-serif text-lg font-medium text-foreground hover:text-accent transition-colors"
-          >
-            Anoushka Lad
-          </Link>
-
-          {/* Centered Home Icon */}
-          <Link
-            href="/"
-            className="absolute left-1/2 -translate-x-1/2 p-2 rounded-full transition-all duration-300 hover:bg-foreground/10"
-            style={{ color: 'hsl(35 18% 25%)' }}
-          >
-            <Home size={20} strokeWidth={1.5} />
-          </Link>
-
-          <span className="font-sans text-sm tracking-wider text-muted-foreground">
-            EST 2018
-          </span>
-        </div>
-
-        {/* Header divider line */}
-        <div
-          className="w-full h-px mt-4"
-          style={{ backgroundColor: 'hsl(35 18% 35%)' }}
-        />
-      </header>
 
       {/* Main Content */}
       <div className="relative z-10 px-6 pt-16 pb-8 flex flex-col items-center">
@@ -93,14 +60,14 @@ const CaseStudyHeroUnified = ({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl text-center max-w-4xl leading-tight"
+            className="cs-display-title text-center max-w-4xl"
           >
             {titleParts.map((part, index) => {
-              let className = "text-foreground";
+              let className = "";
               if (part.style === "italic") {
-                className = "italic text-foreground";
+                className = "italic";
               } else if (part.style === "bold") {
-                className = "font-semibold text-foreground";
+                className = "font-bold";
               }
               return (
                 <span key={index} className={className}>

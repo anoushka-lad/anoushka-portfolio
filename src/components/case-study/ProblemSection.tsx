@@ -29,16 +29,16 @@ const ProblemSection = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Problem
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Intro paragraph */}
-        <p className="font-sans text-base leading-relaxed text-foreground mb-8">
+        <p className="cs-body mb-8">
           More than 50% of North American households pay for at least 4 streaming services. 
           Users were feeling streaming service over-saturation so platforms like Disney and 
           PrimeVideo started pulling multiple brands under a single roof (Figure 1a).
@@ -59,7 +59,7 @@ const ProblemSection = () => {
         </div>
 
         {/* Bell Media paragraph */}
-        <p className="font-sans text-base leading-relaxed text-foreground mb-6">
+        <p className="cs-body mb-6">
           Bell Media (Figure 1b) owns 183 multilingual (English and French) brands, including 
           8 primary streaming brands with their own apps, identities, and loyal audiences. 
           Aligned with market trends, we wanted to bring them into a single home to cross-promote 
@@ -68,12 +68,12 @@ const ProblemSection = () => {
         </p>
 
         {/* But this is complicated */}
-        <p className="font-sans text-base leading-relaxed text-foreground mb-4">
+        <p className="cs-body mb-4">
           But this is complicated because we didn't understand:
         </p>
 
         {/* Bullet list */}
-        <ul className="list-disc list-outside ml-6 space-y-2 font-sans text-base leading-relaxed text-foreground mb-12">
+        <ul className="list-disc list-outside ml-6 space-y-2 cs-body mb-12">
           <li>
             Different kinds of viewers across brands, so any "one home" risks a generic 
             experience that fits no one

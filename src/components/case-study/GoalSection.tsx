@@ -29,17 +29,17 @@ const GoalSection = ({ goal }: GoalSectionProps) => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Goal
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Dark quote box */}
-        <div className="bg-foreground text-background p-8 md:p-12">
-          <p className="font-serif text-xl md:text-2xl italic leading-relaxed text-center">
+        <div className="p-8 md:p-12" style={{ backgroundColor: '#343434' }}>
+          <p className="cs-callout italic text-center">
             {goal}
           </p>
         </div>

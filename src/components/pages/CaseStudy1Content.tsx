@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/layout/Footer";
+import CaseStudyHeader from "@/components/case-study/CaseStudyHeader";
 import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import ProblemSection from "@/components/case-study/ProblemSection";
@@ -28,7 +29,8 @@ const CaseStudy1Content = () => {
   const goalText = "To understand our users' viewing behaviours and turn them into actionable design priorities and decisions, so AWE feels simple, intuitive, and easy to navigate.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+      <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
         avatarImage={avatarImage}

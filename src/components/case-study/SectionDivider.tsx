@@ -15,13 +15,13 @@ const SectionDivider = () => {
           {/* Left line */}
           <div 
             className="flex-1 max-w-[120px] h-[1px]"
-            style={{ backgroundColor: 'hsl(35 18% 30%)' }}
+            style={{ backgroundColor: '#343434' }}
           />
           
           {/* Center star/sunburst */}
           <span 
             className="text-xl"
-            style={{ color: 'hsl(35 18% 25%)' }}
+            style={{ color: '#343434' }}
           >
             ✺
           </span>
@@ -29,7 +29,7 @@ const SectionDivider = () => {
           {/* Right line */}
           <div 
             className="flex-1 max-w-[120px] h-[1px]"
-            style={{ backgroundColor: 'hsl(35 18% 30%)' }}
+            style={{ backgroundColor: '#343434' }}
           />
         </div>
       </div>

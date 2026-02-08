@@ -75,7 +75,7 @@ const Figure2f = () => {
         <thead>
           <tr>
             <motion.th 
-              className="border border-foreground/40 p-2.5 text-left font-serif font-bold text-sm md:text-base bg-foreground/[0.07] w-[100px]"
+              className="border border-foreground/40 p-2.5 text-left font-body font-bold text-sm md:text-base bg-foreground/[0.07] w-[100px]"
               whileHover={{ backgroundColor: "rgba(0,0,0,0.1)" }}
             >
               Platform Surfer
@@ -83,7 +83,7 @@ const Figure2f = () => {
             {stages.map((stage, idx) => (
               <motion.th 
                 key={idx} 
-                className={`border border-foreground/40 p-2.5 text-center font-serif font-bold text-xs md:text-sm ${
+                className={`border border-foreground/40 p-2.5 text-center font-body font-bold text-xs md:text-sm ${
                   stage === "Advocacy" ? "text-red-600" : ""
                 }`}
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.05)" }}
@@ -104,7 +104,7 @@ const Figure2f = () => {
               viewport={{ once: true }}
             >
               <motion.td 
-                className={`border border-foreground/40 p-2.5 font-serif font-bold text-xs md:text-sm align-top bg-foreground/[0.04] ${
+                className={`border border-foreground/40 p-2.5 font-body font-bold text-xs md:text-sm align-top bg-foreground/[0.04] ${
                   row.isHighlight ? "text-red-600" : ""
                 }`}
                 whileHover={{ backgroundColor: "rgba(0,0,0,0.08)" }}
@@ -114,7 +114,7 @@ const Figure2f = () => {
               {row.cells.map((cell, cellIdx) => (
                 <motion.td 
                   key={cellIdx} 
-                  className={`border border-foreground/40 p-2.5 font-serif text-xs md:text-sm align-top leading-relaxed ${
+                  className={`border border-foreground/40 p-2.5 font-body text-xs md:text-sm align-top leading-relaxed ${
                     row.isHighlight ? "text-red-600 italic" : ""
                   }`}
                   whileHover={{ 

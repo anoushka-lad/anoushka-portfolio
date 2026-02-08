@@ -19,8 +19,8 @@ const InterviewDiagram = () => {
             fill="currentColor" 
             className="text-foreground"
           />
-          <text y="-35" textAnchor="middle" className="text-sm font-serif fill-foreground">User Demographics</text>
-          <text y="-22" textAnchor="middle" className="text-sm font-serif fill-foreground">and Viewing Habits</text>
+          <text y="-35" textAnchor="middle" className="text-sm font-body fill-[#343434]">User Demographics</text>
+          <text y="-22" textAnchor="middle" className="text-sm font-body fill-[#343434]">and Viewing Habits</text>
           <text y="5" textAnchor="middle" className="text-xs font-bold fill-background">1</text>
         </g>
         
@@ -31,7 +31,7 @@ const InterviewDiagram = () => {
             fill="currentColor" 
             className="text-foreground"
           />
-          <text y="40" textAnchor="middle" className="text-lg font-serif fill-foreground">Engaging in Content</text>
+          <text y="40" textAnchor="middle" className="text-lg font-body fill-[#343434]">Engaging in Content</text>
           <text y="2" textAnchor="middle" className="text-xs font-bold fill-background">2</text>
         </g>
         
@@ -47,8 +47,8 @@ const InterviewDiagram = () => {
             return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2" className="text-foreground" />;
           })}
           <circle r="12" fill="currentColor" className="text-foreground" />
-          <text y="-35" textAnchor="middle" className="text-sm font-serif fill-foreground">Aggregated Watch</text>
-          <text y="-22" textAnchor="middle" className="text-sm font-serif fill-foreground">Experiences</text>
+          <text y="-35" textAnchor="middle" className="text-sm font-body fill-[#343434]">Aggregated Watch</text>
+          <text y="-22" textAnchor="middle" className="text-sm font-body fill-[#343434]">Experiences</text>
           <text y="4" textAnchor="middle" className="text-xs font-bold fill-background">3</text>
         </g>
       </svg>

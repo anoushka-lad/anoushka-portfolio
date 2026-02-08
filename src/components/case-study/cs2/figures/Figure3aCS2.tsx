@@ -192,7 +192,7 @@ const CircularGauge = ({
           transition={{ duration: 1, delay: delay + 0.3, type: "spring", stiffness: 100 }}
         >
           <motion.span 
-            className="font-serif text-7xl font-bold text-foreground"
+            className="font-body text-7xl font-bold text-[#343434]"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -204,7 +204,7 @@ const CircularGauge = ({
 
       {/* Label with fade in */}
       <motion.p
-        className="font-serif text-lg font-bold text-foreground mt-8 text-center max-w-[280px]"
+        className="font-body text-lg font-bold text-[#343434] mt-8 text-center max-w-[280px]"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: delay + 0.8 }}

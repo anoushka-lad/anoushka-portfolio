@@ -202,7 +202,7 @@ const Figure2c = () => {
                   <motion.div whileHover={{ rotate: 10 }} transition={{ duration: 0.2 }}>
                     {row.icon}
                   </motion.div>
-                  <span className="font-serif font-bold text-foreground whitespace-nowrap">
+                  <span className="font-body font-bold text-[#343434] whitespace-nowrap">
                     {row.label}
                   </span>
                 </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/layout/Footer";
+import CaseStudyHeader from "@/components/case-study/CaseStudyHeader";
 import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import ProblemSection2 from "@/components/case-study/cs2/ProblemSection2";
@@ -28,7 +29,8 @@ const CaseStudy2Content = () => {
   const goalText = "To create a repeatable usability benchmarking system that identifies the highest-impact problem areas and tracks measurable improvement over time, so limited resources can be allocated to the highest impact work.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+      <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
         avatarImage={avatarImage}

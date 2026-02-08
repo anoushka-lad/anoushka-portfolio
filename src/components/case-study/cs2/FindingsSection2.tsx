@@ -30,16 +30,16 @@ const FindingsSection2 = () => {
             })}
             <circle cx="20" cy="20" r="6" fill="currentColor" className="text-foreground" />
           </svg>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-foreground">
+          <h2 className="cs-section-heading">
             The Findings
           </h2>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-px bg-foreground/30 mb-8" />
+        <div className="w-full h-px cs-divider mb-8" />
 
         {/* Main findings intro */}
-        <p className="text-base leading-relaxed text-foreground mb-8">
+        <p className="cs-body mb-8">
           Crave's baseline benchmark shows good-but-not-great usability, meaning most core flows work 
           but there are still a few friction points that reliably slow users down (Figure 3a).
         </p>
@@ -49,7 +49,7 @@ const FindingsSection2 = () => {
           <Figure3aCS2 />
         </FigureWrapper>
 
-        <p className="text-base leading-relaxed text-foreground mb-8 mt-8">
+        <p className="cs-body mb-8 mt-8">
           Similarly, Crave's accessibility baseline benchmark shows excellent usability. Per qualitative 
           metrics, lower AUS scores were the result of technical issues or were anomalous (Figure 3b).
         </p>
@@ -59,10 +59,10 @@ const FindingsSection2 = () => {
           <Figure3bCS2 />
         </FigureWrapper>
 
-        <p className="text-base leading-relaxed text-foreground mb-4 mt-8">
+        <p className="cs-body mb-4 mt-8">
           Based on the DVF Model triage, four tasks were identified as high priority (Figure 3c).
         </p>
-        <p className="text-base leading-relaxed text-foreground mb-8">
+        <p className="cs-body mb-8">
           For the quarter, a focus on high-leverage navigation and findability fixes is recommended, 
           while leaving already-strong flows alone and using the next benchmark run to confirm measurable improvement.
         </p>
@@ -75,32 +75,32 @@ const FindingsSection2 = () => {
         {/* High priority items breakdown */}
         <div className="mt-8 space-y-6">
           <div>
-            <p className="font-serif italic text-base text-foreground mb-1">Find a show by a provider</p>
-            <p className="text-base leading-relaxed text-foreground">
+            <p className="cs-subheading-l2 mb-1">Find a show by a provider</p>
+            <p className="cs-body">
               Known-item discovery is brittle because Search does not reliably support the expected path, 
               forcing users into workaround navigation through provider hubs.
             </p>
           </div>
 
           <div>
-            <p className="font-serif italic text-base text-foreground mb-1">Save to favorites</p>
-            <p className="text-base leading-relaxed text-foreground">
+            <p className="cs-subheading-l2 mb-1">Save to favorites</p>
+            <p className="cs-body">
               The save-and-return workflow has unnecessary friction and interaction cost, suggesting an 
               opportunity to streamline the personal library experience.
             </p>
           </div>
 
           <div>
-            <p className="font-serif italic text-base text-foreground mb-1">Choose a genre</p>
-            <p className="text-base leading-relaxed text-foreground">
+            <p className="cs-subheading-l2 mb-1">Choose a genre</p>
+            <p className="cs-body">
               Filter entry points are low-findability and the flow contains redundant navigation steps, 
               indicating an information architecture and wayfinding issue worth investigating.
             </p>
           </div>
 
           <div>
-            <p className="font-serif italic text-base text-foreground mb-1">Filter within a section</p>
-            <p className="text-base leading-relaxed text-foreground">
+            <p className="cs-subheading-l2 mb-1">Filter within a section</p>
+            <p className="cs-body">
               Labeling and navigation taxonomy are misaligned with user mental models (e.g., "Collections" 
               vs Genres), creating avoidable discovery friction.
             </p>

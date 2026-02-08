@@ -78,9 +78,9 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
               </div>
               
               {/* Title */}
-              <h3 
-                className="font-serif text-base md:text-lg font-black text-center tracking-wide uppercase leading-tight"
-                style={{ color: 'hsl(35 18% 18%)' }}
+              <h3
+                className="font-body text-base md:text-lg font-black text-center tracking-wide uppercase leading-tight"
+                style={{ color: '#343434' }}
               >
                 {persona.titleLines.map((line, idx) => (
                   <span key={idx}>
@@ -93,9 +93,9 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
 
             {/* Right: Description */}
             <div className="md:w-3/4">
-              <p 
-                className="font-serif text-sm md:text-base leading-relaxed text-justify"
-                style={{ color: 'hsl(35 18% 22%)' }}
+              <p
+                className="font-body text-sm md:text-base leading-relaxed text-justify"
+                style={{ color: '#343434' }}
               >
                 {persona.description}
               </p>
@@ -133,9 +133,9 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                     backgroundColor: 'hsl(35 18% 85%)'
                   }}
                 >
-                  <span 
-                    className="font-serif text-xs text-center px-2"
-                    style={{ color: 'hsl(35 18% 45%)' }}
+                  <span
+                    className="font-body text-xs text-center px-2"
+                    style={{ color: '#343434' }}
                   >
                     Poster {idx}
                   </span>
@@ -148,16 +148,16 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mb-8">
             {/* Pain Points */}
             <div className="md:w-1/2">
-              <h4 
-                className="font-serif text-sm md:text-base font-bold mb-3 flex items-center gap-2"
-                style={{ color: 'hsl(35 18% 22%)' }}
+              <h4
+                className="font-body text-sm md:text-base font-bold mb-3 flex items-center gap-2"
+                style={{ color: '#343434' }}
               >
                 Pain Points
                 <svg viewBox="0 0 16 16" className="w-3 h-3">
                   <circle cx="8" cy="8" r="4" fill="hsl(320 60% 50%)" />
                 </svg>
               </h4>
-              <ul className="list-disc list-inside space-y-2 font-serif text-xs md:text-sm" style={{ color: 'hsl(35 18% 28%)' }}>
+              <ul className="list-disc list-inside space-y-2 font-body text-xs md:text-sm" style={{ color: '#343434' }}>
                 {persona.painPoints.map((point, idx) => (
                   <li key={idx}>{point}</li>
                 ))}
@@ -166,13 +166,13 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
 
             {/* Goals */}
             <div className="md:w-1/2">
-              <h4 
-                className="font-serif text-sm md:text-base font-bold mb-3"
-                style={{ color: 'hsl(35 18% 22%)' }}
+              <h4
+                className="font-body text-sm md:text-base font-bold mb-3"
+                style={{ color: '#343434' }}
               >
                 Goals
               </h4>
-              <ul className="list-disc list-inside space-y-2 font-serif text-xs md:text-sm" style={{ color: 'hsl(35 18% 28%)' }}>
+              <ul className="list-disc list-inside space-y-2 font-body text-xs md:text-sm" style={{ color: '#343434' }}>
                 {persona.goals.map((goal, idx) => (
                   <li key={idx}>{goal}</li>
                 ))}
@@ -182,9 +182,9 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
 
           {/* User Journey */}
           <div>
-            <h4 
-              className="font-serif text-sm md:text-base font-bold mb-4 text-center"
-              style={{ color: 'hsl(35 18% 22%)' }}
+            <h4
+              className="font-body text-sm md:text-base font-bold mb-4 text-center"
+              style={{ color: '#343434' }}
             >
               User Journey
             </h4>
@@ -199,7 +199,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                 {persona.journey.map((item, idx) => (
                   <div key={idx} className="flex flex-col items-center text-center w-1/4">
                     {/* Star marker */}
-                    <svg viewBox="0 0 24 24" className="w-6 h-6 md:w-8 md:h-8 mb-2" style={{ color: 'hsl(35 18% 22%)' }}>
+                    <svg viewBox="0 0 24 24" className="w-6 h-6 md:w-8 md:h-8 mb-2" style={{ color: '#343434' }}>
                       <path 
                         d="M12 2 L14 8 L12 6 L10 8 Z M12 22 L14 16 L12 18 L10 16 Z M2 12 L8 10 L6 12 L8 14 Z M22 12 L16 10 L18 12 L16 14 Z" 
                         fill="currentColor"
@@ -208,17 +208,17 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                     </svg>
                     
                     {/* Stage name */}
-                    <span 
-                      className="font-serif text-xs md:text-sm font-semibold mb-1"
-                      style={{ color: 'hsl(35 18% 22%)' }}
+                    <span
+                      className="font-body text-xs md:text-sm font-semibold mb-1"
+                      style={{ color: '#343434' }}
                     >
                       {item.stage}
                     </span>
                     
                     {/* Description */}
-                    <span 
-                      className="font-serif text-[10px] md:text-xs leading-tight"
-                      style={{ color: 'hsl(35 18% 35%)' }}
+                    <span
+                      className="font-body text-[10px] md:text-xs leading-tight"
+                      style={{ color: '#343434' }}
                     >
                       {item.description}
                     </span>
