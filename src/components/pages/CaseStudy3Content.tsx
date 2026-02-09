@@ -12,10 +12,10 @@ const heroImage = "/images/case-study-3-hero.jpg";
 
 const CaseStudy3Content = () => {
   const titleParts = [
-    { text: "Designing ", style: "normal" as const },
-    { text: "Clarity", style: "italic" as const },
-    { text: " in\n", style: "normal" as const },
-    { text: "Healthcare Analytics", style: "bold" as const },
+    { text: "on designing ", style: "normal" as const },
+    { text: "clarity", style: "italic" as const },
+    { text: " for\n", style: "normal" as const },
+    { text: "healthcare analytics", style: "boldItalic" as const },
   ];
 
   const tldrSummary =

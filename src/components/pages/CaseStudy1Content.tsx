@@ -18,10 +18,10 @@ const avatarImage = "/images/avatar.jpg";
 
 const CaseStudy1Content = () => {
   const titleParts = [
-    { text: "On Developing ", style: "normal" as const },
-    { text: "Personas", style: "italic" as const },
-    { text: " for a", style: "normal" as const },
-    { text: "\nMulti-Brand Hub", style: "bold" as const },
+    { text: "on developing ", style: "normal" as const },
+    { text: "personas", style: "italic" as const },
+    { text: " for a\n", style: "normal" as const },
+    { text: "multi-brand hub", style: "boldItalic" as const },
   ];
 
   const tldrSummary = "Our streaming services lived in separate apps with separate audiences. We built 6 behavioural personas to guide how we design an aggregated watch experience (AWE) that feels like one home without oversimplifying beloved, legacy brands.";

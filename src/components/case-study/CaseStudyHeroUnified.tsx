@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 interface TitlePart {
   text: string;
-  style: "normal" | "italic" | "bold";
+  style: "normal" | "italic" | "bold" | "boldItalic";
 }
 
 interface CaseStudyHeroUnifiedProps {
@@ -68,6 +68,8 @@ const CaseStudyHeroUnified = ({
                 className = "italic";
               } else if (part.style === "bold") {
                 className = "font-bold";
+              } else if (part.style === "boldItalic") {
+                className = "font-bold italic";
               }
               return (
                 <span key={index} className={className}>

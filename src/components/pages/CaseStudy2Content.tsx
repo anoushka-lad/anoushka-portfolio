@@ -17,11 +17,10 @@ const avatarImage = "/images/avatar.jpg";
 
 const CaseStudy2Content = () => {
   const titleParts = [
-    { text: "on building an accessible\n", style: "normal" as const },
-    { text: "usability ", style: "normal" as const },
+    { text: "on building an accessible\nusability ", style: "normal" as const },
     { text: "benchmarking system", style: "italic" as const },
     { text: " for a ", style: "normal" as const },
-    { text: "streaming service", style: "bold" as const },
+    { text: "streaming service", style: "boldItalic" as const },
   ];
 
   const tldrSummary = "We needed one consistent way to measure how usable the key flows were across multiple apps and sites. We built a repeatable benchmarking system in a shared tracker so teams can identify key areas of interest over time.";
