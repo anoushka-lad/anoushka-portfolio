@@ -18,7 +18,7 @@ const PersonaGrid = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-10">
         {personas.map((persona) => (
           <div key={persona.number} className="flex flex-col items-center">
             <PersonaCard
@@ -28,22 +28,13 @@ const PersonaGrid = () => {
             />
             <button
               onClick={() => setSelectedPersona(persona.number)}
-              className="mt-3 font-body text-xs md:text-sm px-4 py-1.5 border-2 rounded-sm transition-all duration-300 hover:shadow-md"
-              style={{
-                color: '#343434',
-                borderColor: '#343434',
-                backgroundColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#343434';
-                e.currentTarget.style.color = '#FCF9F3';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#343434';
-              }}
+              className="mt-1.5 font-body text-xs md:text-sm tracking-wide px-10 py-1 border-2 rounded-[2px]
+                bg-[#343434] text-[#FCF9F3] border-[#343434]
+                transition-all duration-200 ease-out
+                hover:bg-[#4f4f4f] hover:border-[#4f4f4f]
+                active:scale-[0.97] active:bg-[#2a2a2a] active:border-[#2a2a2a]"
             >
-              Read more
+              Read More
             </button>
           </div>
         ))}

@@ -2,7 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Home } from "lucide-react";
+
+const HouseIcon = ({ size = 24 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M1 12 L12 2.5 L23 12 L20 12 L20 20.5 Q20 22 18.5 22 L15 22 L15 16 Q15 15 14 15 L10 15 Q9 15 9 16 L9 22 L5.5 22 Q4 22 4 20.5 L4 12 Z" />
+  </svg>
+);
 
 const HEADER_HEIGHT = 88;
 
@@ -116,14 +127,13 @@ const CaseStudyHeader = () => {
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center rounded-full transition-all duration-300 hover:bg-foreground/10"
-            style={{
-              color: "#343434",
-              width: "44px",
-              height: "44px",
-            }}
+            className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center
+              w-11 h-11 text-[#343434]
+              transition-all duration-200 ease-out
+              hover:text-[#4f4f4f]
+              active:scale-[0.97]"
           >
-            <Home size={23} strokeWidth={1.5} />
+            <HouseIcon size={30} />
           </Link>
 
           <span
@@ -145,14 +155,13 @@ const CaseStudyHeader = () => {
       >
         <Link
           href="/"
-          className="flex items-center justify-center rounded-full transition-all duration-300 hover:bg-foreground/10"
-          style={{
-            color: "#343434",
-            width: "44px",
-            height: "44px",
-          }}
+          className="flex items-center justify-center
+            w-11 h-11 text-[#343434]
+            transition-all duration-200 ease-out
+            hover:text-[#4f4f4f]
+            active:scale-[0.97]"
         >
-          <Home size={20} strokeWidth={1.5} />
+          <HouseIcon size={26} />
         </Link>
       </header>
     </>
