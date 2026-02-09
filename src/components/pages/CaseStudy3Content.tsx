@@ -6,7 +6,7 @@ import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
-import { r } from "@/lib/utils";
+import SectionHeader from "@/components/case-study/SectionHeader";
 
 const heroImage = "/images/case-study-3-hero.jpg";
 
@@ -35,12 +35,7 @@ const CaseStudy3Content = () => {
       {/* The Problem */}
       <section className="section-padding py-20">
         <div className="case-column">
-          <div className="flex items-center gap-4 mb-10">
-            <SunburstIcon />
-            <h2 className="cs-section-heading">
-              The Problem
-            </h2>
-          </div>
+          <SectionHeader title="The Problem" />
           <div className="space-y-6 cs-body">
             <p className="cs-body">
               Healthcare professionals were drowning in data. The existing dashboard
@@ -74,12 +69,7 @@ const CaseStudy3Content = () => {
       {/* Research Approach */}
       <section className="section-padding py-20">
         <div className="case-column">
-          <div className="flex items-center gap-4 mb-10">
-            <SunburstIcon />
-            <h2 className="cs-section-heading">
-              Research Approach
-            </h2>
-          </div>
+          <SectionHeader title="Research Approach" />
           <div className="space-y-6 cs-body">
             <p className="cs-body">
               We spent three weeks embedded in clinical environments, shadowing
@@ -103,12 +93,7 @@ const CaseStudy3Content = () => {
       {/* Design Principles */}
       <section className="section-padding py-20">
         <div className="case-column">
-          <div className="flex items-center gap-4 mb-10">
-            <SunburstIcon />
-            <h2 className="cs-section-heading">
-              Design Principles
-            </h2>
-          </div>
+          <SectionHeader title="Design Principles" />
           <div className="space-y-8">
             <div className="flex gap-6 items-start">
               <span className="font-display text-2xl text-accent">01</span>
@@ -144,12 +129,7 @@ const CaseStudy3Content = () => {
       {/* Impact */}
       <section className="section-padding py-20">
         <div className="case-column">
-          <div className="flex items-center gap-4 mb-10">
-            <SunburstIcon />
-            <h2 className="cs-section-heading">
-              Impact
-            </h2>
-          </div>
+          <SectionHeader title="Impact" />
           <div className="space-y-6 cs-body">
             <p className="cs-body">
               The redesigned dashboard has been deployed across 12 healthcare facilities,
@@ -177,28 +157,5 @@ const CaseStudy3Content = () => {
     </div>
   );
 };
-
-const SunburstIcon = () => (
-  <svg viewBox="0 0 32 32" className="w-8 h-8 text-accent" fill="none">
-    <circle cx="16" cy="16" r="4" fill="currentColor" opacity="0.3" />
-    <circle cx="16" cy="16" r="2" fill="currentColor" />
-    {Array.from({ length: 16 }).map((_, i) => {
-      const angle = (i * 360) / 16;
-      const rad = (angle * Math.PI) / 180;
-      return (
-        <line
-          key={i}
-          x1={r(16 + Math.cos(rad) * 6)}
-          y1={r(16 + Math.sin(rad) * 6)}
-          x2={r(16 + Math.cos(rad) * 12)}
-          y2={r(16 + Math.sin(rad) * 12)}
-          stroke="currentColor"
-          strokeWidth="1"
-          opacity="0.6"
-        />
-      );
-    })}
-  </svg>
-);
 
 export default CaseStudy3Content;

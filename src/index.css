@@ -121,6 +121,7 @@
   /* Override section-padding within case study pages */
   .case-study-page .section-padding {
     padding-inline: var(--case-gutter-x);
+    overflow-x: clip;
   }
 
   .case-column {
