@@ -2,7 +2,7 @@ import SectionHeader from "../SectionHeader";
 
 const RecommendationsSection2 = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-10 md:pb-10">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Recommendations" />
 

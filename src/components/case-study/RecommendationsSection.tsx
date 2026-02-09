@@ -8,13 +8,13 @@ import Figure4bRotator from "./figures/Figure4bRotator";
 
 const RecommendationsSection = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-10 md:pb-10">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Recommendations" />
 
         {/* Intro Text */}
         <motion.p
-          className="cs-body mb-8"
+          className="cs-body mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,7 +25,7 @@ const RecommendationsSection = () => {
 
         {/* Recommendation 1 */}
         <motion.div
-          className="mb-10"
+          className="cs-content-block"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -46,7 +46,7 @@ const RecommendationsSection = () => {
 
         {/* Recommendation 2 */}
         <motion.div
-          className="mb-10"
+          className="cs-content-block"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -94,7 +94,7 @@ const RecommendationsSection = () => {
 
         {/* Recommendation 3 */}
         <motion.div
-          className="mb-6"
+          className="cs-content-block"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

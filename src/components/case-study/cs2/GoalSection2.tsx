@@ -6,7 +6,7 @@ interface GoalSection2Props {
 
 const GoalSection2 = ({ goal }: GoalSection2Props) => {
   return (
-    <section className="section-padding pt-4 pb-4 md:pt-6 md:pb-6">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Goal" />
 

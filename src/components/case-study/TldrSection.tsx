@@ -9,7 +9,7 @@ interface TldrSectionProps {
 const TldrSection = ({ summary }: TldrSectionProps) => {
   return (
     <motion.section 
-      className="section-padding py-16"
+      className="section-padding"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

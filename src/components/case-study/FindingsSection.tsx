@@ -9,16 +9,16 @@ import FigureWrapper from "./FigureWrapper";
 
 const FindingsSection = () => {
   return (
-    <section className="section-padding pt-8 pb-12 md:pt-10 md:pb-16 bg-background">
+    <section className="section-padding bg-background">
       <div className="case-column">
         <SectionHeader title="The Findings" />
 
         {/* 1. Personas */}
-        <div className="mb-16">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">
             1. Personas
           </h3>
-          <p className="cs-body mb-8">
+          <p className="cs-body mb-6">
             We developed six personas that reflect recurring patterns across participants' goals, contexts, and habits.
           </p>
           
@@ -30,12 +30,12 @@ const FindingsSection = () => {
           <h3 className="cs-subheading-l1 mb-4">
             2. Comparative Analysis
           </h3>
-          <p className="cs-body mb-8">
+          <p className="cs-body mb-6">
             What people watch and how they watch are tightly linked. Across personas, content preferences show up alongside viewing context (device + co-watching + time of day), and those habits impact each other.
           </p>
 
           {/* Figure 3a - General watch schedule - PLACEHOLDER */}
-          <div className="mb-12">
+          <div className="cs-content-block">
             <p className="cs-body mb-2">
               <em className="font-body">When do personas prefer to watch their content?</em> (Figure 3a)
             </p>
@@ -48,7 +48,7 @@ const FindingsSection = () => {
           </div>
 
           {/* Figure 3b - Preferred device - PLACEHOLDER */}
-          <div className="mb-12">
+          <div className="cs-content-block">
             <p className="cs-body mb-2">
               <em className="font-body">What devices to personas prefer to watch on?</em> (Figure 3b)
             </p>
@@ -61,7 +61,7 @@ const FindingsSection = () => {
           </div>
 
           {/* Figure 3c - Preferred viewing company */}
-          <div className="mb-12">
+          <div className="cs-content-block">
             <p className="cs-body mb-2">
               <em className="font-body">Who do personas generally watch content with?</em> (Figure 3c)
             </p>
@@ -74,7 +74,7 @@ const FindingsSection = () => {
           </div>
 
           {/* Figure 3d - Ad tolerance */}
-          <div className="mb-12">
+          <div className="cs-content-block">
             <p className="cs-body mb-2">
               <em className="font-body">How tolerant are personas to ads?</em> (Figure 3d)
             </p>
@@ -87,7 +87,7 @@ const FindingsSection = () => {
           </div>
 
           {/* Figure 3e - Media type preference */}
-          <div className="mb-12">
+          <div className="cs-content-block">
             <p className="cs-body mb-2">
               <em className="font-body">What media type do personas prefer to watch?</em> (Figure 3e)
             </p>

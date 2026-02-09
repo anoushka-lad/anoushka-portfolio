@@ -4,25 +4,23 @@ import SectionHeader from "../SectionHeader";
 
 const ProblemSection2 = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-12 md:pb-12">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Problem" />
 
         {/* Intro paragraph */}
-        <p className="cs-body mb-8">
+        <p className="cs-body mb-6">
           Bell Media owns 183 multilingual (English and French) brands, including 8 primary brands. 
           However, our design and implementation teams are relatively small.
         </p>
 
         {/* Figure 1a - Streaming brands (reusing Figure1b component) */}
-        <div className="mb-12">
-          <FigureWrapper
-            figureNumber="Figure 1a"
-            caption="Bell Media's 8 primary streaming brands across entertainment, news and sports"
-          >
-            <Figure1b />
-          </FigureWrapper>
-        </div>
+        <FigureWrapper
+          figureNumber="Figure 1a"
+          caption="Bell Media's 8 primary streaming brands across entertainment, news and sports"
+        >
+          <Figure1b />
+        </FigureWrapper>
 
         {/* Roadmap paragraph */}
         <p className="cs-body mb-6">
@@ -43,8 +41,8 @@ const ProblemSection2 = () => {
         <p className="cs-body mb-2">
           <em className="font-body">Unclear impact</em>
         </p>
-        <p className="cs-body mb-8">
-          Even when we make changes, we don't have a reliable way to track whether the experience 
+        <p className="cs-body mb-6">
+          Even when we make changes, we don't have a reliable way to track whether the experience
           has actually been improved.
         </p>
       </div>

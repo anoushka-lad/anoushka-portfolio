@@ -116,6 +116,25 @@
     /* Horizontal layout tokens */
     --case-column-max: 896px;
     --case-gutter-x: clamp(16px, 4vw, 96px);
+
+    /* Vertical spacing tokens */
+    --cs-section-py: 32px;
+    --cs-block-gap: 48px;
+    --cs-body-gap: 24px;
+    --cs-figure-gap: 32px;
+    --cs-caption-gap: 16px;
+    --cs-label-gap: 8px;
+  }
+
+  .case-study-page section.section-padding {
+    padding-block: var(--cs-section-py);
+  }
+
+  .cs-content-block {
+    margin-bottom: var(--cs-block-gap);
+  }
+  .cs-content-block:last-child {
+    margin-bottom: 0;
   }
 
   /* Override section-padding within case study pages */

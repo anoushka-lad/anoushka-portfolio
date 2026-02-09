@@ -9,12 +9,12 @@ import Figure2f from "./figures/Figure2f";
 
 const MethodSection = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-10 md:pb-10">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Method" />
 
         {/* Phase 1 */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 1: Interview Protocol</h3>
           <p className="cs-body mb-6">
             We decided that moderated interviews were the best fit because they would give us rich, in-context stories and the ability to ask follow-up questions so we could understand the "why" behind feature expectations.
@@ -22,7 +22,7 @@ const MethodSection = () => {
         </div>
 
         {/* Phase 2 */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 2: Interviews</h3>
           <p className="cs-body mb-6">
             We ran moderated (n = 15) and unmoderated (n = 10) bilingual interviews, across our 3 primary entertainment brands focusing on three key areas of interest (Figure 2a).
@@ -34,7 +34,7 @@ const MethodSection = () => {
         </div>
 
         {/* Phase 3 */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 3: Persona Development Workshop</h3>
           <p className="cs-body mb-4">
             With my co-researcher, we ran a persona creation workshop. We adapted the the atomic design framework (Figure 2b) to structure the session.
@@ -60,7 +60,7 @@ const MethodSection = () => {
         </div>
 
         {/* Phase 4 */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <p className="cs-body mb-4">
             Lastly, we developed a simple analysis framework (Diagram 2d) to pull evidence from interviews to identify differences that emerge through patterns.
           </p>
@@ -80,7 +80,7 @@ const MethodSection = () => {
         </div>
 
         {/* Phase 5 */}
-        <div className="mb-8">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 5: User Journeys</h3>
           <p className="cs-body mb-6">
             We modeled each persona as a lifecycle grid, with stages across the top and layers for thinking, doing, feeling, pain points, and opportunities (Figure 2f). This helped us link interview insights to specific moments and identify where design changes would have the most impact.

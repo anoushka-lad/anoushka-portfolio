@@ -6,30 +6,28 @@ const figure1a = "/images/figure-1a.png";
 
 const ProblemSection = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-12 md:pb-12">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Problem" />
 
         {/* Intro paragraph */}
-        <p className="cs-body mb-8">
+        <p className="cs-body mb-6">
           More than 50% of North American households pay for at least 4 streaming services. 
           Users were feeling streaming service over-saturation so platforms like Disney and 
           PrimeVideo started pulling multiple brands under a single roof (Figure 1a).
         </p>
 
         {/* Figure 1a - Streaming bundles */}
-        <div className="mb-12">
-          <FigureWrapper
-            figureNumber="Figure 1a"
-            caption="Examples of aggregated watch experiences on PrimeVideo and Disney+"
-          >
-            <img
-              src={figure1a}
-              alt="Examples of aggregated watch experiences on PrimeVideo and Disney+"
-              className="w-full h-auto rounded-lg"
-            />
-          </FigureWrapper>
-        </div>
+        <FigureWrapper
+          figureNumber="Figure 1a"
+          caption="Examples of aggregated watch experiences on PrimeVideo and Disney+"
+        >
+          <img
+            src={figure1a}
+            alt="Examples of aggregated watch experiences on PrimeVideo and Disney+"
+            className="w-full h-auto rounded-lg"
+          />
+        </FigureWrapper>
 
         {/* Bell Media paragraph */}
         <p className="cs-body mb-6">
@@ -46,7 +44,7 @@ const ProblemSection = () => {
         </p>
 
         {/* Bullet list */}
-        <ul className="list-disc list-outside ml-6 space-y-2 cs-body mb-12">
+        <ul className="list-disc list-outside ml-6 space-y-2 cs-body mb-6">
           <li>
             Different kinds of viewers across brands, so any "one home" risks a generic 
             experience that fits no one

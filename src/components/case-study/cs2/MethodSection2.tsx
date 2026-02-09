@@ -5,12 +5,12 @@ import SectionHeader from "../SectionHeader";
 
 const MethodSection2 = () => {
   return (
-    <section className="section-padding pt-8 pb-8 md:pt-10 md:pb-10">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Method" />
 
         {/* Phase 1: Summative Evaluation */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 1: Summative Evaluation</h3>
           <p className="cs-body mb-6">
             We developed a summative usability benchmark for longitudinal tracking using a fixed set 
@@ -29,7 +29,7 @@ const MethodSection2 = () => {
             <Figure2aCS2 />
           </FigureWrapper>
 
-          <p className="cs-body mb-6 mt-8">
+          <p className="cs-body mb-6">
             Next, we documented the ideal path for each task.
           </p>
           <p className="cs-body mb-6">
@@ -39,7 +39,7 @@ const MethodSection2 = () => {
         </div>
 
         {/* Phase 2: Baseline Benchmarking Interviews */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 2: Baseline Benchmarking Interviews</h3>
           <p className="cs-body mb-6">
             We ran baseline benchmarking interviews (n = 5) where participants completed 10 task-based 
@@ -67,7 +67,7 @@ const MethodSection2 = () => {
             </div>
           </FigureWrapper>
 
-          <p className="cs-body mb-4 mt-8">
+          <p className="cs-body mb-4">
             <em className="font-body">Benchmark score per task</em>
           </p>
           <p className="cs-body mb-6">
@@ -87,7 +87,7 @@ const MethodSection2 = () => {
         </div>
 
         {/* Phase 3: Protocol for Assistive Technology Users */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 3: Protocol for Assistive Technology Users</h3>
           <p className="cs-body mb-6">
             1 in 6 people globally have a significant disability and 27% of Canadians over the age of 15 
@@ -144,7 +144,7 @@ const MethodSection2 = () => {
         </div>
 
         {/* Phase 4: Business Priorities and Reproducibility */}
-        <div className="mb-12">
+        <div className="cs-content-block">
           <h3 className="cs-subheading-l1 mb-4">Phase 4: Business Priorities and Reproducibility</h3>
           <p className="cs-body mb-6">
             Because priorities shift as releases land and new asks emerge, we operationalized the benchmark 
@@ -165,7 +165,7 @@ const MethodSection2 = () => {
             </div>
           </FigureWrapper>
 
-          <p className="cs-body mb-6 mt-8">
+          <p className="cs-body mb-6">
             Then, we established a regular benchmarking cadence to re-run the same protocol at the start of 
             each quarter (Figure 2d). This created consistent checkpoints to reassess pain points against the 
             evolving roadmap and assess the impact of shipped changes.
