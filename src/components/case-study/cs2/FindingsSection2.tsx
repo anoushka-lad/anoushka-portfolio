@@ -6,7 +6,7 @@ import SectionHeader from "../SectionHeader";
 
 const FindingsSection2 = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Findings" />
 

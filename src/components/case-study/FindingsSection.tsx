@@ -9,7 +9,7 @@ import FigureWrapper from "./FigureWrapper";
 
 const FindingsSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding">
       <div className="case-column">
         <SectionHeader title="The Findings" />
 
