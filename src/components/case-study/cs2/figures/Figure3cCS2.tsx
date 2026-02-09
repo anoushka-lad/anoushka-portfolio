@@ -150,7 +150,7 @@ const Figure3cCS2 = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center py-4">
       <div className="relative" style={{ width: size, height: size }}>
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ overflow: "visible" }}>
           
@@ -414,7 +414,7 @@ const Figure3cCS2 = () => {
                   {/* Curved text label */}
                   <motion.text
                     className="font-body text-sm font-semibold"
-                    fill="hsl(35 15% 25%)"
+                    fill="#343434"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 1.5 + i * 0.15 }}
@@ -451,7 +451,7 @@ const Figure3cCS2 = () => {
                   textAnchor={pos.anchor}
                   dominantBaseline="middle"
                   className="font-body text-sm font-semibold"
-                  fill="hsl(35 15% 25%)"
+                  fill="#343434"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.5 + i * 0.15 }}

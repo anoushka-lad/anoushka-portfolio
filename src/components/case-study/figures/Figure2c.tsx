@@ -165,7 +165,7 @@ const Figure2c = () => {
   ];
 
   return (
-    <div className="w-full overflow-x-auto py-8">
+    <div className="w-full overflow-x-auto">
       <table className="mx-auto text-sm border-collapse">
         <thead>
           <tr>

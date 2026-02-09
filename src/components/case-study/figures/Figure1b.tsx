@@ -68,7 +68,7 @@ const Hexagon = ({ logos, label }: HexagonProps) => {
       
       {/* Label */}
       <motion.span 
-        className="mt-4 font-body font-bold text-lg md:text-xl lg:text-2xl text-[#343434]/90"
+        className="mt-4 font-body font-bold text-sm text-[#343434]/90"
         whileHover={{ letterSpacing: "0.05em" }}
         transition={{ duration: 0.2 }}
       >
@@ -96,7 +96,7 @@ const Figure1b = () => {
   ];
 
   return (
-    <div className="w-full py-6 md:py-8">
+    <div className="w-full py-4">
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
         <Hexagon logos={entertainmentLogos} label="Entertainment" variant="left" />
         <Hexagon logos={newsLogos} label="News" variant="center" />

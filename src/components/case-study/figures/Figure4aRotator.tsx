@@ -235,22 +235,22 @@ const Figure4aRotator = () => {
               >
                 {/* Left side - Text content */}
                 <div className="flex flex-col justify-center">
-                  <h4 
-                    className="font-body font-bold italic text-base md:text-lg mb-3"
-                    style={{ color: 'hsl(35 18% 25%)' }}
+                  <h4
+                    className="font-body font-bold italic text-sm mb-3"
+                    style={{ color: '#343434' }}
                   >
                     {currentSlide.category}
                   </h4>
-                  <p 
-                    className="font-sans text-sm md:text-base leading-relaxed mb-4"
-                    style={{ color: 'hsl(35 18% 30%)' }}
+                  <p
+                    className="font-body text-sm leading-relaxed mb-4"
+                    style={{ color: '#343434' }}
                   >
                     <span className="font-semibold">{currentSlide.title}</span>{" "}
                     {currentSlide.description}
                   </p>
-                  <p 
-                    className="font-body italic text-xs md:text-sm"
-                    style={{ color: 'hsl(35 18% 45%)' }}
+                  <p
+                    className="font-body italic text-sm"
+                    style={{ color: 'rgba(52, 52, 52, 0.55)' }}
                   >
                     Source: {currentSlide.source}
                   </p>
@@ -271,9 +271,9 @@ const Figure4aRotator = () => {
 
         {/* Page number */}
         <div className="flex justify-center mt-4">
-          <span 
-            className="font-body text-lg md:text-xl"
-            style={{ color: 'hsl(35 18% 35%)' }}
+          <span
+            className="font-body text-sm"
+            style={{ color: '#343434' }}
           >
             {currentIndex + 1}
           </span>

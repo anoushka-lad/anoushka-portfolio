@@ -12,7 +12,7 @@ const AnalysisWheel = () => {
   ];
 
   return (
-    <div className="flex justify-center py-8">
+    <div className="flex justify-center py-4">
       <div className="relative w-80 h-80">
         <svg viewBox="0 0 300 300" className="w-full h-full">
           {/* Outer circle */}
@@ -57,7 +57,7 @@ const AnalysisWheel = () => {
         <span className="absolute bottom-[25%] right-[2%] font-body text-sm text-[#343434] rotate-[110deg]">Experiences</span>
         <span className="absolute bottom-[8%] right-[25%] font-body text-sm text-[#343434] rotate-[150deg]">Opportunities</span>
         <span className="absolute bottom-[8%] left-[32%] font-body text-sm text-[#343434] -rotate-[150deg]">Needs</span>
-        <span className="absolute top-[35%] left-[-8%] font-body text-xs text-[#343434] -rotate-[70deg] w-20 text-center leading-tight">Challenges and Pain Points</span>
+        <span className="absolute top-[35%] left-[-8%] font-body text-sm text-[#343434] -rotate-[70deg] w-20 text-center leading-tight">Challenges and Pain Points</span>
       </div>
     </div>
   );
