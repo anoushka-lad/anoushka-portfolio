@@ -10,6 +10,7 @@ const CaseStudyPagination = () => {
     { number: 1, path: "/case-study-1" },
     { number: 2, path: "/case-study-2" },
     { number: 3, path: "/case-study-3" },
+    { number: 4, path: "/case-study-4" },
   ];
 
   return (

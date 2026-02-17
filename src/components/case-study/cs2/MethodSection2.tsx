@@ -1,5 +1,7 @@
 import FigureWrapper from "../FigureWrapper";
 import Figure2aCS2 from "./figures/Figure2aCS2";
+import Figure2bCS2 from "./figures/Figure2bCS2";
+import Figure2cCS2 from "./figures/Figure2cCS2";
 import Figure2dCS2 from "./figures/Figure2dCS2";
 import SectionHeader from "../SectionHeader";
 
@@ -61,10 +63,7 @@ const MethodSection2 = () => {
           </ul>
 
           <FigureWrapper figureNumber="Figure 2b" caption="Process diagram showing tasks and evaluation criteria">
-            {/* Placeholder for Figure 2b */}
-            <div className="w-full h-80 md:h-96 flex items-center justify-center border-2 border-dashed border-foreground/30 rounded-lg bg-foreground/5">
-              <span className="text-[#343434]/50 font-body italic">Figure 2b Placeholder</span>
-            </div>
+            <Figure2bCS2 />
           </FigureWrapper>
 
           <p className="cs-body mb-4">
@@ -159,10 +158,7 @@ const MethodSection2 = () => {
           </p>
 
           <FigureWrapper figureNumber="Figure 2c" caption="DVF Model representative concept diagram">
-            {/* Placeholder for Figure 2c */}
-            <div className="w-full h-80 md:h-96 flex items-center justify-center border-2 border-dashed border-foreground/30 rounded-lg bg-foreground/5">
-              <span className="text-[#343434]/50 font-body italic">Figure 2c Placeholder</span>
-            </div>
+            <Figure2cCS2 />
           </FigureWrapper>
 
           <p className="cs-body mb-6">

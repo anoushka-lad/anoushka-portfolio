@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import CaseStudy3Content from "@/components/pages/CaseStudy3Content";
 
 export const metadata: Metadata = {
-  title: "Case Study: Healthcare Analytics Dashboard — Anoushka Lad",
+  title: "Case Study: Redesigning Ad Experiences for Business News — Anoushka Lad",
   description:
-    "Designing clarity in healthcare analytics — a dashboard redesign helping professionals make faster, more informed decisions.",
+    "Redesigning ad experiences for BNN Bloomberg — balancing reader experience against ad revenue through competitive analysis and user research.",
   openGraph: {
-    title: "Healthcare Analytics Dashboard Redesign",
+    title: "Redesigning Ad Experiences for Business News",
     description:
-      "Designing clarity in healthcare analytics — a dashboard redesign helping professionals make faster, more informed decisions.",
+      "Redesigning ad experiences for BNN Bloomberg — balancing reader experience against ad revenue through competitive analysis and user research.",
     type: "article",
-    images: ["/images/case-study-3-hero.jpg"],
+    images: ["/images/case-study-3-illustration.png"],
   },
 };
 

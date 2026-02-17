@@ -209,12 +209,17 @@ const Figure2c = () => {
               </td>
               {row.stars.map((starType, colIndex) => {
                 const StarComponent = starComponents[starType];
+                const isStarOrSun = starType === 'sunburst' || starType === 'eightPoint';
                 return (
                   <td key={colIndex} className="py-4 px-3 text-center">
-                    <motion.div 
+                    <motion.div
                       className="flex justify-center cursor-pointer"
                       whileHover={{ scale: 1.3, rotate: 15 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      animate={isStarOrSun ? { rotate: 360 } : undefined}
+                      transition={isStarOrSun
+                        ? { duration: 8 + colIndex * 2, repeat: Infinity, ease: "linear" }
+                        : { type: "spring", stiffness: 300 }
+                      }
                     >
                       <StarComponent size={22} />
                     </motion.div>
