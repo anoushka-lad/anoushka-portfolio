@@ -200,7 +200,7 @@
   }
 
   .cs-subheading-l2 {
-    font-family: var(--font-playfair), serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: var(--body-size);
     font-weight: 400;
     font-style: italic;
