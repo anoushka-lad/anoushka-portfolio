@@ -15,7 +15,7 @@ const HouseIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
-const HEADER_HEIGHT = 44;
+const HEADER_HEIGHT = 58;
 
 const CaseStudyHeader = () => {
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -101,10 +101,11 @@ const CaseStudyHeader = () => {
     <>
       {/* Desktop header (≥768px) */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 hidden md:flex items-center justify-center"
+        className="fixed top-0 left-0 right-0 z-50 hidden md:flex items-center justify-center border-b"
         style={{
           height: `${HEADER_HEIGHT}px`,
           backgroundColor: "hsl(var(--background))",
+          borderColor: "#C1BFBA",
           transform: headerVisible ? "translateY(0)" : "translateY(-100%)",
           transition: "transform 200ms ease",
         }}
@@ -123,9 +124,10 @@ const CaseStudyHeader = () => {
 
       {/* Mobile header (<768px) */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 flex md:hidden items-center justify-center h-7"
+        className="fixed top-0 left-0 right-0 z-50 flex md:hidden items-center justify-center h-[37px] border-b"
         style={{
           backgroundColor: "hsl(var(--background))",
+          borderColor: "#C1BFBA",
         }}
       >
         <Link
