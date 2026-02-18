@@ -15,7 +15,7 @@ const HouseIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
-const HEADER_HEIGHT = 88;
+const HEADER_HEIGHT = 44;
 
 const CaseStudyHeader = () => {
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -101,56 +101,31 @@ const CaseStudyHeader = () => {
     <>
       {/* Desktop header (≥768px) */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 hidden md:flex items-center border-b"
+        className="fixed top-0 left-0 right-0 z-50 hidden md:flex items-center justify-center"
         style={{
           height: `${HEADER_HEIGHT}px`,
           backgroundColor: "hsl(var(--background))",
-          borderColor: "#C1BFBA",
           transform: headerVisible ? "translateY(0)" : "translateY(-100%)",
           transition: "transform 200ms ease",
         }}
       >
-        <div
-          className="relative flex items-center justify-between w-full mx-auto"
-          style={{
-            maxWidth: "1150px",
-            paddingInline: "var(--case-gutter-x)",
-          }}
+        <Link
+          href="/"
+          className="flex items-center justify-center
+            w-11 h-11 text-[#343434]
+            transition-all duration-200 ease-out
+            hover:text-[#4f4f4f]
+            active:scale-[0.97]"
         >
-          <Link
-            href="/#contact"
-            className="cs-body hover:text-accent transition-colors"
-            style={{ color: "#343434" }}
-          >
-            Anoushka Lad
-          </Link>
-
-          <Link
-            href="/"
-            className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center
-              w-11 h-11 text-[#343434]
-              transition-all duration-200 ease-out
-              hover:text-[#4f4f4f]
-              active:scale-[0.97]"
-          >
-            <HouseIcon size={30} />
-          </Link>
-
-          <span
-            className="cs-body tracking-wider"
-            style={{ color: "#343434" }}
-          >
-            EST 2018
-          </span>
-        </div>
+          <HouseIcon size={30} />
+        </Link>
       </header>
 
       {/* Mobile header (<768px) */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 flex md:hidden items-center justify-center h-14 border-b"
+        className="fixed top-0 left-0 right-0 z-50 flex md:hidden items-center justify-center h-7"
         style={{
           backgroundColor: "hsl(var(--background))",
-          borderColor: "#C1BFBA",
         }}
       >
         <Link

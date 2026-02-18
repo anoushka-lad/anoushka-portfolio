@@ -26,7 +26,7 @@ const CaseStudy2Content = () => {
   const goalText = "To create a repeatable usability benchmarking system that identifies the highest-impact problem areas and tracks measurable improvement over time, so limited resources can be allocated to the highest impact work.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-7 md:pt-11">
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}

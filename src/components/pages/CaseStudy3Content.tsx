@@ -28,7 +28,7 @@ const CaseStudy3Content = () => {
   const goalText = "To identify ad patterns that protect reading flow and revenue, then turn them into testable design changes";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-7 md:pt-11">
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}

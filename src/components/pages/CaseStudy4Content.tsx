@@ -19,7 +19,7 @@ const CaseStudy4Content = () => {
     "People who stutter face unique challenges in video conferencing. We prototyped a speech-affirming tool that reduces communication anxiety and creates a more inclusive virtual meeting experience.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-7 md:pt-11">
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}

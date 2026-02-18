@@ -27,7 +27,7 @@ const CaseStudy1Content = () => {
   const goalText = "To understand our users' viewing behaviours and turn them into actionable design priorities and decisions, so AWE feels simple, intuitive, and easy to navigate.";
 
   return (
-    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-14 md:pt-[88px]">
+    <div className="min-h-screen bg-background overflow-y-auto case-study-page pt-7 md:pt-11">
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
