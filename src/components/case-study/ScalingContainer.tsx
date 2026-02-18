@@ -13,6 +13,7 @@ const ScalingContainer = ({ designWidth, className, children }: ScalingContainer
   const contentRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -20,9 +21,10 @@ const ScalingContainer = ({ designWidth, className, children }: ScalingContainer
     if (!container || !content) return;
 
     const measure = () => {
-      const containerWidth = container.clientWidth;
-      const newScale = Math.min(1, containerWidth / designWidth);
+      const cw = container.clientWidth;
+      const newScale = Math.min(1, cw / designWidth);
       setScale(newScale);
+      setContainerWidth(cw);
       setContentHeight(content.scrollHeight);
     };
 
@@ -35,6 +37,9 @@ const ScalingContainer = ({ designWidth, className, children }: ScalingContainer
     return () => ro.disconnect();
   }, [designWidth]);
 
+  // Center content horizontally when it's narrower than the container
+  const offsetX = scale >= 1 ? Math.max(0, (containerWidth - designWidth) / 2) : 0;
+
   return (
     <div className={className}>
       <div
@@ -46,7 +51,7 @@ const ScalingContainer = ({ designWidth, className, children }: ScalingContainer
           ref={contentRef}
           style={{
             width: designWidth,
-            transform: `scale(${scale})`,
+            transform: `translateX(${offsetX}px) scale(${scale})`,
             transformOrigin: "top left",
           }}
         >
