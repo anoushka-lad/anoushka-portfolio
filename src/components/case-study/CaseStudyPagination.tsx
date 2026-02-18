@@ -3,66 +3,78 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const caseStudies = [
+  { path: "/case-study-1" },
+  { path: "/case-study-2" },
+  { path: "/case-study-3" },
+  { path: "/case-study-4" },
+];
+
+const ChevronLeft = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M16 2 L6 12 L16 22 L14 22 L4 12 L14 2 Z" />
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M8 2 L18 12 L8 22 L10 22 L20 12 L10 2 Z" />
+  </svg>
+);
+
 const CaseStudyPagination = () => {
   const currentPage = usePathname();
+  const currentIndex = caseStudies.findIndex((cs) => cs.path === currentPage);
 
-  const pages = [
-    { number: 1, path: "/case-study-1" },
-    { number: 2, path: "/case-study-2" },
-    { number: 3, path: "/case-study-3" },
-    { number: 4, path: "/case-study-4" },
-  ];
+  const prev = caseStudies[(currentIndex - 1 + caseStudies.length) % caseStudies.length];
+  const next = caseStudies[(currentIndex + 1) % caseStudies.length];
 
   return (
-    <div className="section-padding py-8">
+    <nav className="section-padding pb-8">
       <div className="case-column">
-        {/* Divider line */}
-        <div
-          className="w-full h-px mb-6 cs-divider"
-        />
+        <div className="flex items-center justify-center gap-5">
+          <Link
+            href={prev.path}
+            className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-60"
+            style={{ color: "#343434" }}
+          >
+            <span
+              className="font-body"
+              style={{ fontSize: "14px", color: "#343434" }}
+            >
+              prev
+            </span>
+            <ChevronLeft />
+          </Link>
 
-        {/* Pagination buttons */}
-        <div className="flex justify-center items-center gap-4">
-          {pages.map((page) => {
-            const isActive = currentPage === page.path;
-            return (
-              <Link
-                key={page.number}
-                href={page.path}
-                className={`
-                  w-10 h-10 flex items-center justify-center
-                  cs-nav-text border-2 rounded-sm
-                  transition-all duration-300
-                  ${isActive
-                    ? 'shadow-md'
-                    : 'hover:shadow-md'
-                  }
-                `}
-                style={{
-                  color: isActive ? '#FCF9F3' : '#343434',
-                  borderColor: '#343434',
-                  backgroundColor: isActive ? '#343434' : 'transparent'
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.backgroundColor = '#343434';
-                    e.currentTarget.style.color = '#FCF9F3';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#343434';
-                  }
-                }}
-              >
-                {page.number}
-              </Link>
-            );
-          })}
+          <Link
+            href={next.path}
+            className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-60"
+            style={{ color: "#343434" }}
+          >
+            <ChevronRight />
+            <span
+              className="font-body"
+              style={{ fontSize: "14px", color: "#343434" }}
+            >
+              next
+            </span>
+          </Link>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

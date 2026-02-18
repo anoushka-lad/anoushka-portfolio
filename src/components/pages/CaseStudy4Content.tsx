@@ -1,11 +1,10 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import CaseStudyHeader from "@/components/case-study/CaseStudyHeader";
+import CaseStudyFooter from "@/components/case-study/CaseStudyFooter";
 import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
-import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
 
 const CaseStudy4Content = () => {
   const titleParts = [
@@ -38,11 +37,9 @@ const CaseStudy4Content = () => {
         </div>
       </section>
 
-      <CaseStudyPagination />
-
       <SectionDivider />
 
-      <Footer />
+      <CaseStudyFooter />
     </div>
   );
 };

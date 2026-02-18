@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from "@/components/layout/Footer";
 import CaseStudyHeader from "@/components/case-study/CaseStudyHeader";
+import CaseStudyFooter from "@/components/case-study/CaseStudyFooter";
 import CaseStudyHeroUnified from "@/components/case-study/CaseStudyHeroUnified";
 import TldrSection from "@/components/case-study/TldrSection";
 import ProblemSection from "@/components/case-study/ProblemSection";
@@ -12,7 +12,6 @@ import RecommendationsSection from "@/components/case-study/RecommendationsSecti
 import NextStepsSection from "@/components/case-study/NextStepsSection";
 import ReflectionSection from "@/components/case-study/ReflectionSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
-import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
 
 const CaseStudy1Content = () => {
   const titleParts = [
@@ -52,11 +51,9 @@ const CaseStudy1Content = () => {
 
       <ReflectionSection />
 
-      <CaseStudyPagination />
-
       <SectionDivider />
 
-      <Footer />
+      <CaseStudyFooter />
     </div>
   );
 };

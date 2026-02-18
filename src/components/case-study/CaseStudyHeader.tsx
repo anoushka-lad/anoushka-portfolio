@@ -2,12 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const caseStudies = [
+  { path: "/case-study-1" },
+  { path: "/case-study-2" },
+  { path: "/case-study-3" },
+  { path: "/case-study-4" },
+];
 
 /* Scroll-hide threshold — use the minimum (mobile) height */
 const HEADER_HEIGHT_MIN = 42;
 
 const CaseStudyHeader = () => {
   const [headerVisible, setHeaderVisible] = useState(true);
+  const pathname = usePathname();
+
+  const currentIndex = caseStudies.findIndex((cs) => cs.path === pathname);
+  const prev = caseStudies[(currentIndex - 1 + caseStudies.length) % caseStudies.length];
+  const next = caseStudies[(currentIndex + 1) % caseStudies.length];
 
   const lastScrollY = useRef(0);
   const cumulativeDown = useRef(0);
@@ -97,25 +110,72 @@ const CaseStudyHeader = () => {
         transition: "transform 200ms ease",
       }}
     >
-      <Link
-        href="/"
-        className="flex items-center justify-center text-[#343434]
-          transition-all duration-200 ease-out
-          hover:text-[#4f4f4f]
-          active:scale-[0.97]"
-      >
-        <svg
-          style={{
-            width: "clamp(20px, 17px + 0.85vw, 26px)",
-            height: "clamp(20px, 17px + 0.85vw, 26px)",
-          }}
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
+      <div className="flex items-center" style={{ gap: "clamp(32px, 28px + 1.2vw, 48px)" }}>
+        {/* Previous case study */}
+        <Link
+          href={prev.path}
+          className="flex items-center justify-center
+            transition-opacity duration-200 ease-out
+            hover:opacity-50"
+          style={{ color: "#343434" }}
+          aria-label="Previous case study"
         >
-          <path d="M1 12 L12 2.5 L23 12 L20 12 L20 20.5 Q20 22 18.5 22 L15 22 L15 16 Q15 15 14 15 L10 15 Q9 15 9 16 L9 22 L5.5 22 Q4 22 4 20.5 L4 12 Z" />
-        </svg>
-      </Link>
+          <svg
+            style={{
+              width: "clamp(12px, 10px + 0.5vw, 16px)",
+              height: "clamp(12px, 10px + 0.5vw, 16px)",
+            }}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M16 2 L6 12 L16 22 L14 22 L4 12 L14 2 Z" />
+          </svg>
+        </Link>
+
+        {/* Home */}
+        <Link
+          href="/"
+          className="flex items-center justify-center text-[#343434]
+            transition-all duration-200 ease-out
+            hover:text-[#4f4f4f]
+            active:scale-[0.97]"
+        >
+          <svg
+            style={{
+              width: "clamp(20px, 17px + 0.85vw, 26px)",
+              height: "clamp(20px, 17px + 0.85vw, 26px)",
+            }}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M1 12 L12 2.5 L23 12 L20 12 L20 20.5 Q20 22 18.5 22 L15 22 L15 16 Q15 15 14 15 L10 15 Q9 15 9 16 L9 22 L5.5 22 Q4 22 4 20.5 L4 12 Z" />
+          </svg>
+        </Link>
+
+        {/* Next case study */}
+        <Link
+          href={next.path}
+          className="flex items-center justify-center
+            transition-opacity duration-200 ease-out
+            hover:opacity-50"
+          style={{ color: "#343434" }}
+          aria-label="Next case study"
+        >
+          <svg
+            style={{
+              width: "clamp(12px, 10px + 0.5vw, 16px)",
+              height: "clamp(12px, 10px + 0.5vw, 16px)",
+            }}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8 2 L18 12 L8 22 L10 22 L20 12 L10 2 Z" />
+          </svg>
+        </Link>
+      </div>
     </header>
   );
 };
