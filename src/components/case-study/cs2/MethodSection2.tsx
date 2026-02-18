@@ -99,29 +99,29 @@ const MethodSection2 = () => {
           </p>
 
           <p className="cs-body mb-1.5">
-            <span className="underline">Keep tasks the same:</span> To ensure that AT study stayed directly comparable 
+            <span className="font-bold">Keep tasks the same:</span> To ensure that AT study stayed directly comparable 
             to the baseline and any differences we saw could be attributed to the interaction mode (AT) rather 
             than a different task set.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Test fewer tasks:</span> Because at navigation adds interaction overhead, longer 
+            <span className="font-bold">Test fewer tasks:</span> Because at navigation adds interaction overhead, longer 
             task sets increase fatigue and confound the results, so we focused on a smaller set of high priority tasks.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Use AUS instead of SUS:</span> Because AUS modeled on SUS but written to 
+            <span className="font-bold">Use AUS instead of SUS:</span> Because AUS modeled on SUS but written to 
             reflect assistive-technology use, so this improves measurement validity for assistive technology.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Remove time on task and number of errors metrics:</span> Because they're not 
+            <span className="font-bold">Remove time on task and number of errors metrics:</span> Because they're not 
             comparable across AT modes (effort and "extra steps" are inherent to the modality and user setup), 
             these metrics risk measuring AT proficiency/configuration more than product usability.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Choose three AT types:</span> Because W3C identifies screen readers (23%), 
+            <span className="font-bold">Choose three AT types:</span> Because W3C identifies screen readers (23%), 
             screen magnification (23%), and keyboard navigation (33.3%) as the three major AT interaction modes.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Use WCAG's POUR principles:</span> Because POUR gives us a clear, shared 
+            <span className="font-bold">Use WCAG's POUR principles:</span> Because POUR gives us a clear, shared 
             definition of "accessible usability" and helps us interpret issues consistently.
           </p>
 
@@ -129,15 +129,15 @@ const MethodSection2 = () => {
             <em className="font-body">POUR framework for AT users</em>
           </p>
           <p className="cs-body mb-1.5">
-            <span className="underline">Screen Reader</span> (robust and perceivable): focus on labels, reading order, 
+            <span className="font-bold">Screen Reader</span> (robust and perceivable): focus on labels, reading order, 
             focus behavior, and UI updates communication
           </p>
           <p className="cs-body mb-1.5">
-            <span className="underline">Magnification</span> (perceivable and understandable): focus on readability at 
+            <span className="font-bold">Magnification</span> (perceivable and understandable): focus on readability at 
             high zoom, layout reflow, truncation, hierarchy, and keeping context.
           </p>
           <p className="cs-body mb-5">
-            <span className="underline">Alternate Navigation</span> (operable): focus on full keyboard/remote support, 
+            <span className="font-bold">Alternate Navigation</span> (operable): focus on full keyboard/remote support, 
             visible focus, predictable focus order, and key action is reachability.
           </p>
         </div>
