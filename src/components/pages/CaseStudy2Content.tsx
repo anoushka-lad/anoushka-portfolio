@@ -13,8 +13,6 @@ import ReflectionSection2 from "@/components/case-study/cs2/ReflectionSection2";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
 
-const avatarImage = "/images/avatar.jpg";
-
 const CaseStudy2Content = () => {
   const titleParts = [
     { text: "on building an accessible\nusability ", style: "normal" as const },
@@ -32,7 +30,7 @@ const CaseStudy2Content = () => {
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
-        avatarImage={avatarImage}
+
         illustrationSrc="/images/case-study-2-illustration.png"
         illustrationAlt="Protractor illustration"
       />

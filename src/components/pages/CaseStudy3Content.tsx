@@ -14,8 +14,6 @@ import ReflectionSection3 from "@/components/case-study/cs3/ReflectionSection3";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
 
-const avatarImage = "/images/avatar.jpg";
-
 const CaseStudy3Content = () => {
   const titleParts = [
     { text: "on redesigning ", style: "normal" as const },
@@ -34,7 +32,7 @@ const CaseStudy3Content = () => {
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
-        avatarImage={avatarImage}
+
         illustrationSrc="/images/case-study-3-illustration.png"
         illustrationAlt="Case study 3 illustration"
       />

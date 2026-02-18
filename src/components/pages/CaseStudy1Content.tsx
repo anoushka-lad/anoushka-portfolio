@@ -14,8 +14,6 @@ import ReflectionSection from "@/components/case-study/ReflectionSection";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import CaseStudyPagination from "@/components/case-study/CaseStudyPagination";
 
-const avatarImage = "/images/avatar.jpg";
-
 const CaseStudy1Content = () => {
   const titleParts = [
     { text: "on developing ", style: "normal" as const },
@@ -33,7 +31,7 @@ const CaseStudy1Content = () => {
       <CaseStudyHeader />
       <CaseStudyHeroUnified
         titleParts={titleParts}
-        avatarImage={avatarImage}
+
         illustrationSrc="/images/compass-illustration.png"
         illustrationAlt="Compass illustration"
       />
