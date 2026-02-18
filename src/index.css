@@ -157,6 +157,11 @@
     margin-inline: auto;
   }
 
+  /* Figure parchment texture tone — adjust these values to tune warmth */
+  .figure-parchment-bg {
+    filter: sepia(0.08) saturate(0.85);
+  }
+
   /* Case Study Typography Tokens */
   .cs-display-title {
     font-family: var(--font-playfair), serif;

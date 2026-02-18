@@ -9,15 +9,17 @@ interface FigureWrapperProps {
 const FigureWrapper = ({ children, caption, figureNumber }: FigureWrapperProps) => {
   return (
     <div className="my-8">
-      <div 
-        className="relative p-8 md:p-12 rounded-sm overflow-hidden"
-        style={{
-          backgroundImage: `url(${rusticPaperBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        
+      <div className="relative p-8 md:p-12 rounded-sm overflow-hidden">
+        {/* Parchment texture — adjust filter values here to tune color tone */}
+        <div
+          className="absolute inset-0 figure-parchment-bg"
+          style={{
+            backgroundImage: `url(${rusticPaperBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+
         {/* Content */}
         <div className="relative z-10">
           {children}
