@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  AvidViewerIcon, 
-  PlatformSurferIcon, 
-  BingeWatcherIcon, 
-  BackgroundStreamerIcon, 
-  RewatcherIcon, 
+import {
+  AvidViewerIcon,
+  PlatformSurferIcon,
+  BingeWatcherIcon,
+  BackgroundStreamerIcon,
+  RewatcherIcon,
   SocialStreamerIcon,
   PersonaMedallion
 } from "../icons/PersonaIcons";
+import ScalingContainer from "../ScalingContainer";
 
 // Bar data: [startPercent, endPercent] relative to time axis (0-100%)
 // Time axis: Morning(0-20), Working(20-40), Afternoon(40-60), Evening(60-80), Night(80-100)
@@ -34,21 +35,21 @@ const Figure3a = () => {
   ];
 
   return (
-    <div className="w-full py-4">
+    <ScalingContainer designWidth={700} className="py-4">
       <div className="flex flex-col">
         {/* Chart rows */}
-        <div className="flex flex-col gap-3 md:gap-4">
+        <div className="flex flex-col gap-4">
           {personas.map((persona, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2 md:gap-3"
+              className="flex items-center gap-3"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
             >
               {/* Persona label */}
-              <div className="w-20 md:w-24 shrink-0 text-right pr-1">
+              <div className="w-24 shrink-0 text-right pr-1">
                 <span 
                   className="font-body text-sm whitespace-pre-line leading-tight"
                   style={{ color: '#343434' }}
@@ -65,7 +66,7 @@ const Figure3a = () => {
               </div>
               
               {/* Bar container - relative to time axis */}
-              <div className="flex-1 h-9 md:h-10 relative">
+              <div className="flex-1 h-10 relative">
                 {/* The bar - positioned by start/end percentages */}
                 <motion.div
                   className="absolute h-full"
@@ -87,7 +88,7 @@ const Figure3a = () => {
         </div>
         
         {/* X-Axis - Time labels */}
-        <div className="mt-3 md:mt-4" style={{ marginLeft: 'calc(5rem + 56px + 0.75rem)', paddingLeft: '0.5rem' }}>
+        <div className="mt-4" style={{ marginLeft: 'calc(6rem + 56px + 0.75rem)', paddingLeft: '0.5rem' }}>
           {/* Axis line */}
           <div 
             className="w-full mb-2"
@@ -108,7 +109,7 @@ const Figure3a = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

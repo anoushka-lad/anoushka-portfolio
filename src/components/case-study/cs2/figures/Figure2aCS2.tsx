@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { r } from "@/lib/utils";
+import ScalingContainer from "../../ScalingContainer";
 const iconFindShow = "/images/cs2-icons/icon-find-show.png";
 const iconGiftCard = "/images/cs2-icons/icon-gift-card.png";
 const iconSaveFavorite = "/images/cs2-icons/icon-save-favorite.png";
@@ -107,7 +108,7 @@ const Figure2aCS2 = () => {
   const outerRingRadius = 185; // Outer decorative ring
 
   return (
-    <div className="w-full py-4">
+    <ScalingContainer designWidth={700} className="py-4">
       {/* Goal 1 - Top */}
       <div className="text-center mb-1">
         <p className="font-body text-sm text-[#343434]">Goal 1</p>
@@ -380,7 +381,7 @@ const Figure2aCS2 = () => {
           Manage and use non-browsing service features
         </p>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

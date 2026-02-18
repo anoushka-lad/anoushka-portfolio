@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { r } from "@/lib/utils";
+import ScalingContainer from "../../ScalingContainer";
 
 const months = [
   ["January", "February", "March"],
@@ -161,7 +162,7 @@ const CalendarCell = ({
 
 const Figure2dCS2 = () => {
   return (
-    <div className="w-full py-4">
+    <ScalingContainer designWidth={700} className="py-4">
       <div className="flex gap-4">
         {/* Quarter labels */}
         <div className="flex flex-col justify-around py-2">
@@ -201,7 +202,7 @@ const Figure2dCS2 = () => {
           ))}
         </div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

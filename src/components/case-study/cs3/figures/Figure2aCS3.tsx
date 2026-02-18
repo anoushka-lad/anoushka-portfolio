@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../../ScalingContainer";
 
 const data = [
   {
@@ -61,7 +62,7 @@ const Figure2aCS3 = () => {
   const yPos = (val: number) => baseline - ((val - minVal) / (maxVal - minVal)) * chartHeight;
 
   return (
-    <div className="w-full">
+    <ScalingContainer designWidth={700} className="py-4">
       {/* Legend */}
       <motion.div
         className="flex items-center justify-center gap-6 md:gap-8 mb-4 flex-wrap"
@@ -193,7 +194,7 @@ const Figure2aCS3 = () => {
           );
         })}
       </svg>
-    </div>
+    </ScalingContainer>
   );
 };
 

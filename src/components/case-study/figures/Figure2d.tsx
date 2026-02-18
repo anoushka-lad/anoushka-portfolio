@@ -183,13 +183,14 @@ const Figure2d = () => {
     .join(" ");
 
   return (
-    <ScalingContainer designWidth={420} className="py-4">
+    <ScalingContainer designWidth={700} className="py-4">
+      <div className="flex justify-center">
       <motion.div
-        className="relative w-[420px] h-[420px]"
+        className="relative"
+        style={{ width: 480, height: 480 }}
         // Subtle whole-figure motion that stays contained (no scaling)
         whileHover={{ rotate: 0.8 }}
         transition={{ type: "spring", stiffness: 180, damping: 14 }}
-        style={{ transformOrigin: "50% 50%" }}
       >
         <svg viewBox="0 0 400 400" className="w-full h-full">
           <defs>
@@ -359,6 +360,7 @@ const Figure2d = () => {
           </g>
         </svg>
       </motion.div>
+      </div>
     </ScalingContainer>
   );
 };
