@@ -43,7 +43,7 @@ const ReflectionSection = () => {
         <SectionHeader title="The Reflection" />
 
         {/* Reflection Items */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           {reflections.map((item, index) => (
             <p key={index} className="cs-body">
               <span className="italic">{item.title}</span>

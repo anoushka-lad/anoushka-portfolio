@@ -8,7 +8,7 @@ interface FigureWrapperProps {
 
 const FigureWrapper = ({ children, caption, figureNumber }: FigureWrapperProps) => {
   return (
-    <div className="my-8">
+    <div className="my-6">
       <div className="relative p-8 md:p-12 rounded-sm overflow-hidden">
         {/* Parchment texture — adjust filter values here to tune color tone */}
         <div
@@ -27,7 +27,7 @@ const FigureWrapper = ({ children, caption, figureNumber }: FigureWrapperProps) 
       </div>
       
       {/* Caption */}
-      <p className="cs-caption text-center mt-4">
+      <p className="cs-caption text-center mt-3">
         <strong>{figureNumber}:</strong> {caption}
       </p>
     </div>

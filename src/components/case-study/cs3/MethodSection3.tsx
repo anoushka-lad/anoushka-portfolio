@@ -9,7 +9,7 @@ const MethodSection3 = () => {
       <div className="case-column">
         <SectionHeader title="The Method" />
 
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           We selected 3 peers based on overlapping readership and a strong
           business-news focus (Figure 1a).
         </p>
@@ -21,7 +21,7 @@ const MethodSection3 = () => {
           <Figure1aCS3 />
         </FigureWrapper>
 
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Then we ran task-based, unmoderated interviews (n = 15) across our
           home brand and competitors using a standardized evaluation criteria
           (Figure 1b).
@@ -40,9 +40,9 @@ const MethodSection3 = () => {
 
       <div className="case-column">
         {/* Why questions */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           <div>
-            <p className="cs-subheading-l2 mb-3">Why unmoderated interviews?</p>
+            <p className="cs-subheading-l2 mb-2">Why unmoderated interviews?</p>
             <p className="cs-body">
               It more closely mimics how people actually scroll (that is, skimmable
               and attention fragile), while also being more cost efficient.
@@ -50,7 +50,7 @@ const MethodSection3 = () => {
           </div>
 
           <div>
-            <p className="cs-subheading-l2 mb-3">Why these tasks?</p>
+            <p className="cs-subheading-l2 mb-2">Why these tasks?</p>
             <p className="cs-body">
               Home, article, and stock pages represent the main entry points for
               business-news readers
@@ -58,7 +58,7 @@ const MethodSection3 = () => {
           </div>
 
           <div>
-            <p className="cs-subheading-l2 mb-3">Why these metrics?</p>
+            <p className="cs-subheading-l2 mb-2">Why these metrics?</p>
             <p className="cs-body">
               Quantitative data shows where pain points occurred, while qual data
               reveals why.

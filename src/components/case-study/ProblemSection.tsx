@@ -11,7 +11,7 @@ const ProblemSection = () => {
         <SectionHeader title="The Problem" />
 
         {/* Intro paragraph */}
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           More than 50% of North American households pay for at least 4 streaming services. 
           Users were feeling streaming service over-saturation so platforms like Disney and 
           PrimeVideo started pulling multiple brands under a single roof (Figure 1a).
@@ -30,7 +30,7 @@ const ProblemSection = () => {
         </FigureWrapper>
 
         {/* Bell Media paragraph */}
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Bell Media (Figure 1b) owns 183 multilingual (English and French) brands, including 
           8 primary streaming brands with their own apps, identities, and loyal audiences. 
           Aligned with market trends, we wanted to bring them into a single home to cross-promote 
@@ -39,12 +39,12 @@ const ProblemSection = () => {
         </p>
 
         {/* But this is complicated */}
-        <p className="cs-body mb-4">
+        <p className="cs-body mb-3">
           But this is complicated because we didn't understand:
         </p>
 
         {/* Bullet list */}
-        <ul className="list-disc list-outside ml-6 space-y-2 cs-body mb-6">
+        <ul className="list-disc list-outside ml-6 space-y-1.5 cs-body mb-5">
           <li>
             Different kinds of viewers across brands, so any "one home" risks a generic 
             experience that fits no one

@@ -13,10 +13,10 @@ const NextStepsSection3 = () => {
       <div className="case-column">
         <SectionHeader title="The Next Steps" />
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           {steps.map((step, index) => (
             <div key={index}>
-              <p className="cs-subheading-l2 mb-3">{step.title}</p>
+              <p className="cs-subheading-l2 mb-2">{step.title}</p>
               <p className="cs-body">{step.description}</p>
             </div>
           ))}

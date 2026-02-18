@@ -33,7 +33,7 @@ const ReflectionSection3 = () => {
       <div className="case-column">
         <SectionHeader title="The Reflection" />
 
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Ad quality is about timing and stability, not just count. By preloading
           fixed spaces and labeling ads, we can remove most of the friction without
           touching revenue levers. Next time, I&apos;d explicitly test creative repetition
@@ -41,15 +41,15 @@ const ReflectionSection3 = () => {
           overload.
         </p>
 
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Below are several pertinent design decisions we made:
         </p>
 
         {/* Reflection Items */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           {reflections.map((item, index) => (
             <div key={index}>
-              <p className="cs-subheading-l2 mb-3">{item.title}</p>
+              <p className="cs-subheading-l2 mb-2">{item.title}</p>
               <p className="cs-body">{item.description}</p>
             </div>
           ))}

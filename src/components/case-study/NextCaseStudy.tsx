@@ -11,7 +11,7 @@ const NextCaseStudy = ({ title, href, image }: NextCaseStudyProps) => {
   return (
     <section className="section-padding py-24 bg-secondary">
       <div className="case-column">
-        <p className="cs-nav-text mb-4">Next Project</p>
+        <p className="cs-nav-text mb-3">Next Project</p>
 
         <Link
           href={href}

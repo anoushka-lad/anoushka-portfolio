@@ -18,7 +18,7 @@ const CaseStudyPagination = () => {
       <div className="case-column">
         {/* Divider line */}
         <div
-          className="w-full h-px mb-8 cs-divider"
+          className="w-full h-px mb-6 cs-divider"
         />
 
         {/* Pagination buttons */}

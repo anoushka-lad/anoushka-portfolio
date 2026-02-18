@@ -11,7 +11,7 @@ const FindingsSection2 = () => {
         <SectionHeader title="The Findings" />
 
         {/* Main findings intro */}
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Crave's baseline benchmark shows good-but-not-great usability, meaning most core flows work 
           but there are still a few friction points that reliably slow users down (Figure 3a).
         </p>
@@ -21,7 +21,7 @@ const FindingsSection2 = () => {
           <Figure3aCS2 />
         </FigureWrapper>
 
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           Similarly, Crave's accessibility baseline benchmark shows excellent usability. Per qualitative 
           metrics, lower AUS scores were the result of technical issues or were anomalous (Figure 3b).
         </p>
@@ -31,10 +31,10 @@ const FindingsSection2 = () => {
           <Figure3bCS2 />
         </FigureWrapper>
 
-        <p className="cs-body mb-4">
+        <p className="cs-body mb-3">
           Based on the DVF Model triage, four tasks were identified as high priority (Figure 3c).
         </p>
-        <p className="cs-body mb-6">
+        <p className="cs-body mb-5">
           For the quarter, a focus on high-leverage navigation and findability fixes is recommended, 
           while leaving already-strong flows alone and using the next benchmark run to confirm measurable improvement.
         </p>
@@ -45,9 +45,9 @@ const FindingsSection2 = () => {
         </FigureWrapper>
 
         {/* High priority items breakdown */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           <div>
-            <p className="cs-subheading-l2 mb-3">Find a show by a provider</p>
+            <p className="cs-subheading-l2 mb-2">Find a show by a provider</p>
             <p className="cs-body">
               Known-item discovery is brittle because Search does not reliably support the expected path, 
               forcing users into workaround navigation through provider hubs.
@@ -55,7 +55,7 @@ const FindingsSection2 = () => {
           </div>
 
           <div>
-            <p className="cs-subheading-l2 mb-3">Save to favorites</p>
+            <p className="cs-subheading-l2 mb-2">Save to favorites</p>
             <p className="cs-body">
               The save-and-return workflow has unnecessary friction and interaction cost, suggesting an 
               opportunity to streamline the personal library experience.
@@ -63,7 +63,7 @@ const FindingsSection2 = () => {
           </div>
 
           <div>
-            <p className="cs-subheading-l2 mb-3">Choose a genre</p>
+            <p className="cs-subheading-l2 mb-2">Choose a genre</p>
             <p className="cs-body">
               Filter entry points are low-findability and the flow contains redundant navigation steps, 
               indicating an information architecture and wayfinding issue worth investigating.
@@ -71,7 +71,7 @@ const FindingsSection2 = () => {
           </div>
 
           <div>
-            <p className="cs-subheading-l2 mb-3">Filter within a section</p>
+            <p className="cs-subheading-l2 mb-2">Filter within a section</p>
             <p className="cs-body">
               Labeling and navigation taxonomy are misaligned with user mental models (e.g., "Collections" 
               vs Genres), creating avoidable discovery friction.

@@ -15,7 +15,7 @@ const TldrSection = ({ summary }: TldrSectionProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="case-column space-y-4">
+      <div className="case-column space-y-3">
         <h2 className="cs-section-heading">
           tl;dr
         </h2>

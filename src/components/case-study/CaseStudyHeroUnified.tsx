@@ -60,7 +60,7 @@ const CaseStudyHeroUnified = ({
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="cs-display-title text-center case-column"
+            className="cs-display-title text-center case-hero-column"
           >
             {titleParts.map((part, index) => {
               let className = "";
