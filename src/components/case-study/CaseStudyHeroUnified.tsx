@@ -21,18 +21,18 @@ const CaseStudyHeroUnified = ({
   return (
     <section className="overflow-hidden">
       {/* Main Content */}
-      <div className="section-padding pt-16 pb-8 flex flex-col items-center">
+      <div className="section-padding pt-20 lg:pt-28 pb-10 lg:pb-14 flex flex-col items-center">
         {/* Illustration */}
         <motion.div
           initial={{ y: -20, opacity: 0, rotate: -5 }}
           animate={{ y: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-10"
+          className="mb-12 lg:mb-16"
         >
           <motion.img
             src={illustrationSrc}
             alt={illustrationAlt}
-            className="w-40 h-auto md:w-52 lg:w-60"
+            className="w-52 h-auto md:w-80 lg:w-[28rem]"
             animate={{
               y: [0, -6, 0],
             }}
