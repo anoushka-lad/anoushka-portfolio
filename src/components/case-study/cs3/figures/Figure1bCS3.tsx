@@ -205,7 +205,7 @@ const Figure1bCS3 = () => {
               </motion.div>
               <div className="absolute -inset-[4px] rounded-full border border-dashed border-foreground/30" />
               <span
-                className="absolute text-[11px] font-serif font-bold text-foreground whitespace-nowrap"
+                className="absolute text-[11px] font-serif text-foreground whitespace-nowrap"
                 style={{
                   left: userSize / 2 + baseLabelX + nudgeX,
                   top: userSize / 2 + baseLabelY + nudgeY,
@@ -260,7 +260,7 @@ const Figure1bCS3 = () => {
             transition={{ delay: 0.4 + i * 0.15, duration: 0.5, type: "spring", stiffness: 200 }}
             whileHover={{ scale: 1.03, y: -2 }}
           >
-            <p className="font-serif font-bold text-foreground text-sm text-center mb-1.5">
+            <p className="font-serif text-foreground text-sm text-center mb-1.5">
               Task {i + 1}
             </p>
             <div
@@ -318,7 +318,7 @@ const Figure1bCS3 = () => {
         transition={{ delay: 0.6, duration: 0.6, type: "spring", stiffness: 150 }}
       >
         <motion.h4
-          className="font-serif font-bold text-foreground text-sm mb-5 text-center"
+          className="font-serif text-foreground text-sm mb-5 text-center"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

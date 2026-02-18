@@ -10,10 +10,10 @@ const Figure2a = () => {
         {/* Node 1 - 8-pointed star (left top) */}
         <g transform="translate(140, 100)">
           {/* Label above */}
-          <text x="0" y="-55" textAnchor="middle" className="font-body text-[15px] font-bold fill-[#343434]">
+          <text x="0" y="-55" textAnchor="middle" className="font-body text-[14px] fill-[#343434]">
             User Demographics and
           </text>
-          <text x="0" y="-38" textAnchor="middle" className="font-body text-[15px] font-bold fill-[#343434]">
+          <text x="0" y="-38" textAnchor="middle" className="font-body text-[14px] fill-[#343434]">
             Viewing Habits
           </text>
           
@@ -26,7 +26,7 @@ const Figure2a = () => {
             whileHover={{ scale: 1.15, rotate: 15 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <text y="5" textAnchor="middle" className="text-[11px] font-bold fill-background pointer-events-none">1</text>
+          <text y="5" textAnchor="middle" className="text-[11px] fill-background pointer-events-none">1</text>
         </g>
 
         {/* Node 2 - Multi-pointed star (center bottom) */}
@@ -40,10 +40,10 @@ const Figure2a = () => {
             whileHover={{ scale: 1.15, rotate: -15 }}
             transition={{ type: "spring", stiffness: 300 }}
           />
-          <text y="4" textAnchor="middle" className="text-[10px] font-bold fill-background pointer-events-none">2</text>
+          <text y="4" textAnchor="middle" className="text-[10px] fill-background pointer-events-none">2</text>
           
           {/* Label below */}
-          <text x="0" y="42" textAnchor="middle" className="font-body text-[15px] font-bold fill-[#343434]">
+          <text x="0" y="42" textAnchor="middle" className="font-body text-[14px] fill-[#343434]">
             Engaging in Content
           </text>
         </g>
@@ -51,10 +51,10 @@ const Figure2a = () => {
         {/* Node 3 - Sunburst with rays (right top) */}
         <g transform="translate(560, 100)">
           {/* Label above */}
-          <text x="0" y="-55" textAnchor="middle" className="font-body text-[15px] font-bold fill-[#343434]">
+          <text x="0" y="-55" textAnchor="middle" className="font-body text-[14px] fill-[#343434]">
             Aggregated Watch
           </text>
-          <text x="0" y="-38" textAnchor="middle" className="font-body text-[15px] font-bold fill-[#343434]">
+          <text x="0" y="-38" textAnchor="middle" className="font-body text-[14px] fill-[#343434]">
             Experiences
           </text>
           
@@ -86,7 +86,7 @@ const Figure2a = () => {
             })}
             <circle r="8" fill="currentColor" className="text-foreground" />
           </motion.g>
-          <text y="3" textAnchor="middle" className="text-[9px] font-bold fill-background pointer-events-none">3</text>
+          <text y="3" textAnchor="middle" className="text-[9px] fill-background pointer-events-none">3</text>
         </g>
 
         {/* Connection line from node 1 to node 2 */}

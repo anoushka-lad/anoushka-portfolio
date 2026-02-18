@@ -244,7 +244,7 @@ const Figure4bRotator = () => {
                 {/* Left side - Text content */}
                 <div className="flex flex-col justify-center">
                   <h4
-                    className="font-body font-bold italic text-sm mb-3"
+                    className="font-body text-sm mb-3"
                     style={{ color: '#343434' }}
                   >
                     {currentSlide.category}
@@ -256,7 +256,7 @@ const Figure4bRotator = () => {
                         className="font-body text-sm leading-relaxed mb-2"
                         style={{ color: '#343434' }}
                       >
-                        <span className="font-semibold">{currentSlide.title}</span>{" "}
+                        <span>{currentSlide.title}</span>{" "}
                         {currentSlide.description}
                       </p>
                       <ul className="font-body text-sm leading-relaxed mb-4 ml-4 space-y-1" style={{ color: '#343434' }}>
@@ -270,13 +270,13 @@ const Figure4bRotator = () => {
                       className="font-body text-sm leading-relaxed mb-4"
                       style={{ color: '#343434' }}
                     >
-                      <span className="font-semibold">{currentSlide.title}</span>{" "}
+                      <span>{currentSlide.title}</span>{" "}
                       {currentSlide.description}
                     </p>
                   )}
 
                   <p
-                    className="font-body italic text-sm"
+                    className="font-body text-sm"
                     style={{ color: 'rgba(52, 52, 52, 0.55)' }}
                   >
                     Source: {currentSlide.source}

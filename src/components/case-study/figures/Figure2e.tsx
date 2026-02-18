@@ -96,7 +96,7 @@ const Figure2e = () => {
       viewport={{ once: true }}
       whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}
     >
-      <td className="border border-foreground/40 p-2 font-body font-bold text-sm align-top w-[35%] leading-tight">
+      <td className="border border-foreground/40 p-2 font-body text-sm align-top w-[35%] leading-tight">
         {category}
       </td>
       <td className="border border-foreground/40 p-2 text-sm align-top">
@@ -114,7 +114,7 @@ const Figure2e = () => {
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
-      <td colSpan={2} className="border border-foreground/40 p-2 font-body font-bold text-sm bg-foreground/[0.07]">
+      <td colSpan={2} className="border border-foreground/40 p-2 font-body text-sm bg-foreground/[0.07]">
         {title}
       </td>
     </motion.tr>
@@ -154,18 +154,18 @@ const Figure2e = () => {
           <table className="w-full border-collapse text-[#343434] h-full">
             <tbody>
               <motion.tr whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-body font-bold text-sm bg-foreground/[0.07]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-body text-sm bg-foreground/[0.07]">
                   Aggregated Watch Experience (Prime Video)
                 </td>
               </motion.tr>
               
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-body font-bold text-sm bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-body text-sm bg-foreground/[0.04]">
                   Key Insights
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-body font-bold text-sm align-top w-[30%]">
+                <td className="border border-foreground/40 p-2 font-body text-sm align-top w-[30%]">
                   Key Findings
                 </td>
                 <td className="border border-foreground/40 p-2 text-sm align-top">
@@ -178,12 +178,12 @@ const Figure2e = () => {
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-body font-bold text-sm bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-body text-sm bg-foreground/[0.04]">
                   Goals for the Aggregated Watch Experience
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-body font-bold text-sm align-top">
+                <td className="border border-foreground/40 p-2 font-body text-sm align-top">
                   Goals
                 </td>
                 <td className="border border-foreground/40 p-2 text-sm align-top">
@@ -196,12 +196,12 @@ const Figure2e = () => {
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-body font-bold text-sm bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-body text-sm bg-foreground/[0.04]">
                   Opportunities for Improvement
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-body font-bold text-sm align-top">
+                <td className="border border-foreground/40 p-2 font-body text-sm align-top">
                   Opportunities
                 </td>
                 <td className="border border-foreground/40 p-2 text-sm align-top">
@@ -214,7 +214,7 @@ const Figure2e = () => {
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-body font-bold text-sm align-top bg-foreground/[0.04]">
+                <td className="border border-foreground/40 p-2 font-body text-sm align-top bg-foreground/[0.04]">
                   Summary
                 </td>
                 <td className="border border-foreground/40 p-2 text-sm align-top">
