@@ -3,19 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const HouseIcon = ({ size = 24 }: { size?: number }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M1 12 L12 2.5 L23 12 L20 12 L20 20.5 Q20 22 18.5 22 L15 22 L15 16 Q15 15 14 15 L10 15 Q9 15 9 16 L9 22 L5.5 22 Q4 22 4 20.5 L4 12 Z" />
-  </svg>
-);
-
-const HEADER_HEIGHT = 58;
+/* Scroll-hide threshold — use the minimum (mobile) height */
+const HEADER_HEIGHT_MIN = 42;
 
 const CaseStudyHeader = () => {
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -62,7 +51,7 @@ const CaseStudyHeader = () => {
         // Hide rule (scrolling down) — don't hide until past header + 16px
         if (
           isVisible.current &&
-          currentY > HEADER_HEIGHT + 16 &&
+          currentY > HEADER_HEIGHT_MIN + 16 &&
           cumulativeDown.current >= 24 &&
           !cooldown
         ) {
@@ -98,50 +87,36 @@ const CaseStudyHeader = () => {
   }, []);
 
   return (
-    <>
-      {/* Desktop header (≥768px) */}
-      <header
-        className="fixed top-0 left-0 right-0 z-50 hidden md:flex items-center justify-center border-b"
-        style={{
-          height: `${HEADER_HEIGHT}px`,
-          backgroundColor: "hsl(var(--background))",
-          borderColor: "#C1BFBA",
-          transform: headerVisible ? "translateY(0)" : "translateY(-100%)",
-          transition: "transform 200ms ease",
-        }}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center border-b"
+      style={{
+        height: "clamp(42px, 31px + 3.4vw, 66px)",
+        backgroundColor: "hsl(var(--background))",
+        borderColor: "#C1BFBA",
+        transform: headerVisible ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 200ms ease",
+      }}
+    >
+      <Link
+        href="/"
+        className="flex items-center justify-center text-[#343434]
+          transition-all duration-200 ease-out
+          hover:text-[#4f4f4f]
+          active:scale-[0.97]"
       >
-        <Link
-          href="/"
-          className="flex items-center justify-center
-            w-11 h-11 text-[#343434]
-            transition-all duration-200 ease-out
-            hover:text-[#4f4f4f]
-            active:scale-[0.97]"
+        <svg
+          style={{
+            width: "clamp(20px, 17px + 0.85vw, 26px)",
+            height: "clamp(20px, 17px + 0.85vw, 26px)",
+          }}
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <HouseIcon size={30} />
-        </Link>
-      </header>
-
-      {/* Mobile header (<768px) */}
-      <header
-        className="fixed top-0 left-0 right-0 z-50 flex md:hidden items-center justify-center h-[37px] border-b"
-        style={{
-          backgroundColor: "hsl(var(--background))",
-          borderColor: "#C1BFBA",
-        }}
-      >
-        <Link
-          href="/"
-          className="flex items-center justify-center
-            w-11 h-11 text-[#343434]
-            transition-all duration-200 ease-out
-            hover:text-[#4f4f4f]
-            active:scale-[0.97]"
-        >
-          <HouseIcon size={26} />
-        </Link>
-      </header>
-    </>
+          <path d="M1 12 L12 2.5 L23 12 L20 12 L20 20.5 Q20 22 18.5 22 L15 22 L15 16 Q15 15 14 15 L10 15 Q9 15 9 16 L9 22 L5.5 22 Q4 22 4 20.5 L4 12 Z" />
+        </svg>
+      </Link>
+    </header>
   );
 };
 

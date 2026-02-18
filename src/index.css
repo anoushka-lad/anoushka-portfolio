@@ -118,6 +118,9 @@
     --case-hero-max: 1272px;
     --case-gutter-x: clamp(16px, 4vw, 96px);
 
+    /* Header height */
+    --cs-header-height: clamp(42px, 31px + 3.4vw, 66px);
+
     /* Vertical spacing tokens */
     --cs-section-py: 26px;
     --cs-block-gap: 39px;
