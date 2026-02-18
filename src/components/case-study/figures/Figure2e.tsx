@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 
 const Figure2e = () => {
   const behavioralTraits = [
@@ -120,14 +121,14 @@ const Figure2e = () => {
   );
 
   return (
-    <motion.div 
-      className="w-full overflow-x-auto"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      <div className="min-w-[720px] grid grid-cols-2 gap-0">
+    <ScalingContainer designWidth={720}>
+      <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-2 gap-0">
         {/* Left Column - Behavioral Traits */}
         <div>
           <table className="w-full border-collapse text-[#343434]">
@@ -223,8 +224,9 @@ const Figure2e = () => {
             </tbody>
           </table>
         </div>
-      </div>
-    </motion.div>
+          </div>
+      </motion.div>
+    </ScalingContainer>
   );
 };
 

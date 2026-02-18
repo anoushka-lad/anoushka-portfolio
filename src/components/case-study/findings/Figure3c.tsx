@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  AvidViewerIcon, 
-  PlatformSurferIcon, 
-  BingeWatcherIcon, 
-  BackgroundStreamerIcon, 
-  RewatcherIcon, 
+import ScalingContainer from "../ScalingContainer";
+import {
+  AvidViewerIcon,
+  PlatformSurferIcon,
+  BingeWatcherIcon,
+  BackgroundStreamerIcon,
+  RewatcherIcon,
   SocialStreamerIcon,
   PersonaMedallion
 } from "../icons/PersonaIcons";
@@ -48,8 +49,8 @@ const Figure3c = () => {
   ];
 
   return (
-    <div className="w-full py-4">
-      <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+    <ScalingContainer designWidth={700} className="py-4">
+      <div className="flex flex-row items-center gap-12">
         {/* ===== VENN DIAGRAM ===== */}
         <div className="flex-1 flex justify-center relative w-full">
           <div className="relative w-full max-w-lg" style={{ aspectRatio: '1.35/1' }}>
@@ -306,7 +307,7 @@ const Figure3c = () => {
               
               {/* Dashed connector line */}
               <div 
-                className="w-8 md:w-10"
+                className="w-10"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
               
@@ -321,7 +322,7 @@ const Figure3c = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

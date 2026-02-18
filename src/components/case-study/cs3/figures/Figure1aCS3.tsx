@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../../ScalingContainer";
 
 const bnnBloomberg = "/images/logos/bnn-bloomberg.png";
 const cbcNews = "/images/logos/cbc-news.png";
@@ -20,7 +21,7 @@ const HexagonLogo = ({ src, alt, label, sublabel, delay = 0 }: { src: string; al
       whileHover={{ scale: 1.02, y: -3 }}
     >
       <motion.div
-        className="relative w-36 h-36 md:w-44 md:h-44"
+        className="relative w-44 h-44"
         whileHover={{ rotate: 1 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -43,7 +44,7 @@ const HexagonLogo = ({ src, alt, label, sublabel, delay = 0 }: { src: string; al
         </svg>
 
         {/* Logo centered within hexagon */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 md:p-10">
+        <div className="absolute inset-0 flex items-center justify-center p-10">
           <motion.img
             src={src}
             alt={alt}
@@ -57,7 +58,7 @@ const HexagonLogo = ({ src, alt, label, sublabel, delay = 0 }: { src: string; al
       {label && (
         <div className="text-center mt-2">
           <motion.p
-            className="font-serif font-bold text-xs md:text-sm text-foreground"
+            className="font-serif font-bold text-sm text-foreground"
             whileHover={{ letterSpacing: "0.05em" }}
             transition={{ duration: 0.2 }}
           >
@@ -74,7 +75,8 @@ const HexagonLogo = ({ src, alt, label, sublabel, delay = 0 }: { src: string; al
 
 const Figure1aCS3 = () => {
   return (
-    <div className="flex items-start justify-center gap-3 md:gap-5 py-4">
+    <ScalingContainer designWidth={760} className="py-4">
+      <div className="flex items-start justify-center gap-5">
       {/* BNN Bloomberg - rectangular blue logo */}
       <motion.div
         className="flex flex-col items-center cursor-pointer mt-5"
@@ -88,7 +90,7 @@ const Figure1aCS3 = () => {
           <img
             src={bnnBloomberg}
             alt="BNN Bloomberg"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
       </motion.div>
@@ -96,7 +98,8 @@ const Figure1aCS3 = () => {
       <HexagonLogo src={cbcNews} alt="CBC News" label="Competitor #1" sublabel="CBC News" delay={0.1} />
       <HexagonLogo src={cnbc} alt="CNBC" label="Competitor #2" sublabel="CNBC News" delay={0.2} />
       <HexagonLogo src={cnn} alt="CNN" label="Competitor #3" sublabel="CNN" delay={0.3} />
-    </div>
+      </div>
+    </ScalingContainer>
   );
 };
 

@@ -61,7 +61,7 @@ const Figure2aCS3 = () => {
   const yPos = (val: number) => baseline - ((val - minVal) / (maxVal - minVal)) * chartHeight;
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full">
       {/* Legend */}
       <motion.div
         className="flex items-center justify-center gap-6 md:gap-8 mb-4 flex-wrap"
@@ -85,7 +85,7 @@ const Figure2aCS3 = () => {
         ))}
       </motion.div>
 
-      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="w-full h-auto max-w-2xl mx-auto">
+      <svg viewBox={`0 0 ${svgWidth} ${svgHeight}`} className="w-full h-auto mx-auto">
         {/* Y-axis grid lines and labels */}
         {yTicks.map((tick) => (
           <g key={tick}>

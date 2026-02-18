@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ScalingContainer from "../../ScalingContainer";
 
 const iconRotator = "/images/cs2-icons/icon-rotator.png";
 const iconSaveFavorite = "/images/cs2-icons/icon-save-favorite.png";
@@ -73,21 +73,6 @@ const W = 620;
 const H = 530;
 
 const Figure2cCS2 = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const measure = () => {
-      if (containerRef.current) {
-        const available = containerRef.current.clientWidth;
-        setScale(Math.min(1, available / W));
-      }
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
-
   const r = 170;
   const topCx = W / 2;
   const topCy = 195;
@@ -106,15 +91,8 @@ const Figure2cCS2 = () => {
   ];
 
   return (
-    <div ref={containerRef} className="w-full flex justify-center py-6">
-      <div
-        style={{
-          width: W,
-          height: H,
-          transform: `scale(${scale})`,
-          transformOrigin: "top center",
-        }}
-      >
+    <ScalingContainer designWidth={W} className="py-6">
+      <div className="flex justify-center">
         <div className="relative" style={{ width: W, height: H }}>
           {/* Labels */}
           <motion.span
@@ -220,7 +198,7 @@ const Figure2cCS2 = () => {
           <IconMedallion src={iconFilter} alt="Filter" x={centerX + 34} y={centerY + 34} delay={1.0} />
         </div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

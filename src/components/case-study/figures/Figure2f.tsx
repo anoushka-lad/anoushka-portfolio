@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 
 const Figure2f = () => {
   const stages = ["Awareness", "Consider", "Retention", "Advocacy", "Future AWE"];
@@ -64,14 +65,14 @@ const Figure2f = () => {
   ];
 
   return (
-    <motion.div 
-      className="w-full overflow-x-auto"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      <table className="min-w-[700px] w-full border-collapse text-[#343434]">
+    <ScalingContainer designWidth={700}>
+      <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <table className="w-full border-collapse text-[#343434]">
         <thead>
           <tr>
             <motion.th 
@@ -129,8 +130,9 @@ const Figure2f = () => {
             </motion.tr>
           ))}
         </tbody>
-      </table>
-    </motion.div>
+          </table>
+      </motion.div>
+    </ScalingContainer>
   );
 };
 

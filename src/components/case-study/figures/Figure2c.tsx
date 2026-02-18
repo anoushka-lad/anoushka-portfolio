@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 import { r } from "@/lib/utils";
 import {
   AvidViewerIcon, 
@@ -139,6 +140,7 @@ const ContentTypeIcon = ({ size = 36 }: { size?: number }) => (
 );
 
 const Figure2c = () => {
+
   const personaIcons = [
     { icon: <PlatformSurferIcon size={40} />, name: "Platform Surfer" },
     { icon: <BingeWatcherIcon size={40} />, name: "Binge Watcher" },
@@ -165,7 +167,7 @@ const Figure2c = () => {
   ];
 
   return (
-    <div className="w-full overflow-x-auto">
+    <ScalingContainer designWidth={752}>
       <table className="mx-auto text-sm border-collapse">
         <thead>
           <tr>
@@ -230,7 +232,7 @@ const Figure2c = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </ScalingContainer>
   );
 };
 

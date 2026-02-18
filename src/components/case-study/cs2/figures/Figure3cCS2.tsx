@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import ScalingContainer from "../../ScalingContainer";
 import { r } from "@/lib/utils";
 
 // Icon path constants
@@ -67,6 +68,8 @@ const StarConnector = ({ x, y, delay }: { x: number; y: number; delay: number })
 const Figure3cCS2 = () => {
   const size = 520;
   const center = size / 2;
+  const padX = 90; // horizontal padding so curved text labels aren't clipped
+  const totalWidth = size + padX * 2;
   
   // Tighter spacing
   const outerDottedRadius = 200;
@@ -150,9 +153,10 @@ const Figure3cCS2 = () => {
   };
 
   return (
-    <div className="w-full flex justify-center py-4">
-      <div className="relative" style={{ width: size, height: size }}>
-        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ overflow: "visible" }}>
+    <ScalingContainer designWidth={700} className="py-4">
+      <div className="flex justify-center">
+      <div className="relative" style={{ width: totalWidth, height: size }}>
+        <svg width={totalWidth} height={size} viewBox={`${-padX} 0 ${totalWidth} ${size}`}>
           
           {/* ===== OUTER ROTATING BOUNDARY ===== */}
           <g style={{ transformOrigin: `${center}px ${center}px` }}>
@@ -492,7 +496,8 @@ const Figure3cCS2 = () => {
           })}
         </svg>
       </div>
-    </div>
+      </div>
+    </ScalingContainer>
   );
 };
 

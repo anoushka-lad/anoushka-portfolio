@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 const rotatorIcons = "/images/rotator-icons.png";
 const slide1 = "/images/rotator-4b-slide-1.png";
 const slide2 = "/images/rotator-4b-slide-2.png";
@@ -107,7 +108,7 @@ const Figure4bRotator = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className="w-full">
+    <ScalingContainer designWidth={700}>
       {/* Top decorative line with icons */}
       <div className="relative flex items-center justify-center mb-6">
         {/* Left line segment */}
@@ -117,7 +118,7 @@ const Figure4bRotator = () => {
           <img 
             src={rotatorIcons} 
             alt="Category icons" 
-            className="h-10 md:h-12"
+            className="h-12"
           />
         </div>
         {/* Right line segment */}
@@ -129,12 +130,12 @@ const Figure4bRotator = () => {
         {/* Left Arrow */}
         <button
           onClick={goToPrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-20 p-2 hover:opacity-70 transition-opacity"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-2 hover:opacity-70 transition-opacity"
           aria-label="Previous slide"
         >
           <svg 
             viewBox="0 0 24 40" 
-            className="w-4 h-8 md:w-5 md:h-10"
+            className="w-5 h-10"
             style={{ color: 'hsl(35 18% 35%)' }}
           >
             {/* Double chevron left */}
@@ -160,12 +161,12 @@ const Figure4bRotator = () => {
         {/* Right Arrow */}
         <button
           onClick={goToNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-20 p-2 hover:opacity-70 transition-opacity"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-2 hover:opacity-70 transition-opacity"
           aria-label="Next slide"
         >
           <svg 
             viewBox="0 0 24 40" 
-            className="w-4 h-8 md:w-5 md:h-10"
+            className="w-5 h-10"
             style={{ color: 'hsl(35 18% 35%)' }}
           >
             {/* Double chevron right */}
@@ -190,14 +191,14 @@ const Figure4bRotator = () => {
 
         {/* Frame with decorative corners */}
         <div 
-          className="relative mx-4 md:mx-8 p-1"
+          className="relative mx-8 p-1"
           style={{ 
             border: '2px solid hsl(35 18% 40%)',
           }}
         >
           {/* Inner frame */}
           <div 
-            className="relative p-4 md:p-6"
+            className="relative p-6"
             style={{ 
               border: '1px solid hsl(35 18% 50%)',
             }}
@@ -238,7 +239,7 @@ const Figure4bRotator = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 min-h-[200px] md:min-h-[280px]"
+                className="grid grid-cols-2 gap-6 min-h-[280px]"
               >
                 {/* Left side - Text content */}
                 <div className="flex flex-col justify-center">
@@ -287,7 +288,7 @@ const Figure4bRotator = () => {
                   <img 
                     src={currentSlide.image} 
                     alt={currentSlide.title}
-                    className="max-w-full max-h-[280px] md:max-h-[320px] object-contain rounded-sm"
+                    className="max-w-full max-h-[320px] object-contain rounded-sm"
                   />
                 </div>
               </motion.div>
@@ -305,7 +306,7 @@ const Figure4bRotator = () => {
           </span>
         </div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

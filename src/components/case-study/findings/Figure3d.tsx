@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
+import ScalingContainer from "../ScalingContainer";
+import {
   AvidViewerIcon, 
   PlatformSurferIcon, 
   BingeWatcherIcon, 
@@ -23,8 +24,8 @@ const Figure3d = () => {
   ];
 
   return (
-    <div className="w-full py-4">
-      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+    <ScalingContainer designWidth={700} className="py-4">
+      <div className="flex flex-row items-center gap-14">
         
         {/* ===== AD TOLERANCE SCALE ===== */}
         <div className="flex-1 w-full max-w-2xl">
@@ -215,7 +216,7 @@ const Figure3d = () => {
               
               {/* Dashed connector line */}
               <div 
-                className="w-8 md:w-10"
+                className="w-10"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
               
@@ -230,7 +231,7 @@ const Figure3d = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

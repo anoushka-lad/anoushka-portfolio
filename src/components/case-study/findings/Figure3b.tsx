@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  AvidViewerIcon, 
-  PlatformSurferIcon, 
-  BingeWatcherIcon, 
-  BackgroundStreamerIcon, 
-  RewatcherIcon, 
+import ScalingContainer from "../ScalingContainer";
+import {
+  AvidViewerIcon,
+  PlatformSurferIcon,
+  BingeWatcherIcon,
+  BackgroundStreamerIcon,
+  RewatcherIcon,
   SocialStreamerIcon,
   PersonaMedallion
 } from "../icons/PersonaIcons";
@@ -61,13 +62,13 @@ const Figure3b = () => {
   ];
 
   return (
-    <div className="w-full py-4">
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
+    <ScalingContainer designWidth={700} className="py-4">
+      <div className="flex flex-row gap-10">
         {/* Main grid */}
         <div className="flex-1">
           {/* Header row with persona icons */}
           <div className="flex mb-2">
-            <div className="w-14 md:w-16 shrink-0" /> {/* Spacer for device labels */}
+            <div className="w-16 shrink-0" /> {/* Spacer for device labels */}
             {personas.map((persona, i) => (
               <motion.div 
                 key={i} 
@@ -86,7 +87,7 @@ const Figure3b = () => {
           
           {/* Horizontal line separator */}
           <div 
-            className="ml-14 md:ml-16 mb-2"
+            className="ml-16 mb-2"
             style={{ borderTop: '2px solid hsl(35 18% 30% / 0.7)' }}
           />
           
@@ -96,7 +97,7 @@ const Figure3b = () => {
               <div key={dIndex} className="flex items-center">
                 {/* Device label - bold */}
                 <div 
-                  className="w-14 md:w-16 shrink-0 font-body font-bold text-sm pr-2"
+                  className="w-16 shrink-0 font-body font-bold text-sm pr-2"
                   style={{ color: '#343434' }}
                 >
                   {device}
@@ -106,7 +107,7 @@ const Figure3b = () => {
                 {usageData.map((personaData, pIndex) => (
                   <motion.div 
                     key={pIndex} 
-                    className="flex-1 h-10 md:h-12 mx-0.5"
+                    className="flex-1 h-12 mx-0.5"
                     style={{ 
                       backgroundColor: getColor(personaData[dIndex]),
                       border: personaData[dIndex] === 0 ? '1px solid hsl(35 18% 70% / 0.3)' : 'none'
@@ -125,7 +126,7 @@ const Figure3b = () => {
         
         {/* Legend */}
         <motion.div 
-          className="flex flex-row lg:flex-col justify-center lg:justify-start gap-3 lg:gap-2 text-sm pt-2 lg:pt-14"
+          className="flex flex-col justify-start gap-2 text-sm pt-14"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
@@ -140,13 +141,13 @@ const Figure3b = () => {
             >
               {/* Dashed line connector */}
               <div 
-                className="w-6 md:w-8 hidden lg:block"
+                className="w-8"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
               
               {/* Color swatch */}
               <div 
-                className="w-5 h-4 md:w-6 md:h-5 shrink-0"
+                className="w-6 h-5 shrink-0"
                 style={{ 
                   backgroundColor: getColor(item.level),
                   border: item.level === 0 ? '1px solid hsl(35 18% 70% / 0.4)' : 'none'
@@ -164,7 +165,7 @@ const Figure3b = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 const craveLogo = "/images/logos/crave.png";
 const ctvLogo = "/images/logos/ctv.png";
 const noovoLogo = "/images/logos/noovo.png";
@@ -25,7 +26,7 @@ const Hexagon = ({ logos, label }: HexagonProps) => {
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
     >
       <motion.div 
-        className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56"
+        className="relative w-56 h-56"
         whileHover={{ rotate: 1 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -48,16 +49,16 @@ const Hexagon = ({ logos, label }: HexagonProps) => {
         </svg>
         
         {/* Logos container - centered within hexagon */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 md:gap-4 p-6 md:p-8">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6">
           {logos.map((logo, index) => (
             <motion.img
               key={index}
               src={logo.src}
               alt={logo.alt}
               className={`h-auto object-contain ${logo.className || ""}`}
-              style={{ 
+              style={{
                 maxWidth: logos.length === 1 ? "80%" : "70%",
-                maxHeight: logos.length === 1 ? "65%" : "24%" 
+                maxHeight: logos.length === 1 ? "65%" : "30%"
               }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
@@ -79,6 +80,7 @@ const Hexagon = ({ logos, label }: HexagonProps) => {
 };
 
 const Figure1b = () => {
+
   const entertainmentLogos = [
     { src: craveLogo, alt: "Crave" },
     { src: ctvLogo, alt: "CTV" },
@@ -96,13 +98,13 @@ const Figure1b = () => {
   ];
 
   return (
-    <div className="w-full py-4">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
+    <ScalingContainer designWidth={780} className="py-4">
+      <div className="flex flex-row items-center justify-center gap-8">
         <Hexagon logos={entertainmentLogos} label="Entertainment" variant="left" />
         <Hexagon logos={newsLogos} label="News" variant="center" />
         <Hexagon logos={sportsLogos} label="Sports" variant="right" />
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 

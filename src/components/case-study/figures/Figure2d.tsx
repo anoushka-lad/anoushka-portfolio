@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 import { r } from "@/lib/utils";
 
 type IconProps = { className?: string };
@@ -150,6 +151,7 @@ const NeedsIcon = ({ className }: IconProps) => (
 );
 
 const Figure2d = () => {
+
   const segments = [
     { label: "Key Insights", icon: InsightsIcon },
     { label: "Viewing Habits", icon: HabitsIcon },
@@ -181,9 +183,9 @@ const Figure2d = () => {
     .join(" ");
 
   return (
-    <div className="w-full flex justify-center py-4">
+    <ScalingContainer designWidth={420} className="py-4">
       <motion.div
-        className="relative w-80 h-80 md:w-[420px] md:h-[420px]"
+        className="relative w-[420px] h-[420px]"
         // Subtle whole-figure motion that stays contained (no scaling)
         whileHover={{ rotate: 0.8 }}
         transition={{ type: "spring", stiffness: 180, damping: 14 }}
@@ -197,8 +199,7 @@ const Figure2d = () => {
             </clipPath>
           </defs>
 
-          <g clipPath="url(#figure2d-clip)">
-          {/* Outermost thin decorative ring */}
+          {/* Outermost thin decorative ring — outside clip path so it's fully visible */}
           <circle
             cx={centerX}
             cy={centerY}
@@ -209,6 +210,8 @@ const Figure2d = () => {
             opacity="0.5"
             className="text-foreground"
           />
+
+          <g clipPath="url(#figure2d-clip)">
           {/* Outer ring - thick */}
           <motion.circle
             cx={centerX}
@@ -321,7 +324,7 @@ const Figure2d = () => {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 transform={`rotate(${finalRotation}, ${labelPos.x}, ${labelPos.y})`}
-                className="font-body italic font-bold text-[11px] md:text-[13px] fill-current text-[#343434]"
+                className="font-body italic font-bold text-[13px] fill-current text-[#343434]"
                 style={{ letterSpacing: '0.02em' }}
               >
                 {segment.label}
@@ -356,7 +359,7 @@ const Figure2d = () => {
           </g>
         </svg>
       </motion.div>
-    </div>
+    </ScalingContainer>
   );
 };
 

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../ScalingContainer";
 
 const Figure2b = () => {
+
   const items = [
     {
       label: "Key Moments",
@@ -40,7 +42,8 @@ const Figure2b = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap justify-center items-end gap-12 md:gap-20 py-4">
+    <ScalingContainer designWidth={700}>
+      <div className="flex justify-center items-end gap-20 py-4">
       {items.map((item, index) => (
         <motion.div 
           key={index}
@@ -108,7 +111,8 @@ const Figure2b = () => {
           </span>
         </motion.div>
       ))}
-    </div>
+      </div>
+    </ScalingContainer>
   );
 };
 

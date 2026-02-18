@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ScalingContainer from "../../ScalingContainer";
 
 // User medallion images
 const userMedallion1 = "/images/user-medallion-1.png";
@@ -73,11 +74,12 @@ const Figure2bCS2 = () => {
     1: [20, 0],
     2: [0, 14],
     3: [0, 14],
-    4: [-20, 0],
+    4: [12, 8],
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-6">
+    <ScalingContainer designWidth={880} className="py-6">
+      <div className="flex flex-row items-center justify-center gap-2">
       {/* ===== LEFT: Users Circle ===== */}
       <motion.div
         className="relative shrink-0"
@@ -362,7 +364,8 @@ const Figure2bCS2 = () => {
           </motion.div>
         </div>
       </motion.div>
-    </div>
+      </div>
+    </ScalingContainer>
   );
 };
 

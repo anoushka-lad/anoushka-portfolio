@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ScalingContainer from "../../ScalingContainer";
 import { r } from "@/lib/utils";
 
 const SparkleIcon = ({ className = "", delay = 0 }: { className?: string; delay?: number }) => (
@@ -217,21 +218,21 @@ const CircularGauge = ({
 
 const Figure3aCS2 = () => {
   return (
-    <div className="w-full py-4">
-      <div className="flex justify-center gap-20 flex-wrap">
-        <CircularGauge
-          value={83.7}
-          label="Average System Usability Score"
-          delay={0}
-        />
-        <CircularGauge
-          value={98}
-          suffix="%"
-          label="Average Task Completion Rate"
-          delay={0.3}
-        />
+    <ScalingContainer designWidth={760} className="py-4">
+      <div className="flex justify-center gap-20">
+          <CircularGauge
+            value={83.7}
+            label="Average System Usability Score"
+            delay={0}
+          />
+          <CircularGauge
+            value={98}
+            suffix="%"
+            label="Average Task Completion Rate"
+            delay={0.3}
+          />
       </div>
-    </div>
+    </ScalingContainer>
   );
 };
 
