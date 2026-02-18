@@ -7,8 +7,8 @@ const ProblemSection3 = () => {
         <SectionHeader title="The Problem" />
 
         <p className="cs-body">
-          bnn bloomberg&apos;s estimated annual advertising revenue is around $11.1
-          million. ads are an essential part of the newsroom business model so
+          BNN Bloomberg&apos;s estimated annual advertising revenue is around $11.1
+          million. Ads are an essential part of the newsroom business model so
           we wanted to investigate how our ad experience compared to our
           competitors
         </p>

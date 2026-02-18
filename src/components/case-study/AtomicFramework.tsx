@@ -8,7 +8,7 @@ const AtomicFramework = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-foreground" />
           <div className="absolute top-[45%] right-[25%] w-1.5 h-1.5 rounded-full bg-background" />
         </div>
-        <span className="text-sm font-body text-[#343434] text-center">Key Moments</span>
+        <span className="text-sm font-display text-[#343434] text-center">Key Moments</span>
       </div>
 
       {/* Standardized Attributes - 3 overlapping circles */}
@@ -19,7 +19,7 @@ const AtomicFramework = () => {
           <div className="absolute bottom-0 right-[25%] w-8 h-8 rounded-full bg-foreground" />
           <div className="absolute bottom-1 left-[32%] w-1 h-1 rounded-full bg-foreground" />
         </div>
-        <span className="text-sm font-body text-[#343434] text-center">Standardized<br/>Attributes</span>
+        <span className="text-sm font-display text-[#343434] text-center">Standardized<br/>Attributes</span>
       </div>
 
       {/* Emerging Patterns - Grid of circles */}
@@ -32,19 +32,19 @@ const AtomicFramework = () => {
             </div>
           ))}
         </div>
-        <span className="text-sm font-body text-[#343434] text-center">Emerging<br/>Patterns</span>
+        <span className="text-sm font-display text-[#343434] text-center">Emerging<br/>Patterns</span>
       </div>
 
       {/* Provisional Personas - Dashed square */}
       <div className="flex flex-col items-center gap-3">
         <div className="w-14 h-14 border-2 border-dashed border-foreground" />
-        <span className="text-sm font-body text-[#343434] text-center">Provisional<br/>Personas</span>
+        <span className="text-sm font-display text-[#343434] text-center">Provisional<br/>Personas</span>
       </div>
 
       {/* Personas - Solid square */}
       <div className="flex flex-col items-center gap-3">
         <div className="w-14 h-14 bg-foreground" />
-        <span className="text-sm font-body text-[#343434] text-center">Personas</span>
+        <span className="text-sm font-display text-[#343434] text-center">Personas</span>
       </div>
     </div>
   );

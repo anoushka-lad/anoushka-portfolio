@@ -30,7 +30,7 @@ const PersonaGrid = () => {
                 />
                 <button
                   onClick={() => setSelectedPersona(persona.number)}
-                  className="mt-1.5 font-body text-sm tracking-wide px-10 py-1 border-2 rounded-[2px]
+                  className="mt-1.5 font-display text-sm tracking-wide px-10 py-1 border-2 rounded-[2px]
                     bg-[#343434] text-[#FCF9F3] border-[#343434]
                     transition-all duration-200 ease-out
                     hover:bg-[#4f4f4f] hover:border-[#4f4f4f]

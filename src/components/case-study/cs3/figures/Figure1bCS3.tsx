@@ -205,7 +205,7 @@ const Figure1bCS3 = () => {
               </motion.div>
               <div className="absolute -inset-[4px] rounded-full border border-dashed border-foreground/30" />
               <span
-                className="absolute text-[11px] font-serif text-foreground whitespace-nowrap"
+                className="absolute text-[11px] font-display text-foreground whitespace-nowrap"
                 style={{
                   left: userSize / 2 + baseLabelX + nudgeX,
                   top: userSize / 2 + baseLabelY + nudgeY,
@@ -260,7 +260,7 @@ const Figure1bCS3 = () => {
             transition={{ delay: 0.4 + i * 0.15, duration: 0.5, type: "spring", stiffness: 200 }}
             whileHover={{ scale: 1.03, y: -2 }}
           >
-            <p className="font-serif text-foreground text-sm text-center mb-1.5">
+            <p className="font-display text-foreground text-sm text-center mb-1.5">
               Task {i + 1}
             </p>
             <div
@@ -271,7 +271,7 @@ const Figure1bCS3 = () => {
                 minHeight: 80,
               }}
             >
-              <p className="font-sans text-xs leading-relaxed" style={{ color: "hsl(35 30% 85%)" }}>
+              <p className="font-display text-xs leading-relaxed" style={{ color: "hsl(35 30% 85%)" }}>
                 {task}
               </p>
             </div>
@@ -318,7 +318,7 @@ const Figure1bCS3 = () => {
         transition={{ delay: 0.6, duration: 0.6, type: "spring", stiffness: 150 }}
       >
         <motion.h4
-          className="font-serif text-foreground text-sm mb-5 text-center"
+          className="font-display text-foreground text-sm mb-5 text-center"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -373,7 +373,7 @@ const Figure1bCS3 = () => {
                   )}
                 </motion.svg>
               )}
-              <span className="text-sm font-serif text-foreground whitespace-pre-line">{item.label}</span>
+              <span className="text-sm font-display text-foreground whitespace-pre-line">{item.label}</span>
             </motion.div>
           ))}
         </div>

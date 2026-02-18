@@ -32,7 +32,7 @@ const RecommendationsSection = () => {
           transition={{ delay: 0.15 }}
         >
           <h3 className="cs-subheading-l1 mb-3">
-            1. Making content discoverability and findability seamless
+            1. Making Content Discoverability and Findability Seamless
           </h3>
           <p className="cs-body mb-5">
             Content discovery works best when the service reduces decision friction, the catalogue is legible at a glance and lets users either browse intentionally or find precisely (Rotator 4a).
@@ -53,7 +53,7 @@ const RecommendationsSection = () => {
           transition={{ delay: 0.2 }}
         >
           <h3 className="cs-subheading-l1 mb-3">
-            2. Creating a meaningful bilingual experience
+            2. Creating a Meaningful Bilingual Experience
           </h3>
           <p className="cs-body mb-5">
             Unilingual and bilingual users have different preferences and discovery priorities so clear language labeling and language-specific browsing becomes essential for finding the right titles fast.
@@ -101,7 +101,7 @@ const RecommendationsSection = () => {
           transition={{ delay: 0.25 }}
         >
           <h3 className="cs-subheading-l1 mb-3">
-            3. Elevating personalization and curation
+            3. Elevating Personalization and Curation
           </h3>
           <p className="cs-body mb-5">
             Personalization adds value when it turns viewing history and preferences into usable shortcuts without adding complexity (Rotator 4b).

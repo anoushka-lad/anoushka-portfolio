@@ -74,7 +74,7 @@ const MethodSection = () => {
             We translated interview insights into structured persona summaries (Figure 2e) based on the analysis framework to expand on and validate our emerging 6 personas.
           </p>
           
-          <FigureWrapper figureNumber="Figure 2e" caption="Example of completed analysis using framework from Figure 2d for Avid Viewer Persona">
+          <FigureWrapper figureNumber="Figure 2e" caption="Example of completed analysis using framework from Figure 2d for Avid Viewer persona">
             <Figure2e />
           </FigureWrapper>
         </div>

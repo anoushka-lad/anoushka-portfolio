@@ -97,7 +97,7 @@ const Figure3b = () => {
               <div key={dIndex} className="flex items-center">
                 {/* Device label - bold */}
                 <div 
-                  className="w-16 shrink-0 font-body text-sm pr-2"
+                  className="w-16 shrink-0 font-display text-sm pr-2"
                   style={{ color: '#343434' }}
                 >
                   {device}
@@ -156,7 +156,7 @@ const Figure3b = () => {
               
               {/* Label - bold */}
               <span 
-                className="font-body text-sm whitespace-nowrap"
+                className="font-display text-sm whitespace-nowrap"
                 style={{ color: '#343434' }}
               >
                 {item.label}

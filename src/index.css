@@ -181,7 +181,7 @@
   }
 
   .cs-section-heading {
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-playfair), serif;
     font-size: var(--h2-size);
     font-weight: 700;
     font-style: normal;
@@ -191,7 +191,7 @@
   }
 
   .cs-subheading-l1 {
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-playfair), serif;
     font-size: var(--body-size);
     font-weight: 700;
     font-style: normal;
@@ -200,7 +200,7 @@
   }
 
   .cs-subheading-l2 {
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-playfair), serif;
     font-size: var(--body-size);
     font-weight: 400;
     font-style: italic;

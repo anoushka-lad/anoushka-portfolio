@@ -69,7 +69,7 @@ const Hexagon = ({ logos, label }: HexagonProps) => {
       
       {/* Label */}
       <motion.span 
-        className="mt-4 font-body text-sm text-[#343434]/90"
+        className="mt-4 font-display text-sm text-[#343434]/90"
         whileHover={{ letterSpacing: "0.05em" }}
         transition={{ duration: 0.2 }}
       >

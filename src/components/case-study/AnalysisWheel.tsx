@@ -51,13 +51,13 @@ const AnalysisWheel = () => {
         </svg>
         
         {/* Labels positioned around the wheel */}
-        <span className="absolute top-[8%] left-[22%] font-body text-sm text-[#343434] -rotate-45">Key Insights</span>
-        <span className="absolute top-[8%] right-[18%] font-body text-sm text-[#343434] rotate-45">Viewing Habits</span>
-        <span className="absolute top-[35%] right-[2%] font-body text-sm text-[#343434] rotate-[70deg]">Goals</span>
-        <span className="absolute bottom-[25%] right-[2%] font-body text-sm text-[#343434] rotate-[110deg]">Experiences</span>
-        <span className="absolute bottom-[8%] right-[25%] font-body text-sm text-[#343434] rotate-[150deg]">Opportunities</span>
-        <span className="absolute bottom-[8%] left-[32%] font-body text-sm text-[#343434] -rotate-[150deg]">Needs</span>
-        <span className="absolute top-[35%] left-[-8%] font-body text-sm text-[#343434] -rotate-[70deg] w-20 text-center leading-tight">Challenges and Pain Points</span>
+        <span className="absolute top-[8%] left-[22%] font-display text-sm text-[#343434] -rotate-45">Key Insights</span>
+        <span className="absolute top-[8%] right-[18%] font-display text-sm text-[#343434] rotate-45">Viewing Habits</span>
+        <span className="absolute top-[35%] right-[2%] font-display text-sm text-[#343434] rotate-[70deg]">Goals</span>
+        <span className="absolute bottom-[25%] right-[2%] font-display text-sm text-[#343434] rotate-[110deg]">Experiences</span>
+        <span className="absolute bottom-[8%] right-[25%] font-display text-sm text-[#343434] rotate-[150deg]">Opportunities</span>
+        <span className="absolute bottom-[8%] left-[32%] font-display text-sm text-[#343434] -rotate-[150deg]">Needs</span>
+        <span className="absolute top-[35%] left-[-8%] font-display text-sm text-[#343434] -rotate-[70deg] w-20 text-center leading-tight">Challenges and Pain Points</span>
       </div>
     </div>
   );

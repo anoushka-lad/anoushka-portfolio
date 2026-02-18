@@ -204,7 +204,7 @@ const Figure2c = () => {
                   <motion.div whileHover={{ rotate: 10 }} transition={{ duration: 0.2 }}>
                     {row.icon}
                   </motion.div>
-                  <span className="font-body text-[#343434] whitespace-nowrap">
+                  <span className="font-display text-[#343434] whitespace-nowrap">
                     {row.label}
                   </span>
                 </motion.div>

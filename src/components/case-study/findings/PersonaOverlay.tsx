@@ -79,7 +79,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
               
               {/* Title */}
               <h3
-                className="font-body text-base md:text-lg font-black text-center tracking-wide uppercase leading-tight"
+                className="font-display text-base md:text-lg font-black text-center tracking-wide uppercase leading-tight"
                 style={{ color: '#343434' }}
               >
                 {persona.titleLines.map((line, idx) => (
@@ -94,7 +94,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
             {/* Right: Description */}
             <div className="md:w-3/4">
               <p
-                className="font-body text-sm md:text-base leading-relaxed text-justify"
+                className="font-display text-sm md:text-base leading-relaxed text-justify"
                 style={{ color: '#343434' }}
               >
                 {persona.description}
@@ -134,7 +134,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                   }}
                 >
                   <span
-                    className="font-body text-xs text-center px-2"
+                    className="font-display text-xs text-center px-2"
                     style={{ color: '#343434' }}
                   >
                     Poster {idx}
@@ -149,7 +149,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
             {/* Pain Points */}
             <div className="md:w-1/2">
               <h4
-                className="font-body text-sm md:text-base font-bold mb-3 flex items-center gap-2"
+                className="font-display text-sm md:text-base font-bold mb-3 flex items-center gap-2"
                 style={{ color: '#343434' }}
               >
                 Pain Points
@@ -157,7 +157,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                   <circle cx="8" cy="8" r="4" fill="hsl(320 60% 50%)" />
                 </svg>
               </h4>
-              <ul className="list-disc list-inside space-y-2 font-body text-xs md:text-sm" style={{ color: '#343434' }}>
+              <ul className="list-disc list-inside space-y-2 font-display text-xs md:text-sm" style={{ color: '#343434' }}>
                 {persona.painPoints.map((point, idx) => (
                   <li key={idx}>{point}</li>
                 ))}
@@ -167,12 +167,12 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
             {/* Goals */}
             <div className="md:w-1/2">
               <h4
-                className="font-body text-sm md:text-base font-bold mb-3"
+                className="font-display text-sm md:text-base font-bold mb-3"
                 style={{ color: '#343434' }}
               >
                 Goals
               </h4>
-              <ul className="list-disc list-inside space-y-2 font-body text-xs md:text-sm" style={{ color: '#343434' }}>
+              <ul className="list-disc list-inside space-y-2 font-display text-xs md:text-sm" style={{ color: '#343434' }}>
                 {persona.goals.map((goal, idx) => (
                   <li key={idx}>{goal}</li>
                 ))}
@@ -183,7 +183,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
           {/* User Journey */}
           <div>
             <h4
-              className="font-body text-sm md:text-base font-bold mb-4 text-center"
+              className="font-display text-sm md:text-base font-bold mb-4 text-center"
               style={{ color: '#343434' }}
             >
               User Journey
@@ -209,7 +209,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                     
                     {/* Stage name */}
                     <span
-                      className="font-body text-xs md:text-sm font-semibold mb-1"
+                      className="font-display text-xs md:text-sm font-semibold mb-1"
                       style={{ color: '#343434' }}
                     >
                       {item.stage}
@@ -217,7 +217,7 @@ const PersonaOverlay = ({ open, onOpenChange, personaNumber }: PersonaOverlayPro
                     
                     {/* Description */}
                     <span
-                      className="font-body text-[10px] md:text-xs leading-tight"
+                      className="font-display text-[10px] md:text-xs leading-tight"
                       style={{ color: '#343434' }}
                     >
                       {item.description}

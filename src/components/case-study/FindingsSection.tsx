@@ -50,7 +50,7 @@ const FindingsSection = () => {
           {/* Figure 3b - Preferred device - PLACEHOLDER */}
           <div className="cs-content-block">
             <p className="cs-body mb-1.5">
-              <em className="font-body">What devices to personas prefer to watch on?</em> (Figure 3b)
+              <em className="font-body">What devices do personas prefer to watch on?</em> (Figure 3b)
             </p>
             <p className="cs-body mb-3">
               TV was preferred for personas who engage in long, "lean-back" sessions (often shared or comfort-driven), while laptop/phone was preferred for more solo, flexible, or multi-tasking (browsing, filling time, background).

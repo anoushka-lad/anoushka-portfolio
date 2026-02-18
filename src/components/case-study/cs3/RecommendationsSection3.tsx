@@ -55,7 +55,7 @@ const RecommendationsSection3 = () => {
               />
             </div>
             <p className="cs-caption text-center mt-3">
-              <strong>Figure 3b:</strong> CBC News news preloaded grey boxes so that content does not shift on delayed loads
+              <strong>Figure 3b:</strong> CBC News preloaded grey boxes so that content does not shift on delayed loads
             </p>
           </div>
         </div>
