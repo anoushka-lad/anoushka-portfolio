@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collage Position Tool</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  #toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: #2a2a2a;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    z-index: 1000;
+    border-bottom: 1px solid #444;
+    font-size: 13px;
+  }
+  
+  #toolbar button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  #toolbar button:hover { background: #444; }
+  #toolbar button.primary { background: #2563eb; border-color: #3b82f6; }
+  #toolbar button.primary:hover { background: #1d4ed8; }
+  
+  #toolbar .separator { width: 1px; height: 24px; background: #555; }
+  
+  #toolbar .info {
+    color: #aaa;
+    font-size: 12px;
+    margin-left: auto;
+  }
+  
+  #canvas-area {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 300px;
+    bottom: 0;
+    background: #FFFCF6;
+    overflow: hidden;
+  }
+  
+  #collage-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .collage-item {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    transition: box-shadow 0.15s;
+  }
+  .collage-item:hover { box-shadow: 0 0 0 2px #2563eb; }
+  .collage-item.selected { box-shadow: 0 0 0 2px #f59e0b; }
+  .collage-item.dragging { cursor: grabbing; opacity: 0.85; }
+  
+  .collage-item img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    display: block;
+  }
+  
+  .resize-handle {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    background: #2563eb;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    cursor: se-resize;
+    display: none;
+  }
+  .collage-item.selected .resize-handle { display: block; }
+  
+  #sidebar {
+    position: fixed;
+    top: 48px;
+    right: 0;
+    width: 300px;
+    bottom: 0;
+    background: #2a2a2a;
+    overflow-y: auto;
+    border-left: 1px solid #444;
+    padding: 12px;
+  }
+  
+  #sidebar h3 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ccc;
+  }
+  
+  .prop-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .prop-row label {
+    width: 60px;
+    color: #999;
+    flex-shrink: 0;
+  }
+  .prop-row input {
+    flex: 1;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: #fff;
+    font-size: 12px;
+    width: 60px;
+  }
+  
+  .item-list-entry {
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .item-list-entry:hover { background: #333; }
+  .item-list-entry.active { background: #2563eb33; color: #60a5fa; }
+  
+  #mockup-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.3;
+    object-fit: cover;
+    display: none;
+  }
+  
+  #center-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+  #center-text h1 {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: #343434;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+  #center-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    color: #343434;
+    letter-spacing: 0.3em;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+  
+  #export-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+  #export-modal.show { display: flex; }
+  #export-modal pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: auto;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre;
+  }
+  #export-modal .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="toolbar">
+  <strong style="color:#f59e0b">Collage Positioner</strong>
+  <div class="separator"></div>
+  <button onclick="toggleMockup()">Toggle Mockup Overlay</button>
+  <button onclick="adjustOpacity(-0.1)">Mockup −</button>
+  <button onclick="adjustOpacity(0.1)">Mockup +</button>
+  <div class="separator"></div>
+  <button class="primary" onclick="exportPositions()">Export Coordinates</button>
+  <button onclick="copyExport()">Copy to Clipboard</button>
+  <div class="info">
+    <span id="status">Drag images to position. Use scroll/handles to resize.</span>
+  </div>
+</div>
+
+<div id="canvas-area">
+  <div id="collage-container">
+    <img id="mockup-overlay" src="" alt="mockup">
+    <div id="center-text">
+      <h1>Anoushka Lad</h1>
+      <p>Product & Research</p>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar">
+  <h3>SELECTED ELEMENT</h3>
+  <div id="props-panel" style="margin-bottom:16px;">
+    <div style="color:#666;font-size:12px;">Click an element to select it</div>
+  </div>
+  
+  <h3>ALL ELEMENTS</h3>
+  <div id="item-list"></div>
+</div>
+
+<div id="export-modal">
+  <button class="close-btn" onclick="closeExport()">Close</button>
+  <pre id="export-code"></pre>
+</div>
+
+<script>
+// Image data — starting positions from current implementation
+const items = [
+  { id: 'tiger-stamp', src: '/images/collage/tiger-stamp.png', x: 1, y: 1, size: 3.5, rotation: -3, zIndex: 10 },
+  { id: 'blue-dragon', src: '/images/collage/blue-dragon.png', x: -7, y: 6, size: 20, rotation: 0, zIndex: 5 },
+  { id: 'disco-ball', src: '/images/collage/disco-ball.png', x: 19, y: -10, size: 14, rotation: 0, zIndex: 7 },
+  { id: 'concert-ticket', src: '/images/collage/concert-ticket.png', x: 14, y: 22, size: 9, rotation: -6, zIndex: 6 },
+  { id: 'gold-frame-bunny', src: '/images/collage/gold-frame-bunny.png', x: 56, y: -2, size: 18, rotation: 3, zIndex: 5 },
+  { id: 'coffee-ring', src: '/images/collage/coffee-ring.png', x: 76, y: 1, size: 5.5, rotation: 0, zIndex: 9 },
+  { id: 'sun-face', src: '/images/collage/sun-face.png', x: 82, y: 15, size: 26, rotation: 0, zIndex: 3 },
+  { id: 'bookshelf', src: '/images/collage/bookshelf.png', x: -8, y: 32, size: 26, rotation: 0, zIndex: 2 },
+  { id: 'earring-back', src: '/images/collage/earring.png', x: 17, y: 34, size: 3, rotation: -8, zIndex: 7 },
+  { id: 'earring-front', src: '/images/collage/earring.png', x: 18.5, y: 36, size: 2.5, rotation: 5, zIndex: 8 },
+  { id: 'f1-car', src: '/images/collage/f1-car.png', x: 3, y: 56, size: 28, rotation: -2, zIndex: 6 },
+  { id: 'card-spades', src: '/images/collage/playing-card-spades.png', x: 66, y: 30, size: 10, rotation: 14, zIndex: 5 },
+  { id: 'card-queen', src: '/images/collage/playing-card-queen.png', x: 63, y: 28, size: 11, rotation: 4, zIndex: 6 },
+  { id: 'cd-disc', src: '/images/collage/cd-disc.png', x: 60, y: 50, size: 10, rotation: -5, zIndex: 7 },
+  { id: 'letter-T-1', src: '/images/collage/letter-T.png', x: 53, y: 75, size: 3.2, rotation: -4, zIndex: 8 },
+  { id: 'letter-H-1', src: '/images/collage/letter-H.png', x: 56.5, y: 74.5, size: 3.2, rotation: 2, zIndex: 8 },
+  { id: 'letter-A', src: '/images/collage/letter-A.png', x: 60, y: 75.2, size: 3.2, rotation: -1, zIndex: 8 },
+  { id: 'letter-T-2', src: '/images/collage/letter-T.png', x: 63.5, y: 74.8, size: 3.2, rotation: 3, zIndex: 8 },
+  { id: 'letter-S', src: '/images/collage/letter-S.png', x: 68, y: 75, size: 3.2, rotation: -2, zIndex: 8 },
+  { id: 'letter-H-2', src: '/images/collage/letter-H.png', x: 57, y: 81, size: 3.2, rotation: 1, zIndex: 8 },
+  { id: 'letter-O', src: '/images/collage/letter-O.png', x: 60.5, y: 81.5, size: 3.2, rotation: -3, zIndex: 8 },
+  { id: 'letter-T-3', src: '/images/collage/letter-T.png', x: 64, y: 81, size: 3.2, rotation: 5, zIndex: 8 },
+  { id: 'peony-back', src: '/images/collage/peony.png', x: 76, y: 64, size: 22, rotation: -5, zIndex: 3 },
+  { id: 'peony-front', src: '/images/collage/peony.png', x: 70, y: 68, size: 17, rotation: 8, zIndex: 5 },
+];
+
+let selected = null;
+let dragging = null;
+let resizing = null;
+let dragOffset = { x: 0, y: 0 };
+let mockupOpacity = 0.3;
+const container = document.getElementById('collage-container');
+
+// Create DOM elements for each item
+items.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'collage-item';
+  div.dataset.index = i;
+  div.style.left = item.x + 'vw';
+  div.style.top = item.y + 'vh';
+  div.style.width = item.size + 'vw';
+  div.style.transform = `rotate(${item.rotation}deg)`;
+  div.style.zIndex = item.zIndex;
+  
+  const img = document.createElement('img');
+  img.src = item.src;
+  img.alt = item.id;
+  img.draggable = false;
+  // Fallback for missing images
+  img.onerror = function() {
+    this.style.display = 'none';
+    div.style.background = '#ddd';
+    div.style.border = '1px dashed #999';
+    div.style.aspectRatio = '1';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.justifyContent = 'center';
+    div.style.fontSize = '10px';
+    div.style.color = '#666';
+    div.textContent = item.id;
+  };
+  
+  const handle = document.createElement('div');
+  handle.className = 'resize-handle';
+  
+  div.appendChild(img);
+  div.appendChild(handle);
+  container.appendChild(div);
+  
+  // Drag
+  div.addEventListener('mousedown', (e) => {
+    if (e.target === handle) return;
+    e.preventDefault();
+    selectItem(i);
+    dragging = i;
+    const rect = div.getBoundingClientRect();
+    dragOffset.x = e.clientX - rect.left;
+    dragOffset.y = e.clientY - rect.top;
+    div.classList.add('dragging');
+  });
+  
+  // Resize
+  handle.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    resizing = i;
+  });
+});
+
+document.addEventListener('mousemove', (e) => {
+  const canvasRect = document.getElementById('canvas-area').getBoundingClientRect();
+  
+  if (dragging !== null) {
+    const item = items[dragging];
+    const x = ((e.clientX - dragOffset.x - canvasRect.left) / canvasRect.width) * 100;
+    const y = ((e.clientY - dragOffset.y - canvasRect.top) / canvasRect.height) * 100;
+    item.x = Math.round(x * 10) / 10;
+    item.y = Math.round(y * 10) / 10;
+    updateElement(dragging);
+    updateProps();
+  }
+  
+  if (resizing !== null) {
+    const item = items[resizing];
+    const el = container.children[resizing + 2]; // +2 for mockup overlay and center text
+    const rect = el.getBoundingClientRect();
+    const newWidth = ((e.clientX - rect.left) / canvasRect.width) * 100;
+    item.size = Math.max(1, Math.round(newWidth * 10) / 10);
+    updateElement(resizing);
+    updateProps();
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  if (dragging !== null) {
+    container.children[dragging + 2].classList.remove('dragging');
+    dragging = null;
+  }
+  resizing = null;
+});
+
+// Keyboard controls
+document.addEventListener('keydown', (e) => {
+  if (selected === null) return;
+  if (document.activeElement.tagName === 'INPUT') return;
+  
+  const item = items[selected];
+  const step = e.shiftKey ? 0.5 : 0.1;
+  
+  switch(e.key) {
+    case 'ArrowLeft': item.x -= step; break;
+    case 'ArrowRight': item.x += step; break;
+    case 'ArrowUp': item.y -= step; break;
+    case 'ArrowDown': item.y += step; break;
+    case '[': item.rotation -= 1; break;
+    case ']': item.rotation += 1; break;
+    case '-': item.size = Math.max(1, item.size - 0.5); break;
+    case '=': case '+': item.size += 0.5; break;
+    case ',': item.zIndex = Math.max(1, item.zIndex - 1); break;
+    case '.': item.zIndex += 1; break;
+    default: return;
+  }
+  e.preventDefault();
+  item.x = Math.round(item.x * 10) / 10;
+  item.y = Math.round(item.y * 10) / 10;
+  updateElement(selected);
+  updateProps();
+  updateList();
+});
+
+function selectItem(index) {
+  // Deselect previous
+  if (selected !== null) {
+    container.children[selected + 2].classList.remove('selected');
+  }
+  selected = index;
+  container.children[index + 2].classList.add('selected');
+  updateProps();
+  updateList();
+}
+
+function updateElement(index) {
+  const item = items[index];
+  const el = container.children[index + 2];
+  el.style.left = item.x + 'vw';
+  el.style.top = item.y + 'vh';
+  el.style.width = item.size + 'vw';
+  el.style.transform = `rotate(${item.rotation}deg)`;
+  el.style.zIndex = item.zIndex;
+}
+
+function updateProps() {
+  const panel = document.getElementById('props-panel');
+  if (selected === null) {
+    panel.innerHTML = '<div style="color:#666;font-size:12px;">Click an element to select it</div>';
+    return;
+  }
+  const item = items[selected];
+  panel.innerHTML = `
+    <div style="font-weight:600;margin-bottom:8px;color:#f59e0b;">${item.id}</div>
+    <div class="prop-row">
+      <label>X (vw)</label>
+      <input type="number" step="0.5" value="${item.x}" onchange="setProp('x', this.value)">
+    </div>
+    <div class="prop-row">
+      <label>Y (vh)</label>
+      <input type="number" step="0.5" value="${item.y}" onchange="setProp('y', this.value)">
+    </div>
+    <div class="prop-row">
+      <label>Size (vw)</label>
+      <input type="number" step="0.5" value="${item.size}" onchange="setProp('size', this.value)">
+    </div>
+    <div class="prop-row">
+      <label>Rotation</label>
+      <input type="number" step="1" value="${item.rotation}" onchange="setProp('rotation', this.value)">
+    </div>
+    <div class="prop-row">
+      <label>Z-Index</label>
+      <input type="number" step="1" value="${item.zIndex}" onchange="setProp('zIndex', this.value)">
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#666;">
+      Arrows: move (hold Shift for 0.5 steps)<br>
+      [ ] : rotate ± 1°<br>
+      - + : resize ± 0.5vw<br>
+      , . : z-index ± 1
+    </div>
+  `;
+}
+
+function setProp(prop, value) {
+  if (selected === null) return;
+  const num = parseFloat(value);
+  if (isNaN(num)) return;
+  if (prop === 'x') items[selected].x = num;
+  else if (prop === 'y') items[selected].y = num;
+  else if (prop === 'size') items[selected].size = num;
+  else if (prop === 'rotation') items[selected].rotation = num;
+  else if (prop === 'zIndex') items[selected].zIndex = num;
+  updateElement(selected);
+}
+
+function updateList() {
+  const list = document.getElementById('item-list');
+  list.innerHTML = items.map((item, i) => `
+    <div class="item-list-entry ${i === selected ? 'active' : ''}" onclick="selectItem(${i})">
+      <span>${item.id}</span>
+      <span style="color:#666">${item.x},${item.y} ${item.size}vw</span>
+    </div>
+  `).join('');
+}
+
+function toggleMockup() {
+  const el = document.getElementById('mockup-overlay');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function adjustOpacity(delta) {
+  mockupOpacity = Math.max(0, Math.min(1, mockupOpacity + delta));
+  document.getElementById('mockup-overlay').style.opacity = mockupOpacity;
+}
+
+function exportPositions() {
+  const bleedMap = {
+    'blue-dragon': "'left'",
+    'disco-ball': "'top'",
+    'sun-face': "'right'",
+    'bookshelf': "'left'",
+    'peony-back': "'bottom-right'",
+  };
+  
+  const altMap = {
+    'tiger-stamp': 'Vintage tiger postage stamp',
+    'blue-dragon': 'Blue dragon paper cutout illustration',
+    'disco-ball': 'Disco ball hanging from chain',
+    'concert-ticket': 'Vintage concert ticket stub',
+    'gold-frame-bunny': 'Pink bunny painting in ornate gold frame',
+    'coffee-ring': 'Coffee cup ring stain',
+    'sun-face': 'Vintage engraved sun with face',
+    'bookshelf': 'Antique bookshelf with leather-bound books',
+    'earring-back': 'Ornate silver jhumka earring',
+    'earring-front': 'Ornate silver jhumka earring',
+    'f1-car': 'Vintage red Formula 1 race car illustration',
+    'card-spades': 'Vintage 10 of spades playing card',
+    'card-queen': 'Vintage Queen of Hearts playing card',
+    'cd-disc': 'CD with Summer nights with friends written on it',
+    'peony-back': 'Pink peony flower with green leaves',
+    'peony-front': 'Pink peony flower with green leaves',
+  };
+  
+  const srcMap = {
+    'tiger-stamp': 'tiger-stamp.png',
+    'blue-dragon': 'blue-dragon.png',
+    'disco-ball': 'disco-ball.png',
+    'concert-ticket': 'concert-ticket.png',
+    'gold-frame-bunny': 'gold-frame-bunny.png',
+    'coffee-ring': 'coffee-ring.png',
+    'sun-face': 'sun-face.png',
+    'bookshelf': 'bookshelf.png',
+    'earring-back': 'earring.png',
+    'earring-front': 'earring.png',
+    'f1-car': 'f1-car.png',
+    'card-spades': 'playing-card-spades.png',
+    'card-queen': 'playing-card-queen.png',
+    'cd-disc': 'cd-disc.png',
+    'letter-T-1': 'letter-T.png',
+    'letter-H-1': 'letter-H.png',
+    'letter-A': 'letter-A.png',
+    'letter-T-2': 'letter-T.png',
+    'letter-S': 'letter-S.png',
+    'letter-H-2': 'letter-H.png',
+    'letter-O': 'letter-O.png',
+    'letter-T-3': 'letter-T.png',
+    'peony-back': 'peony.png',
+    'peony-front': 'peony.png',
+  };
+
+  let code = `export const collageImages: CollageImageData[] = [\n`;
+  
+  items.forEach(item => {
+    const alt = altMap[item.id] || item.id.replace(/-/g, ' ');
+    const src = srcMap[item.id] || item.id + '.png';
+    const bleed = bleedMap[item.id];
+    code += `  {\n`;
+    code += `    id: '${item.id}',\n`;
+    code += `    src: '${src}',\n`;
+    code += `    alt: '${alt}',\n`;
+    code += `    position: { x: ${item.x}, y: ${item.y} },\n`;
+    code += `    size: ${item.size},\n`;
+    code += `    rotation: ${item.rotation},\n`;
+    code += `    zIndex: ${item.zIndex},\n`;
+    if (bleed) code += `    bleed: ${bleed},\n`;
+    code += `  },\n`;
+  });
+  
+  code += `];\n`;
+  
+  document.getElementById('export-code').textContent = code;
+  document.getElementById('export-modal').classList.add('show');
+}
+
+function closeExport() {
+  document.getElementById('export-modal').classList.remove('show');
+}
+
+function copyExport() {
+  exportPositions();
+  const code = document.getElementById('export-code').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    document.getElementById('status').textContent = '✓ Copied to clipboard!';
+    setTimeout(() => {
+      document.getElementById('status').textContent = 'Drag images to position.';
+    }, 2000);
+  });
+}
+
+// Init
+updateList();
+updateProps();
+</script>
+</body>
+</html>
