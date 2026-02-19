@@ -58,14 +58,14 @@ const HexagonLogo = ({ src, alt, label, sublabel, delay = 0 }: { src: string; al
       {label && (
         <div className="text-center mt-2">
           <motion.p
-            className="font-display text-sm text-foreground"
+            className="font-display text-[19.5px] text-foreground"
             whileHover={{ letterSpacing: "0.05em" }}
             transition={{ duration: 0.2 }}
           >
             {label}
           </motion.p>
           {sublabel && (
-            <p className="font-display text-xs text-muted-foreground">{sublabel}</p>
+            <p className="font-display text-[19.5px] text-muted-foreground">{sublabel}</p>
           )}
         </div>
       )}

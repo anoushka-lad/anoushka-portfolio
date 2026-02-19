@@ -150,7 +150,7 @@ const Figure3e = () => {
 
             {/* TV Shows Label - below left circle */}
             <motion.span
-              className="absolute font-display text-sm"
+              className="absolute font-display text-[18px]"
               style={{ 
                 left: '14%', 
                 bottom: '0%',
@@ -166,7 +166,7 @@ const Figure3e = () => {
 
             {/* Movies Label - below right circle */}
             <motion.span
-              className="absolute font-display text-sm"
+              className="absolute font-display text-[18px]"
               style={{ 
                 right: '18%', 
                 bottom: '0%',
@@ -300,7 +300,7 @@ const Figure3e = () => {
               
               {/* Label text - bold and bigger */}
               <span 
-                className="font-display text-sm whitespace-nowrap"
+                className="font-display text-[18px] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >
                 {item.name}

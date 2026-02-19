@@ -106,7 +106,7 @@ const Figure2b = () => {
               {item.icon}
             </motion.div>
           )}
-          <span className="text-sm font-display text-[#343434] text-center leading-tight whitespace-pre-line">
+          <span className="text-[18px] font-display text-[#343434] text-center leading-tight whitespace-pre-line">
             {item.label}
           </span>
         </motion.div>

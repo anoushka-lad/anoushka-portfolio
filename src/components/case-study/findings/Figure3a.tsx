@@ -51,7 +51,7 @@ const Figure3a = () => {
               {/* Persona label */}
               <div className="w-24 shrink-0 text-right pr-1">
                 <span 
-                  className="font-display text-sm whitespace-pre-line leading-tight"
+                  className="font-display text-[18px] whitespace-pre-line leading-tight"
                   style={{ color: '#343434' }}
                 >
                   {persona.name}
@@ -100,7 +100,7 @@ const Figure3a = () => {
             {timeLabels.map((label, i) => (
               <span
                 key={i}
-                className="flex-1 font-display text-sm text-center"
+                className="flex-1 font-display text-[18px] text-center"
                 style={{ color: '#343434' }}
               >
                 {label}

@@ -245,7 +245,7 @@ const Figure2bCS2 = () => {
               </motion.div>
               <div className="absolute -inset-[4px] rounded-full border border-dashed border-foreground/30" />
               <span
-                className="absolute text-[11px] font-display text-foreground whitespace-nowrap"
+                className="absolute text-[22.6px] font-display text-foreground whitespace-nowrap"
                 style={{
                   left: userSize / 2 + baseLabelX + nudgeX,
                   top: userSize / 2 + baseLabelY + nudgeY,
@@ -271,7 +271,7 @@ const Figure2bCS2 = () => {
         transition={{ delay: 0.3, duration: 0.6 }}
       >
         <motion.h4
-          className="font-display text-foreground text-sm mb-3"
+          className="font-display text-foreground text-[22.6px] mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -317,7 +317,7 @@ const Figure2bCS2 = () => {
         transition={{ delay: 0.6, duration: 0.6, type: "spring", stiffness: 150 }}
       >
         <motion.h4
-          className="font-display text-foreground text-sm mb-5 text-center"
+          className="font-display text-foreground text-[22.6px] mb-5 text-center"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -342,7 +342,7 @@ const Figure2bCS2 = () => {
             >
               <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor" className="text-foreground" />
             </motion.svg>
-            <span className="text-sm font-display text-foreground">Quantitative<br />metrics</span>
+            <span className="text-[22.6px] font-display text-foreground">Quantitative<br />metrics</span>
           </motion.div>
           <motion.div
             className="flex items-center gap-3"
@@ -360,7 +360,7 @@ const Figure2bCS2 = () => {
             >
               <polygon points="12,0 14,8 22,4 16,12 22,20 14,16 12,24 10,16 2,20 8,12 2,4 10,8" fill="currentColor" className="text-foreground" />
             </motion.svg>
-            <span className="text-sm font-display text-foreground">Qualitative<br />metrics</span>
+            <span className="text-[22.6px] font-display text-foreground">Qualitative<br />metrics</span>
           </motion.div>
         </div>
       </motion.div>

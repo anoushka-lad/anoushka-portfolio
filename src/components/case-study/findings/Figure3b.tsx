@@ -97,7 +97,7 @@ const Figure3b = () => {
               <div key={dIndex} className="flex items-center">
                 {/* Device label - bold */}
                 <div 
-                  className="w-16 shrink-0 font-display text-sm pr-2"
+                  className="w-16 shrink-0 font-display text-[18px] pr-2"
                   style={{ color: '#343434' }}
                 >
                   {device}
@@ -126,7 +126,7 @@ const Figure3b = () => {
         
         {/* Legend */}
         <motion.div 
-          className="flex flex-col justify-start gap-2 text-sm pt-14"
+          className="flex flex-col justify-start gap-2 text-[18px] pt-14"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
@@ -156,7 +156,7 @@ const Figure3b = () => {
               
               {/* Label - bold */}
               <span 
-                className="font-display text-sm whitespace-nowrap"
+                className="font-display text-[18px] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >
                 {item.label}

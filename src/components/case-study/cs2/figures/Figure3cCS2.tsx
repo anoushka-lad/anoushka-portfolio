@@ -417,7 +417,7 @@ const Figure3cCS2 = () => {
                   
                   {/* Curved text label */}
                   <motion.text
-                    className="font-display text-sm"
+                    className="font-display text-[18px]"
                     fill="#343434"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -454,7 +454,7 @@ const Figure3cCS2 = () => {
                   y={pos.y}
                   textAnchor={pos.anchor}
                   dominantBaseline="middle"
-                  className="font-display text-sm"
+                  className="font-display text-[18px]"
                   fill="#343434"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

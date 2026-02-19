@@ -80,8 +80,8 @@ const Figure2aCS3 = () => {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
           >
-            <span style={{ color: item.color }} className="text-sm">{item.symbol}</span>
-            <span className="font-display text-xs md:text-sm text-foreground">{item.label}</span>
+            <span style={{ color: item.color }} className="text-[18px]">{item.symbol}</span>
+            <span className="font-display text-[18px] text-foreground">{item.label}</span>
           </motion.div>
         ))}
       </motion.div>
@@ -103,7 +103,7 @@ const Figure2aCS3 = () => {
               x={leftPad - 10}
               y={yPos(tick) + 5}
               textAnchor="end"
-              className="font-display text-[13px]"
+              className="font-display text-[16.6px]"
               fill="hsl(35 18% 30%)"
             >
               {tick}
@@ -132,7 +132,7 @@ const Figure2aCS3 = () => {
                 x={groupX + groupWidth / 2}
                 y={baseline + 20}
                 textAnchor="middle"
-                className="font-display text-[12px]"
+                className="font-display text-[16.6px]"
                 fill="hsl(35 18% 30%)"
               >
                 {group.category}
@@ -178,7 +178,7 @@ const Figure2aCS3 = () => {
                       x={barX + barWidth / 2}
                       y={barY + 18}
                       textAnchor="middle"
-                      className="font-display text-[11px] pointer-events-none"
+                      className="font-display text-[16.6px] pointer-events-none"
                       fill="hsl(35 30% 92%)"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}

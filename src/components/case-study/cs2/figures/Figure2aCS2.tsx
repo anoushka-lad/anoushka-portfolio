@@ -111,8 +111,8 @@ const Figure2aCS2 = () => {
     <ScalingContainer designWidth={700} className="py-4">
       {/* Goal 1 - Top */}
       <div className="text-center mb-1">
-        <p className="font-display text-sm text-[#343434]">Goal 1</p>
-        <p className="font-display text-sm text-[#343434]/90">
+        <p className="font-display text-[18px] text-[#343434]">Goal 1</p>
+        <p className="font-display text-[18px] text-[#343434]/90">
           Start watching content (discovery &amp; findability)
         </p>
       </div>
@@ -358,7 +358,7 @@ const Figure2aCS2 = () => {
               y={labelY}
               textAnchor={textAnchor}
               dominantBaseline="middle"
-              className="font-display text-[9px] fill-[#343434]"
+              className="font-display text-[15.4px] fill-[#343434]"
             >
               {lines.map((line, i) => (
                 <tspan 
@@ -376,8 +376,8 @@ const Figure2aCS2 = () => {
 
       {/* Goal 2 - Bottom */}
       <div className="text-center mt-1">
-        <p className="font-display text-sm text-[#343434]">Goal 2</p>
-        <p className="font-display text-sm text-[#343434]/90">
+        <p className="font-display text-[18px] text-[#343434]">Goal 2</p>
+        <p className="font-display text-[18px] text-[#343434]/90">
           Manage and use non-browsing service features
         </p>
       </div>
