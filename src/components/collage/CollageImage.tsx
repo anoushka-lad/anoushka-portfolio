@@ -36,7 +36,7 @@ export default function CollageImage({ data }: CollageImageProps) {
         scale: 1.05,
         rotate: rotation + 2,
         y: -4,
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+        filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12))',
       }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     />
