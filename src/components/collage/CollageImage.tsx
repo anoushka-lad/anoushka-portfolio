@@ -8,21 +8,23 @@ interface CollageImageProps {
 }
 
 export default function CollageImage({ data }: CollageImageProps) {
-  const { id, src, alt, position, anchor, size, rotation, zIndex } = data;
+  const { src, alt, top, width, rotation, zIndex } = data;
+
+  const horizontalPos = data.anchor === 'right'
+    ? { right: `${data.right}px`, left: 'auto' as const }
+    : { left: `${data.left}px`, right: 'auto' as const };
 
   return (
     <motion.img
-      src={`/images/collage/${src}`}
+      src={src}
       alt={alt}
       draggable={false}
-      loading={id === 'disco-ball' || id === 'gold-frame-bunny' ? 'eager' : 'lazy'}
+      loading={data.id === 'disco-ball' || data.id === 'gold-frame-bunny' ? 'eager' : 'lazy'}
       style={{
         position: 'absolute',
-        ...(anchor === 'right'
-          ? { right: `${position.x}vw` }
-          : { left: `${position.x}vw` }),
-        top: `${position.y}vw`,
-        width: `${size}vw`,
+        ...horizontalPos,
+        top: `${top}px`,
+        width: `${width}px`,
         height: 'auto',
         rotate: `${rotation}deg`,
         zIndex,

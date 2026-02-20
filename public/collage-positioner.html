@@ -6,7 +6,7 @@
 <title>Collage Position Tool</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background: #1a1a1a;
@@ -14,7 +14,7 @@
     overflow: hidden;
     height: 100vh;
   }
-  
+
   #toolbar {
     position: fixed;
     top: 0;
@@ -30,7 +30,7 @@
     border-bottom: 1px solid #444;
     font-size: 13px;
   }
-  
+
   #toolbar button {
     padding: 6px 14px;
     border-radius: 6px;
@@ -43,15 +43,23 @@
   #toolbar button:hover { background: #444; }
   #toolbar button.primary { background: #2563eb; border-color: #3b82f6; }
   #toolbar button.primary:hover { background: #1d4ed8; }
-  
+
   #toolbar .separator { width: 1px; height: 24px; background: #555; }
-  
+
   #toolbar .info {
     color: #aaa;
     font-size: 12px;
     margin-left: auto;
+    display: flex;
+    gap: 16px;
+    align-items: center;
   }
-  
+  #canvas-dims {
+    color: #666;
+    font-size: 11px;
+    font-family: monospace;
+  }
+
   #canvas-area {
     position: absolute;
     top: 48px;
@@ -61,14 +69,14 @@
     background: #FFFCF6;
     overflow: hidden;
   }
-  
+
   #collage-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
-  
+
   .collage-item {
     position: absolute;
     cursor: grab;
@@ -78,14 +86,14 @@
   .collage-item:hover { box-shadow: 0 0 0 2px #2563eb; }
   .collage-item.selected { box-shadow: 0 0 0 2px #f59e0b; }
   .collage-item.dragging { cursor: grabbing; opacity: 0.85; }
-  
+
   .collage-item img {
     width: 100%;
     height: auto;
     pointer-events: none;
     display: block;
   }
-  
+
   .resize-handle {
     position: absolute;
     bottom: -4px;
@@ -99,7 +107,30 @@
     display: none;
   }
   .collage-item.selected .resize-handle { display: block; }
-  
+
+  /* Anchor indicator */
+  .anchor-indicator {
+    position: absolute;
+    top: 3px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .collage-item.selected .anchor-indicator,
+  .collage-item:hover .anchor-indicator { opacity: 0.8; }
+  .anchor-left .anchor-indicator {
+    left: 3px;
+    border-top: 6px solid #22c55e;
+    border-right: 6px solid transparent;
+  }
+  .anchor-right .anchor-indicator {
+    right: 3px;
+    border-top: 6px solid #a855f7;
+    border-left: 6px solid transparent;
+  }
+
   #sidebar {
     position: fixed;
     top: 48px;
@@ -111,14 +142,14 @@
     border-left: 1px solid #444;
     padding: 12px;
   }
-  
+
   #sidebar h3 {
     font-size: 13px;
     font-weight: 600;
     margin-bottom: 8px;
     color: #ccc;
   }
-  
+
   .prop-row {
     display: flex;
     align-items: center;
@@ -141,7 +172,38 @@
     font-size: 12px;
     width: 60px;
   }
-  
+
+  .anchor-toggle {
+    display: flex;
+    flex: 1;
+  }
+  .anchor-toggle button {
+    flex: 1;
+    padding: 3px 10px;
+    border: 1px solid #555;
+    background: #333;
+    color: #999;
+    cursor: pointer;
+    font-size: 11px;
+  }
+  .anchor-toggle button:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  .anchor-toggle button:last-child {
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+  }
+  .anchor-toggle button.active-left {
+    background: #166534;
+    color: #86efac;
+    border-color: #22c55e;
+  }
+  .anchor-toggle button.active-right {
+    background: #581c87;
+    color: #d8b4fe;
+    border-color: #a855f7;
+  }
+
   .item-list-entry {
     padding: 6px 8px;
     border-radius: 4px;
@@ -153,7 +215,16 @@
   }
   .item-list-entry:hover { background: #333; }
   .item-list-entry.active { background: #2563eb33; color: #60a5fa; }
-  
+  .item-list-entry .anchor-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0 4px;
+    border-radius: 2px;
+    margin-right: 4px;
+  }
+  .anchor-badge.left { background: #166534; color: #86efac; }
+  .anchor-badge.right { background: #581c87; color: #d8b4fe; }
+
   #mockup-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -163,7 +234,7 @@
     object-fit: cover;
     display: none;
   }
-  
+
   #center-text {
     position: absolute;
     left: 50%;
@@ -188,7 +259,7 @@
     margin-top: 8px;
     text-transform: uppercase;
   }
-  
+
   #export-modal {
     display: none;
     position: fixed;
@@ -237,7 +308,8 @@
   <button class="primary" onclick="exportPositions()">Export Coordinates</button>
   <button onclick="copyExport()">Copy to Clipboard</button>
   <div class="info">
-    <span id="status">Drag images to position. Use scroll/handles to resize.</span>
+    <span id="status">Drag images to position. All values in px.</span>
+    <span id="canvas-dims"></span>
   </div>
 </div>
 
@@ -256,7 +328,7 @@
   <div id="props-panel" style="margin-bottom:16px;">
     <div style="color:#666;font-size:12px;">Click an element to select it</div>
   </div>
-  
+
   <h3>ALL ELEMENTS</h3>
   <div id="item-list"></div>
 </div>
@@ -267,34 +339,35 @@
 </div>
 
 <script>
-// Image data — starting positions from current implementation
-const items = [
-  { id: 'tiger-stamp', src: '/images/collage/tiger-stamp.png', x: 1, y: 1, size: 3.5, rotation: -3, zIndex: 10 },
-  { id: 'blue-dragon', src: '/images/collage/blue-dragon.png', x: -7, y: 6, size: 20, rotation: 0, zIndex: 5 },
-  { id: 'disco-ball', src: '/images/collage/disco-ball.png', x: 19, y: -10, size: 14, rotation: 0, zIndex: 7 },
-  { id: 'concert-ticket', src: '/images/collage/concert-ticket.png', x: 14, y: 22, size: 9, rotation: -6, zIndex: 6 },
-  { id: 'gold-frame-bunny', src: '/images/collage/gold-frame-bunny.png', x: 56, y: -2, size: 18, rotation: 3, zIndex: 5 },
-  { id: 'coffee-ring', src: '/images/collage/coffee-ring.png', x: 76, y: 1, size: 5.5, rotation: 0, zIndex: 9 },
-  { id: 'sun-face', src: '/images/collage/sun-face.png', x: 82, y: 15, size: 26, rotation: 0, zIndex: 3 },
-  { id: 'bookshelf', src: '/images/collage/bookshelf.png', x: -8, y: 32, size: 26, rotation: 0, zIndex: 2 },
-  { id: 'earring-back', src: '/images/collage/earring.png', x: 17, y: 34, size: 3, rotation: -8, zIndex: 7 },
-  { id: 'earring-front', src: '/images/collage/earring.png', x: 18.5, y: 36, size: 2.5, rotation: 5, zIndex: 8 },
-  { id: 'f1-car', src: '/images/collage/f1-car.png', x: 3, y: 56, size: 28, rotation: -2, zIndex: 6 },
-  { id: 'card-spades', src: '/images/collage/playing-card-spades.png', x: 66, y: 30, size: 10, rotation: 14, zIndex: 5 },
-  { id: 'card-queen', src: '/images/collage/playing-card-queen.png', x: 63, y: 28, size: 11, rotation: 4, zIndex: 6 },
-  { id: 'cd-disc', src: '/images/collage/cd-disc.png', x: 60, y: 50, size: 10, rotation: -5, zIndex: 7 },
-  { id: 'letter-T-1', src: '/images/collage/letter-T.png', x: 53, y: 75, size: 3.2, rotation: -4, zIndex: 8 },
-  { id: 'letter-H-1', src: '/images/collage/letter-H.png', x: 56.5, y: 74.5, size: 3.2, rotation: 2, zIndex: 8 },
-  { id: 'letter-A', src: '/images/collage/letter-A.png', x: 60, y: 75.2, size: 3.2, rotation: -1, zIndex: 8 },
-  { id: 'letter-T-2', src: '/images/collage/letter-T.png', x: 63.5, y: 74.8, size: 3.2, rotation: 3, zIndex: 8 },
-  { id: 'letter-S', src: '/images/collage/letter-S.png', x: 68, y: 75, size: 3.2, rotation: -2, zIndex: 8 },
-  { id: 'letter-H-2', src: '/images/collage/letter-H.png', x: 57, y: 81, size: 3.2, rotation: 1, zIndex: 8 },
-  { id: 'letter-O', src: '/images/collage/letter-O.png', x: 60.5, y: 81.5, size: 3.2, rotation: -3, zIndex: 8 },
-  { id: 'letter-T-3', src: '/images/collage/letter-T.png', x: 64, y: 81, size: 3.2, rotation: 5, zIndex: 8 },
-  { id: 'peony-back', src: '/images/collage/peony.png', x: 76, y: 64, size: 22, rotation: -5, zIndex: 3 },
-  { id: 'peony-front', src: '/images/collage/peony.png', x: 70, y: 68, size: 17, rotation: 8, zIndex: 5 },
+// Raw item definitions — positions in old vw/vh units, converted to px on init
+const itemDefs = [
+  { id: 'tiger-stamp', src: '/images/collage/tiger-stamp.png', xVw: 1, yVh: 1, sizeVw: 3.5, rotation: -3, zIndex: 10, anchor: 'left' },
+  { id: 'blue-dragon', src: '/images/collage/blue-dragon.png', xVw: -7, yVh: 6, sizeVw: 20, rotation: 0, zIndex: 5, anchor: 'left' },
+  { id: 'disco-ball', src: '/images/collage/disco-ball.png', xVw: 19, yVh: -10, sizeVw: 14, rotation: 0, zIndex: 7, anchor: 'left' },
+  { id: 'concert-ticket', src: '/images/collage/concert-ticket.png', xVw: 14, yVh: 22, sizeVw: 9, rotation: -6, zIndex: 6, anchor: 'left' },
+  { id: 'gold-frame-bunny', src: '/images/collage/gold-frame-bunny.png', xVw: 56, yVh: -2, sizeVw: 18, rotation: 3, zIndex: 5, anchor: 'right' },
+  { id: 'coffee-ring', src: '/images/collage/coffee-ring.png', xVw: 76, yVh: 1, sizeVw: 5.5, rotation: 0, zIndex: 9, anchor: 'right' },
+  { id: 'sun-face', src: '/images/collage/sun-face.png', xVw: 82, yVh: 15, sizeVw: 26, rotation: 0, zIndex: 3, anchor: 'right' },
+  { id: 'bookshelf', src: '/images/collage/bookshelf.png', xVw: -8, yVh: 32, sizeVw: 26, rotation: 0, zIndex: 2, anchor: 'left' },
+  { id: 'earring-back', src: '/images/collage/earring.png', xVw: 17, yVh: 34, sizeVw: 3, rotation: -8, zIndex: 7, anchor: 'left' },
+  { id: 'earring-front', src: '/images/collage/earring.png', xVw: 18.5, yVh: 36, sizeVw: 2.5, rotation: 5, zIndex: 8, anchor: 'left' },
+  { id: 'f1-car', src: '/images/collage/f1-car.png', xVw: 3, yVh: 56, sizeVw: 28, rotation: -2, zIndex: 6, anchor: 'left' },
+  { id: 'card-spades', src: '/images/collage/playing-card-spades.png', xVw: 66, yVh: 30, sizeVw: 10, rotation: 14, zIndex: 5, anchor: 'right' },
+  { id: 'card-queen', src: '/images/collage/playing-card-queen.png', xVw: 63, yVh: 28, sizeVw: 11, rotation: 4, zIndex: 6, anchor: 'right' },
+  { id: 'cd-disc', src: '/images/collage/cd-disc.png', xVw: 60, yVh: 50, sizeVw: 10, rotation: -5, zIndex: 7, anchor: 'right' },
+  { id: 'letter-T-1', src: '/images/collage/letter-T.png', xVw: 53, yVh: 75, sizeVw: 3.2, rotation: -4, zIndex: 8, anchor: 'right' },
+  { id: 'letter-H-1', src: '/images/collage/letter-H.png', xVw: 56.5, yVh: 74.5, sizeVw: 3.2, rotation: 2, zIndex: 8, anchor: 'right' },
+  { id: 'letter-A', src: '/images/collage/letter-A.png', xVw: 60, yVh: 75.2, sizeVw: 3.2, rotation: -1, zIndex: 8, anchor: 'right' },
+  { id: 'letter-T-2', src: '/images/collage/letter-T.png', xVw: 63.5, yVh: 74.8, sizeVw: 3.2, rotation: 3, zIndex: 8, anchor: 'right' },
+  { id: 'letter-S', src: '/images/collage/letter-S.png', xVw: 68, yVh: 75, sizeVw: 3.2, rotation: -2, zIndex: 8, anchor: 'right' },
+  { id: 'letter-H-2', src: '/images/collage/letter-H.png', xVw: 57, yVh: 81, sizeVw: 3.2, rotation: 1, zIndex: 8, anchor: 'right' },
+  { id: 'letter-O', src: '/images/collage/letter-O.png', xVw: 60.5, yVh: 81.5, sizeVw: 3.2, rotation: -3, zIndex: 8, anchor: 'right' },
+  { id: 'letter-T-3', src: '/images/collage/letter-T.png', xVw: 64, yVh: 81, sizeVw: 3.2, rotation: 5, zIndex: 8, anchor: 'right' },
+  { id: 'peony-back', src: '/images/collage/peony.png', xVw: 76, yVh: 64, sizeVw: 22, rotation: -5, zIndex: 3, anchor: 'right' },
+  { id: 'peony-front', src: '/images/collage/peony.png', xVw: 70, yVh: 68, sizeVw: 17, rotation: 8, zIndex: 5, anchor: 'right' },
 ];
 
+const items = [];
 let selected = null;
 let dragging = null;
 let resizing = null;
@@ -302,81 +375,156 @@ let dragOffset = { x: 0, y: 0 };
 let mockupOpacity = 0.3;
 const container = document.getElementById('collage-container');
 
+function getCanvasEl() {
+  return document.getElementById('canvas-area');
+}
+
+function getCanvasRect() {
+  return getCanvasEl().getBoundingClientRect();
+}
+
+// Convert initial vw/vh definitions to px-based items
+function initItems() {
+  const canvasW = getCanvasEl().offsetWidth;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  itemDefs.forEach(def => {
+    // vw/vh → px (vw/vh are relative to full viewport, which is how the old tool applied them)
+    const leftPx = (def.xVw / 100) * vw;
+    const topPx = (def.yVh / 100) * vh;
+    const widthPx = (def.sizeVw / 100) * vw;
+
+    let x;
+    if (def.anchor === 'right') {
+      // Convert from left-based px to right-distance px within canvas
+      x = Math.round(canvasW - leftPx - widthPx);
+    } else {
+      x = Math.round(leftPx);
+    }
+
+    items.push({
+      id: def.id,
+      src: def.src,
+      x: x,
+      y: Math.round(topPx),
+      width: Math.round(widthPx),
+      rotation: def.rotation,
+      zIndex: def.zIndex,
+      anchor: def.anchor,
+    });
+  });
+}
+
 // Create DOM elements for each item
-items.forEach((item, i) => {
-  const div = document.createElement('div');
-  div.className = 'collage-item';
-  div.dataset.index = i;
-  div.style.left = item.x + 'vw';
-  div.style.top = item.y + 'vh';
-  div.style.width = item.size + 'vw';
-  div.style.transform = `rotate(${item.rotation}deg)`;
-  div.style.zIndex = item.zIndex;
-  
-  const img = document.createElement('img');
-  img.src = item.src;
-  img.alt = item.id;
-  img.draggable = false;
-  // Fallback for missing images
-  img.onerror = function() {
-    this.style.display = 'none';
-    div.style.background = '#ddd';
-    div.style.border = '1px dashed #999';
-    div.style.aspectRatio = '1';
-    div.style.display = 'flex';
-    div.style.alignItems = 'center';
-    div.style.justifyContent = 'center';
-    div.style.fontSize = '10px';
-    div.style.color = '#666';
-    div.textContent = item.id;
-  };
-  
-  const handle = document.createElement('div');
-  handle.className = 'resize-handle';
-  
-  div.appendChild(img);
-  div.appendChild(handle);
-  container.appendChild(div);
-  
-  // Drag
-  div.addEventListener('mousedown', (e) => {
-    if (e.target === handle) return;
-    e.preventDefault();
-    selectItem(i);
-    dragging = i;
-    const rect = div.getBoundingClientRect();
-    dragOffset.x = e.clientX - rect.left;
-    dragOffset.y = e.clientY - rect.top;
-    div.classList.add('dragging');
+function createElements() {
+  items.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'collage-item anchor-' + item.anchor;
+    div.dataset.index = i;
+
+    const img = document.createElement('img');
+    img.src = item.src;
+    img.alt = item.id;
+    img.draggable = false;
+    img.onerror = function() {
+      this.style.display = 'none';
+      div.style.background = '#ddd';
+      div.style.border = '1px dashed #999';
+      div.style.aspectRatio = '1';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.justifyContent = 'center';
+      div.style.fontSize = '10px';
+      div.style.color = '#666';
+      div.textContent = item.id;
+    };
+
+    const handle = document.createElement('div');
+    handle.className = 'resize-handle';
+
+    const indicator = document.createElement('div');
+    indicator.className = 'anchor-indicator';
+
+    div.appendChild(img);
+    div.appendChild(handle);
+    div.appendChild(indicator);
+    container.appendChild(div);
+
+    updateElement(i);
+
+    // Drag start
+    div.addEventListener('mousedown', (e) => {
+      if (e.target === handle) return;
+      e.preventDefault();
+      selectItem(i);
+      dragging = i;
+      const rect = div.getBoundingClientRect();
+      dragOffset.x = e.clientX - rect.left;
+      dragOffset.y = e.clientY - rect.top;
+      div.classList.add('dragging');
+    });
+
+    // Resize start
+    handle.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      resizing = i;
+    });
   });
-  
-  // Resize
-  handle.addEventListener('mousedown', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    resizing = i;
-  });
-});
+}
+
+function updateElement(index) {
+  const item = items[index];
+  const el = container.children[index + 2]; // +2 for mockup overlay + center text
+
+  if (item.anchor === 'right') {
+    el.style.left = 'auto';
+    el.style.right = item.x + 'px';
+  } else {
+    el.style.right = 'auto';
+    el.style.left = item.x + 'px';
+  }
+  el.style.top = item.y + 'px';
+  el.style.width = item.width + 'px';
+  el.style.transform = `rotate(${item.rotation}deg)`;
+  el.style.zIndex = item.zIndex;
+}
+
+// ---- Mouse handlers ----
 
 document.addEventListener('mousemove', (e) => {
-  const canvasRect = document.getElementById('canvas-area').getBoundingClientRect();
-  
+  const canvasRect = getCanvasRect();
+
   if (dragging !== null) {
     const item = items[dragging];
-    const x = ((e.clientX - dragOffset.x - canvasRect.left) / canvasRect.width) * 100;
-    const y = ((e.clientY - dragOffset.y - canvasRect.top) / canvasRect.height) * 100;
-    item.x = Math.round(x * 10) / 10;
-    item.y = Math.round(y * 10) / 10;
+    const leftPx = e.clientX - dragOffset.x - canvasRect.left;
+    const topPx = e.clientY - dragOffset.y - canvasRect.top;
+
+    if (item.anchor === 'right') {
+      item.x = Math.round(canvasRect.width - leftPx - item.width);
+    } else {
+      item.x = Math.round(leftPx);
+    }
+    item.y = Math.round(topPx);
+
     updateElement(dragging);
     updateProps();
   }
-  
+
   if (resizing !== null) {
     const item = items[resizing];
-    const el = container.children[resizing + 2]; // +2 for mockup overlay and center text
+    const el = container.children[resizing + 2];
     const rect = el.getBoundingClientRect();
-    const newWidth = ((e.clientX - rect.left) / canvasRect.width) * 100;
-    item.size = Math.max(1, Math.round(newWidth * 10) / 10);
+    const newWidth = Math.max(20, Math.round(e.clientX - rect.left));
+
+    if (item.anchor === 'right') {
+      // Keep left edge visually fixed: recalculate right distance
+      const leftEdge = rect.left - canvasRect.left;
+      item.x = Math.round(canvasRect.width - leftEdge - newWidth);
+    }
+
+    item.width = newWidth;
     updateElement(resizing);
     updateProps();
   }
@@ -390,37 +538,42 @@ document.addEventListener('mouseup', () => {
   resizing = null;
 });
 
-// Keyboard controls
+// ---- Keyboard controls ----
+
 document.addEventListener('keydown', (e) => {
   if (selected === null) return;
   if (document.activeElement.tagName === 'INPUT') return;
-  
+
   const item = items[selected];
-  const step = e.shiftKey ? 0.5 : 0.1;
-  
+  const step = e.shiftKey ? 10 : 1;
+
   switch(e.key) {
-    case 'ArrowLeft': item.x -= step; break;
-    case 'ArrowRight': item.x += step; break;
+    case 'ArrowLeft':
+      // Visually moves left: for left-anchor decrease x, for right-anchor increase x
+      item.x += (item.anchor === 'right') ? step : -step;
+      break;
+    case 'ArrowRight':
+      item.x += (item.anchor === 'right') ? -step : step;
+      break;
     case 'ArrowUp': item.y -= step; break;
     case 'ArrowDown': item.y += step; break;
     case '[': item.rotation -= 1; break;
     case ']': item.rotation += 1; break;
-    case '-': item.size = Math.max(1, item.size - 0.5); break;
-    case '=': case '+': item.size += 0.5; break;
+    case '-': item.width = Math.max(20, item.width - 5); break;
+    case '=': case '+': item.width += 5; break;
     case ',': item.zIndex = Math.max(1, item.zIndex - 1); break;
     case '.': item.zIndex += 1; break;
     default: return;
   }
   e.preventDefault();
-  item.x = Math.round(item.x * 10) / 10;
-  item.y = Math.round(item.y * 10) / 10;
   updateElement(selected);
   updateProps();
   updateList();
 });
 
+// ---- Selection & props ----
+
 function selectItem(index) {
-  // Deselect previous
   if (selected !== null) {
     container.children[selected + 2].classList.remove('selected');
   }
@@ -430,14 +583,24 @@ function selectItem(index) {
   updateList();
 }
 
-function updateElement(index) {
-  const item = items[index];
-  const el = container.children[index + 2];
-  el.style.left = item.x + 'vw';
-  el.style.top = item.y + 'vh';
-  el.style.width = item.size + 'vw';
-  el.style.transform = `rotate(${item.rotation}deg)`;
-  el.style.zIndex = item.zIndex;
+function setAnchor(newAnchor) {
+  if (selected === null) return;
+  const item = items[selected];
+  if (item.anchor === newAnchor) return;
+
+  const canvasW = getCanvasEl().offsetWidth;
+  // Convert x to maintain the same visual position
+  item.x = canvasW - item.x - item.width;
+  item.anchor = newAnchor;
+
+  // Update element class for indicator
+  const el = container.children[selected + 2];
+  el.classList.remove('anchor-left', 'anchor-right');
+  el.classList.add('anchor-' + newAnchor);
+
+  updateElement(selected);
+  updateProps();
+  updateList();
 }
 
 function updateProps() {
@@ -447,19 +610,29 @@ function updateProps() {
     return;
   }
   const item = items[selected];
+  const posLabel = item.anchor === 'right' ? 'Right' : 'Left';
+  const leftActiveClass = item.anchor === 'left' ? 'active-left' : '';
+  const rightActiveClass = item.anchor === 'right' ? 'active-right' : '';
   panel.innerHTML = `
     <div style="font-weight:600;margin-bottom:8px;color:#f59e0b;">${item.id}</div>
     <div class="prop-row">
-      <label>X (vw)</label>
-      <input type="number" step="0.5" value="${item.x}" onchange="setProp('x', this.value)">
+      <label>Anchor</label>
+      <div class="anchor-toggle">
+        <button class="${leftActiveClass}" onclick="setAnchor('left')">&#9664; Left</button>
+        <button class="${rightActiveClass}" onclick="setAnchor('right')">Right &#9654;</button>
+      </div>
     </div>
     <div class="prop-row">
-      <label>Y (vh)</label>
-      <input type="number" step="0.5" value="${item.y}" onchange="setProp('y', this.value)">
+      <label>${posLabel} (px)</label>
+      <input type="number" step="1" value="${item.x}" onchange="setProp('x', this.value)">
     </div>
     <div class="prop-row">
-      <label>Size (vw)</label>
-      <input type="number" step="0.5" value="${item.size}" onchange="setProp('size', this.value)">
+      <label>Top (px)</label>
+      <input type="number" step="1" value="${item.y}" onchange="setProp('y', this.value)">
+    </div>
+    <div class="prop-row">
+      <label>Width (px)</label>
+      <input type="number" step="1" value="${item.width}" onchange="setProp('width', this.value)">
     </div>
     <div class="prop-row">
       <label>Rotation</label>
@@ -470,10 +643,10 @@ function updateProps() {
       <input type="number" step="1" value="${item.zIndex}" onchange="setProp('zIndex', this.value)">
     </div>
     <div style="margin-top:10px;font-size:11px;color:#666;">
-      Arrows: move (hold Shift for 0.5 steps)<br>
-      [ ] : rotate ± 1°<br>
-      - + : resize ± 0.5vw<br>
-      , . : z-index ± 1
+      Arrows: move 1px (Shift: 10px)<br>
+      [ ] : rotate &plusmn; 1&deg;<br>
+      - + : resize &plusmn; 5px<br>
+      , . : z-index &plusmn; 1
     </div>
   `;
 }
@@ -482,23 +655,37 @@ function setProp(prop, value) {
   if (selected === null) return;
   const num = parseFloat(value);
   if (isNaN(num)) return;
-  if (prop === 'x') items[selected].x = num;
-  else if (prop === 'y') items[selected].y = num;
-  else if (prop === 'size') items[selected].size = num;
-  else if (prop === 'rotation') items[selected].rotation = num;
-  else if (prop === 'zIndex') items[selected].zIndex = num;
+  const item = items[selected];
+  if (prop === 'x') item.x = Math.round(num);
+  else if (prop === 'y') item.y = Math.round(num);
+  else if (prop === 'width') item.width = Math.max(20, Math.round(num));
+  else if (prop === 'rotation') item.rotation = num;
+  else if (prop === 'zIndex') item.zIndex = num;
   updateElement(selected);
 }
 
 function updateList() {
   const list = document.getElementById('item-list');
-  list.innerHTML = items.map((item, i) => `
-    <div class="item-list-entry ${i === selected ? 'active' : ''}" onclick="selectItem(${i})">
-      <span>${item.id}</span>
-      <span style="color:#666">${item.x},${item.y} ${item.size}vw</span>
-    </div>
-  `).join('');
+  list.innerHTML = items.map((item, i) => {
+    const badgeClass = item.anchor === 'right' ? 'right' : 'left';
+    const badgeLabel = item.anchor === 'right' ? 'R' : 'L';
+    const posLabel = item.anchor === 'right' ? 'r' : 'l';
+    return `
+      <div class="item-list-entry ${i === selected ? 'active' : ''}" onclick="selectItem(${i})">
+        <span><span class="anchor-badge ${badgeClass}">${badgeLabel}</span>${item.id}</span>
+        <span style="color:#666">${posLabel}:${item.x} t:${item.y} ${item.width}px</span>
+      </div>
+    `;
+  }).join('');
 }
+
+function updateCanvasDims() {
+  const el = getCanvasEl();
+  document.getElementById('canvas-dims').textContent =
+    `Canvas: ${el.offsetWidth} × ${el.offsetHeight}`;
+}
+
+// ---- Mockup overlay ----
 
 function toggleMockup() {
   const el = document.getElementById('mockup-overlay');
@@ -510,15 +697,9 @@ function adjustOpacity(delta) {
   document.getElementById('mockup-overlay').style.opacity = mockupOpacity;
 }
 
+// ---- Export ----
+
 function exportPositions() {
-  const bleedMap = {
-    'blue-dragon': "'left'",
-    'disco-ball': "'top'",
-    'sun-face': "'right'",
-    'bookshelf': "'left'",
-    'peony-back': "'bottom-right'",
-  };
-  
   const altMap = {
     'tiger-stamp': 'Vintage tiger postage stamp',
     'blue-dragon': 'Blue dragon paper cutout illustration',
@@ -537,7 +718,7 @@ function exportPositions() {
     'peony-back': 'Pink peony flower with green leaves',
     'peony-front': 'Pink peony flower with green leaves',
   };
-  
+
   const srcMap = {
     'tiger-stamp': 'tiger-stamp.png',
     'blue-dragon': 'blue-dragon.png',
@@ -566,25 +747,29 @@ function exportPositions() {
   };
 
   let code = `export const collageImages: CollageImageData[] = [\n`;
-  
+
   items.forEach(item => {
     const alt = altMap[item.id] || item.id.replace(/-/g, ' ');
-    const src = srcMap[item.id] || item.id + '.png';
-    const bleed = bleedMap[item.id];
+    const filename = srcMap[item.id] || item.id + '.png';
     code += `  {\n`;
     code += `    id: '${item.id}',\n`;
-    code += `    src: '${src}',\n`;
+    code += `    src: '/images/collage/${filename}',\n`;
     code += `    alt: '${alt}',\n`;
-    code += `    position: { x: ${item.x}, y: ${item.y} },\n`;
-    code += `    size: ${item.size},\n`;
+    code += `    anchor: '${item.anchor}',\n`;
+    if (item.anchor === 'right') {
+      code += `    right: ${item.x},\n`;
+    } else {
+      code += `    left: ${item.x},\n`;
+    }
+    code += `    top: ${item.y},\n`;
+    code += `    width: ${item.width},\n`;
     code += `    rotation: ${item.rotation},\n`;
     code += `    zIndex: ${item.zIndex},\n`;
-    if (bleed) code += `    bleed: ${bleed},\n`;
     code += `  },\n`;
   });
-  
+
   code += `];\n`;
-  
+
   document.getElementById('export-code').textContent = code;
   document.getElementById('export-modal').classList.add('show');
 }
@@ -597,16 +782,22 @@ function copyExport() {
   exportPositions();
   const code = document.getElementById('export-code').textContent;
   navigator.clipboard.writeText(code).then(() => {
-    document.getElementById('status').textContent = '✓ Copied to clipboard!';
+    document.getElementById('status').textContent = '\u2713 Copied to clipboard!';
     setTimeout(() => {
-      document.getElementById('status').textContent = 'Drag images to position.';
+      document.getElementById('status').textContent = 'Drag images to position. All values in px.';
     }, 2000);
   });
 }
 
-// Init
+// ---- Window resize: update canvas dims display ----
+window.addEventListener('resize', updateCanvasDims);
+
+// ---- Init ----
+initItems();
+createElements();
 updateList();
 updateProps();
+updateCanvasDims();
 </script>
 </body>
 </html>
