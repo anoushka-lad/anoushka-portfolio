@@ -7,6 +7,33 @@ interface CollageImageProps {
   data: CollageImageData;
 }
 
+/* ── Click-to-link mapping ──────────────────────────────────────── */
+
+function getLinkUrl(id: string): string | null {
+  switch (id) {
+    case 'tiger-stamp':
+      return 'https://www.goodreads.com/book/show/1774836.The_Palace_of_Illusions';
+    case 'disco-ball':
+      return 'https://www.youtube.com/watch?v=hak180tz2B0';
+    case 'card-spades':
+    case 'card-queen':
+      return 'https://fgbradleys.com/wp-content/uploads/rules/Cabo%20(Kaboo)%20-%20rules.pdf?srsltid=AfmBOooGpnx-OBNbvb2GxYTyTfF5p98jtNoBPdnRBNBMrkkUkfb9EyBF';
+    case 'f1-car':
+      return 'https://www.youtube.com/watch?v=BrtRk7B8pNE';
+    case 'gold-frame-bunny':
+      return 'https://www.huntslonem.com/paintings';
+    case 'cd-disc':
+      return 'https://open.spotify.com/playlist/37i9dQZF1DX0AMssoUKCz7?si=01136bfc071a4511';
+    case 'concert-ticket':
+      return 'https://www.google.com/search?q=concerts+near+me';
+    case 'earring-back':
+    case 'earring-front':
+      return 'https://www.curiocottage.in/collections/earrings?sort_by=created-descending&filter.p.m.my_fields.type=Chandbalis&filter.p.m.my_fields.type=Jhumkis';
+    default:
+      return null;
+  }
+}
+
 /* ── Per-image color correction (global glaze pre-baked in) ─────────
  *  Target: warm-neutral, slightly desaturated, soft-contrast vintage.
  *  Global glaze (sepia 0.04 + saturate 0.96) folded into each value
@@ -139,12 +166,16 @@ export default function CollageImage({ data }: CollageImageProps) {
   const controls = useAnimation();
   const isEarring = id === 'earring-back' || id === 'earring-front';
   const baseFilter = getBaseFilter(id);
+  const linkUrl = getLinkUrl(id);
 
   const horizontalPos = data.anchor === 'right'
     ? { right: `${data.right}px`, left: 'auto' as const }
     : { left: `${data.left}px`, right: 'auto' as const };
 
   const transition = { duration: 0.3, ease: 'easeInOut' as const };
+  const handleClick = linkUrl
+    ? () => window.open(linkUrl, '_blank', 'noopener,noreferrer')
+    : undefined;
 
   if (isEarring) {
     return (
@@ -166,6 +197,8 @@ export default function CollageImage({ data }: CollageImageProps) {
           cursor: 'pointer',
           userSelect: 'none',
         }}
+        whileTap={{ scale: 0.97 }}
+        onClick={handleClick}
         onHoverStart={() => {
           controls.start({
             rotate: [rotation - 3, rotation + 3],
@@ -204,10 +237,12 @@ export default function CollageImage({ data }: CollageImageProps) {
         width: `${width}px`,
         height: 'auto',
         zIndex,
-        cursor: 'pointer',
+        cursor: linkUrl ? 'pointer' : 'default',
         userSelect: 'none',
       }}
       whileHover={getHoverConfig(id, rotation)}
+      whileTap={linkUrl ? { scale: 0.97 } : undefined}
+      onClick={handleClick}
       transition={transition}
     />
   );
