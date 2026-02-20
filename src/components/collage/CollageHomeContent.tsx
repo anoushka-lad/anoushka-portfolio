@@ -3,8 +3,7 @@
 import CollageLayout from "./CollageLayout";
 import SectionHeader from "@/components/case-study/SectionHeader";
 import SectionDivider from "@/components/case-study/SectionDivider";
-import CaseStudyCard from "./CaseStudyCard";
-import { caseStudies } from "./caseStudyCardData";
+import CaseStudySection from "./CaseStudySection";
 
 export default function CollageHomeContent() {
   return (
@@ -44,18 +43,7 @@ export default function CollageHomeContent() {
         </section>
 
         {/* Section 2: My Case Studies */}
-        <section className="section-padding">
-          <div className="case-column">
-            <SectionHeader title="My Case Studies" />
-            <div className="w-full md:w-[44%]">
-              <div className="space-y-12">
-                {caseStudies.map((study) => (
-                  <CaseStudyCard key={study.id} study={study} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <CaseStudySection />
 
         {/* Section 3: My Story */}
         <section className="section-padding">

@@ -18,10 +18,9 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.025 }}
-        style={{ transition: "transform 200ms ease" }}
       >
         {/* Image with parchment background — matches FigureWrapper treatment */}
-        <div className="relative rounded-sm overflow-hidden">
+        <div className="relative rounded-sm overflow-hidden aspect-[3/2]">
           <div
             className="absolute inset-0 figure-parchment-bg"
             style={{
@@ -30,7 +29,7 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
               backgroundPosition: "center",
             }}
           />
-          <div className="relative z-10 flex items-center justify-center p-6 md:p-8">
+          <div className="relative z-10 flex items-center justify-center p-6 md:p-8 h-full">
             <Image
               src={study.heroImage}
               alt={study.heroAlt}

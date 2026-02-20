@@ -7,6 +7,7 @@ export interface CaseStudyCardItem {
   tldr: string;
   problem: string;
   goal: string;
+  previewScrollY: number;
 }
 
 export const caseStudies: CaseStudyCardItem[] = [
@@ -20,6 +21,7 @@ export const caseStudies: CaseStudyCardItem[] = [
     problem:
       "More than 50% of North American households pay for at least 4 streaming services. Users were feeling streaming service over-saturation so platforms like Disney and PrimeVideo started pulling multiple brands under a single roof.",
     goal: "To understand our users\u2019 viewing behaviours and turn them into actionable design priorities and decisions, so AWE feels simple, intuitive, and easy to navigate.",
+    previewScrollY: 520,
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ export const caseStudies: CaseStudyCardItem[] = [
     problem:
       "Bell Media owns 183 multilingual (English and French) brands, including 8 primary brands. However, our design and implementation teams are relatively small.",
     goal: "To create a repeatable usability benchmarking system that identifies the highest-impact problem areas and tracks measurable improvement over time, so limited resources can be allocated to the highest impact work.",
+    previewScrollY: 520,
   },
   {
     id: 3,
@@ -42,5 +45,6 @@ export const caseStudies: CaseStudyCardItem[] = [
     problem:
       "BNN Bloomberg\u2019s estimated annual advertising revenue is around $11.1 million. Ads are an essential part of the newsroom business model so we wanted to investigate how our ad experience compared to our competitors.",
     goal: "To identify ad patterns that protect reading flow and revenue, then turn them into testable design changes.",
+    previewScrollY: 520,
   },
 ];
