@@ -45,10 +45,10 @@ export default function CollageHomeContent() {
 
         {/* Section 2: My Case Studies */}
         <section className="section-padding">
-          <div style={{ maxWidth: 'var(--case-hero-max)', marginInline: 'auto' }}>
-            <div className="w-full md:w-[48%]">
-              <SectionHeader title="My Case Studies" />
-              <div className="space-y-10">
+          <div className="case-column">
+            <SectionHeader title="My Case Studies" />
+            <div className="w-full md:w-[44%]">
+              <div className="space-y-12">
                 {caseStudies.map((study) => (
                   <CaseStudyCard key={study.id} study={study} />
                 ))}

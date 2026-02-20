@@ -11,14 +11,16 @@ interface CaseStudyCardProps {
 
 export default function CaseStudyCard({ study }: CaseStudyCardProps) {
   return (
-    <Link href={study.path} className="block group cursor-pointer">
+    <Link href={study.path} className="block cursor-pointer">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.025 }}
+        style={{ transition: "transform 200ms ease" }}
       >
-        {/* Image area with parchment background */}
+        {/* Image with parchment background — matches FigureWrapper treatment */}
         <div className="relative rounded-sm overflow-hidden">
           <div
             className="absolute inset-0 figure-parchment-bg"
@@ -28,21 +30,19 @@ export default function CaseStudyCard({ study }: CaseStudyCardProps) {
               backgroundPosition: "center",
             }}
           />
-          <div className="relative z-10 flex items-center justify-center p-8 md:p-10">
+          <div className="relative z-10 flex items-center justify-center p-6 md:p-8">
             <Image
               src={study.heroImage}
               alt={study.heroAlt}
               width={400}
-              height={300}
-              className="w-full h-auto max-h-[260px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              height={267}
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>
 
-        {/* Title caption */}
-        <p className="cs-body mt-3 transition-colors duration-300 group-hover:text-[#1a1a1a]">
-          {study.title}
-        </p>
+        {/* Title — directly on page background, tight to image */}
+        <p className="cs-caption mt-2.5">{study.title}</p>
       </motion.div>
     </Link>
   );
