@@ -122,6 +122,16 @@ export default function CaseStudySection() {
     [previewTier, updatePreviewPosition]
   );
 
+  // Re-engage hover after scroll-dismiss if mouse is still on a card
+  const handleCardMouseMove = useCallback(
+    (id: number) => {
+      if (currentIdRef.current === null && previewTier) {
+        handleHover(id);
+      }
+    },
+    [previewTier, handleHover]
+  );
+
   // Cancel pending hide when mouse enters the preview panel
   const handlePreviewEnter = useCallback(() => {
     if (hideTimerRef.current) {
@@ -163,6 +173,7 @@ export default function CaseStudySection() {
               <div
                 key={study.id}
                 onMouseEnter={() => handleHover(study.id)}
+                onMouseMove={() => handleCardMouseMove(study.id)}
                 onMouseLeave={handleLeave}
               >
                 <CaseStudyCard study={study} />

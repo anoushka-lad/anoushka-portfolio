@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import type { CaseStudyCardItem } from "./caseStudyCardData";
 
@@ -30,6 +32,32 @@ export default function CaseStudyIframePreview({
   onPreviewLeave,
 }: CaseStudyIframePreviewProps) {
   const isVisible = hoveredStudyId !== null;
+  const router = useRouter();
+  const mouseDownYRef = useRef(0);
+  const scrollRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+
+  // Reset scroll position for inactive containers when hovered study changes
+  useEffect(() => {
+    scrollRefs.current.forEach((el, id) => {
+      if (id !== hoveredStudyId) {
+        el.scrollTop = 0;
+      }
+    });
+  }, [hoveredStudyId]);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    mouseDownYRef.current = e.clientY;
+  }, []);
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      // Only navigate if this was a click, not a scroll drag
+      if (Math.abs(e.clientY - mouseDownYRef.current) > 5) return;
+      const study = studies.find((s) => s.id === hoveredStudyId);
+      if (study) router.push(study.path);
+    },
+    [hoveredStudyId, studies, router]
+  );
 
   return (
     <div
@@ -43,9 +71,12 @@ export default function CaseStudyIframePreview({
         zIndex: 50,
         pointerEvents: isVisible ? "auto" : "none",
         visibility: isVisible ? "visible" : "hidden",
+        cursor: isVisible ? "pointer" : undefined,
       }}
       onMouseEnter={onPreviewEnter}
       onMouseLeave={onPreviewLeave}
+      onMouseDown={handleMouseDown}
+      onClick={handleClick}
     >
       <motion.div
         animate={
@@ -88,6 +119,9 @@ export default function CaseStudyIframePreview({
             return (
               <div
                 key={study.id}
+                ref={(el) => {
+                  if (el) scrollRefs.current.set(study.id, el);
+                }}
                 style={{
                   position: "absolute",
                   inset: 0,
