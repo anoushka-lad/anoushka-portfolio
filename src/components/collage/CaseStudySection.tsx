@@ -6,14 +6,26 @@ import CaseStudyCard from "./CaseStudyCard";
 import CaseStudyIframePreview from "./CaseStudyIframePreview";
 import { caseStudies } from "./caseStudyCardData";
 
-const DESKTOP_BREAKPOINT = 1080;
 const SHOW_DELAY = 100;
 const HIDE_GRACE = 100;
-const PREVIEW_W = 520;
+const IFRAME_NATIVE_W = 960;
+
+interface PreviewTier {
+  w: number;
+  h: number;
+  scale: number;
+}
+
+function getPreviewTier(viewportWidth: number): PreviewTier | null {
+  if (viewportWidth >= 1200) return { w: 520, h: 400, scale: 520 / IFRAME_NATIVE_W };
+  if (viewportWidth >= 1024) return { w: 400, h: 320, scale: 400 / IFRAME_NATIVE_W };
+  if (viewportWidth >= 768) return { w: 340, h: 280, scale: 340 / IFRAME_NATIVE_W };
+  return null;
+}
 
 export default function CaseStudySection() {
   const [hoveredStudyId, setHoveredStudyId] = useState<number | null>(null);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [previewTier, setPreviewTier] = useState<PreviewTier | null>(null);
   const [previewLeft, setPreviewLeft] = useState(0);
   const [mountedIds, setMountedIds] = useState<Set<number>>(new Set());
 
@@ -22,37 +34,53 @@ export default function CaseStudySection() {
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentIdRef = useRef<number | null>(null);
 
-  // Desktop media query
+  // Compute preview tier from viewport width
   useEffect(() => {
-    const mql = window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
-    const onChange = () => setIsDesktop(mql.matches);
-    mql.addEventListener("change", onChange);
-    setIsDesktop(mql.matches);
-    return () => mql.removeEventListener("change", onChange);
+    const update = () => setPreviewTier(getPreviewTier(window.innerWidth));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   // Recalculate preview position based on case-column right edge
   const updatePreviewPosition = useCallback(() => {
-    if (caseColumnRef.current) {
+    if (caseColumnRef.current && previewTier) {
       const rect = caseColumnRef.current.getBoundingClientRect();
-      setPreviewLeft(Math.max(8, rect.right - PREVIEW_W));
+      setPreviewLeft(Math.max(8, rect.right - previewTier.w));
     }
+  }, [previewTier]);
+
+  useEffect(() => {
+    if (!previewTier || hoveredStudyId === null) return;
+    updatePreviewPosition();
+    window.addEventListener("resize", updatePreviewPosition);
+    return () => {
+      window.removeEventListener("resize", updatePreviewPosition);
+    };
+  }, [previewTier, hoveredStudyId, updatePreviewPosition]);
+
+  // Dismiss preview immediately on any page scroll
+  const dismissPreview = useCallback(() => {
+    if (showTimerRef.current) {
+      clearTimeout(showTimerRef.current);
+      showTimerRef.current = null;
+    }
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
+    }
+    currentIdRef.current = null;
+    setHoveredStudyId(null);
   }, []);
 
   useEffect(() => {
-    if (!isDesktop || hoveredStudyId === null) return;
-    updatePreviewPosition();
-    window.addEventListener("scroll", updatePreviewPosition, { passive: true });
-    window.addEventListener("resize", updatePreviewPosition);
-    return () => {
-      window.removeEventListener("scroll", updatePreviewPosition);
-      window.removeEventListener("resize", updatePreviewPosition);
-    };
-  }, [isDesktop, hoveredStudyId, updatePreviewPosition]);
+    window.addEventListener("scroll", dismissPreview, { passive: true });
+    return () => window.removeEventListener("scroll", dismissPreview);
+  }, [dismissPreview]);
 
   const handleHover = useCallback(
     (id: number) => {
-      if (!isDesktop) return;
+      if (!previewTier) return;
 
       // Lazily mount iframe on first hover
       setMountedIds((prev) => {
@@ -91,8 +119,16 @@ export default function CaseStudySection() {
         showTimerRef.current = null;
       }, SHOW_DELAY);
     },
-    [isDesktop, updatePreviewPosition]
+    [previewTier, updatePreviewPosition]
   );
+
+  // Cancel pending hide when mouse enters the preview panel
+  const handlePreviewEnter = useCallback(() => {
+    if (hideTimerRef.current) {
+      clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
+    }
+  }, []);
 
   const handleLeave = useCallback(() => {
     // Cancel any pending show
@@ -135,12 +171,17 @@ export default function CaseStudySection() {
           </div>
         </div>
       </div>
-      {isDesktop && (
+      {previewTier && (
         <CaseStudyIframePreview
           hoveredStudyId={hoveredStudyId}
           mountedIds={mountedIds}
           studies={caseStudies}
           leftOffset={previewLeft}
+          previewW={previewTier.w}
+          previewH={previewTier.h}
+          scale={previewTier.scale}
+          onPreviewEnter={handlePreviewEnter}
+          onPreviewLeave={handleLeave}
         />
       )}
     </section>

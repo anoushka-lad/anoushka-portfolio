@@ -4,16 +4,18 @@ import { motion } from "framer-motion";
 import type { CaseStudyCardItem } from "./caseStudyCardData";
 
 const IFRAME_NATIVE_W = 960;
-const IFRAME_NATIVE_H = 2000;
-const PREVIEW_W = 520;
-const PREVIEW_H = 400;
-const SCALE = PREVIEW_W / IFRAME_NATIVE_W;
+const IFRAME_NATIVE_H = 3000;
 
 interface CaseStudyIframePreviewProps {
   hoveredStudyId: number | null;
   mountedIds: Set<number>;
   studies: CaseStudyCardItem[];
   leftOffset: number;
+  previewW: number;
+  previewH: number;
+  scale: number;
+  onPreviewEnter: () => void;
+  onPreviewLeave: () => void;
 }
 
 export default function CaseStudyIframePreview({
@@ -21,6 +23,11 @@ export default function CaseStudyIframePreview({
   mountedIds,
   studies,
   leftOffset,
+  previewW,
+  previewH,
+  scale,
+  onPreviewEnter,
+  onPreviewLeave,
 }: CaseStudyIframePreviewProps) {
   const isVisible = hoveredStudyId !== null;
 
@@ -31,12 +38,14 @@ export default function CaseStudyIframePreview({
         left: leftOffset,
         top: "50%",
         transform: "translateY(-50%)",
-        width: PREVIEW_W,
-        height: PREVIEW_H,
+        width: previewW,
+        height: previewH,
         zIndex: 50,
-        pointerEvents: "none",
+        pointerEvents: isVisible ? "auto" : "none",
         visibility: isVisible ? "visible" : "hidden",
       }}
+      onMouseEnter={onPreviewEnter}
+      onMouseLeave={onPreviewLeave}
     >
       <motion.div
         animate={
@@ -50,8 +59,8 @@ export default function CaseStudyIframePreview({
             : { duration: 0.12, ease: "easeIn" }
         }
         style={{
-          width: PREVIEW_W,
-          height: PREVIEW_H,
+          width: previewW,
+          height: previewH,
           borderRadius: 6,
           border: "1px solid hsl(35 25% 82%)",
           boxShadow:
@@ -69,36 +78,56 @@ export default function CaseStudyIframePreview({
           }}
         />
 
-        {/* One iframe layer per mounted study */}
+        {/* One scrollable iframe layer per mounted study */}
         {studies
           .filter((s) => mountedIds.has(s.id))
-          .map((study) => (
-            <div
-              key={study.id}
-              style={{
-                position: "absolute",
-                inset: 0,
-                opacity: hoveredStudyId === study.id ? 1 : 0,
-                transition: "opacity 150ms ease",
-                overflow: "hidden",
-              }}
-            >
-              <iframe
-                src={study.path}
-                title={`Preview of ${study.title}`}
-                tabIndex={-1}
-                scrolling="no"
+          .map((study) => {
+            const isActive = hoveredStudyId === study.id;
+            const contentH = (IFRAME_NATIVE_H - study.previewScrollY) * scale;
+
+            return (
+              <div
+                key={study.id}
                 style={{
-                  width: IFRAME_NATIVE_W,
-                  height: IFRAME_NATIVE_H,
-                  border: "none",
-                  transformOrigin: "top left",
-                  transform: `scale(${SCALE}) translateY(-${study.previewScrollY}px)`,
-                  pointerEvents: "none",
+                  position: "absolute",
+                  inset: 0,
+                  opacity: isActive ? 1 : 0,
+                  transition: "opacity 150ms ease",
+                  overflowY: isActive ? "auto" : "hidden",
+                  overflowX: "hidden",
+                  overscrollBehavior: "contain",
+                  pointerEvents: isActive ? "auto" : "none",
                 }}
-              />
-            </div>
-          ))}
+              >
+                <div
+                  style={{
+                    width: previewW,
+                    height: contentH,
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <iframe
+                    src={study.path}
+                    title={`Preview of ${study.title}`}
+                    tabIndex={-1}
+                    scrolling="no"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: IFRAME_NATIVE_W,
+                      height: IFRAME_NATIVE_H,
+                      border: "none",
+                      transformOrigin: "top left",
+                      transform: `scale(${scale}) translateY(-${study.previewScrollY}px)`,
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
       </motion.div>
     </div>
   );
