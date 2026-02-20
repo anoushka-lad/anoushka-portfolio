@@ -6,7 +6,7 @@ export default function CollageCenterText() {
   return (
     <motion.div
       className="absolute z-10 text-center"
-      style={{ left: '50%', top: '52%', transform: 'translate(-50%, -50%)' }}
+      style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}

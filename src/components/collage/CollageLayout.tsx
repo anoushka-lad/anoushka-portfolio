@@ -5,7 +5,6 @@ import CollageImage from "./CollageImage";
 import CollageCenterText from "./CollageCenterText";
 
 export default function CollageLayout() {
-  // TODO: mobile breakpoint handling
   return (
     <div
       className="relative w-screen h-screen overflow-hidden"

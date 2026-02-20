@@ -3,31 +3,25 @@
 import { motion } from "framer-motion";
 import type { CollageImageData } from "./collageData";
 
-const EAGER_IDS = new Set([
-  'coffee-ring',    // zIndex 9
-  'concert-ticket', // zIndex 8
-  'earring-front',  // zIndex 8
-  'disco-ball',     // zIndex 7
-  'earring-back',   // zIndex 7
-]);
-
 interface CollageImageProps {
   data: CollageImageData;
 }
 
 export default function CollageImage({ data }: CollageImageProps) {
-  const { id, src, alt, position, size, rotation, zIndex } = data;
+  const { id, src, alt, position, anchor, size, rotation, zIndex } = data;
 
   return (
     <motion.img
       src={`/images/collage/${src}`}
       alt={alt}
       draggable={false}
-      loading={EAGER_IDS.has(id) ? 'eager' : 'lazy'}
+      loading={id === 'disco-ball' || id === 'gold-frame-bunny' ? 'eager' : 'lazy'}
       style={{
         position: 'absolute',
-        left: `${position.x}vw`,
-        top: `${position.y}vh`,
+        ...(anchor === 'right'
+          ? { right: `${position.x}vw` }
+          : { left: `${position.x}vw` }),
+        top: `${position.y}vw`,
         width: `${size}vw`,
         height: 'auto',
         rotate: `${rotation}deg`,
