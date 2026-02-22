@@ -73,8 +73,8 @@ const Figure3d = () => {
                       whileHover={{ scale: 1.06, filter: "drop-shadow(0 0 8px hsl(35 35% 50% / 0.4))" }}
                       transition={{ duration: 0.25 }}
                     >
-                      <PersonaMedallion size={64}>
-                        <item.Icon size={36} animate={false} />
+                      <PersonaMedallion size={52}>
+                        <item.Icon size={30} animate={false} />
                       </PersonaMedallion>
                     </motion.div>
                     {/* Longer dotted connector down to line - stops at line, doesn't go below */}

@@ -31,7 +31,7 @@ const VennIcon = ({ children }: VennIconProps) => (
       }}
       transition={{ duration: 0.3 }}
     >
-      <PersonaMedallion size={56}>
+      <PersonaMedallion size={52}>
         {children}
       </PersonaMedallion>
     </motion.div>
@@ -184,10 +184,10 @@ const Figure3c = () => {
 
             {/* ===== LEFT CIRCLE ICONS (Prefers to watch alone) ===== */}
             
-            {/* Platform Surfer - top left */}
+            {/* Platform Surfer - top of left triangle (centroid: 23.7%, 43%) */}
             <motion.div
               className="absolute"
-              style={{ left: '14%', top: '20%' }}
+              style={{ left: '18%', top: '22%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -196,14 +196,14 @@ const Figure3c = () => {
               onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
-                <PlatformSurferIcon size={32} animate={false} />
+                <PlatformSurferIcon size={30} animate={false} />
               </VennIcon>
             </motion.div>
 
-            {/* Background Streamer - bottom left */}
+            {/* Background Streamer - bottom-left of left triangle */}
             <motion.div
               className="absolute"
-              style={{ left: '14%', top: '50%' }}
+              style={{ left: '10%', top: '42%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
@@ -212,14 +212,14 @@ const Figure3c = () => {
               onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
-                <BackgroundStreamerIcon size={32} animate={false} />
+                <BackgroundStreamerIcon size={30} animate={false} />
               </VennIcon>
             </motion.div>
 
-            {/* Rewatcher - middle left */}
+            {/* Rewatcher - bottom-right of left triangle */}
             <motion.div
               className="absolute"
-              style={{ left: '24%', top: '35%' }}
+              style={{ left: '27%', top: '42%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.58 }}
@@ -228,16 +228,16 @@ const Figure3c = () => {
               onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
-                <RewatcherIcon size={32} animate={false} />
+                <RewatcherIcon size={30} animate={false} />
               </VennIcon>
             </motion.div>
 
             {/* ===== OVERLAP ICONS (Center - Where Circles Collide) ===== */}
             
-            {/* Binge Watcher - top of overlap */}
+            {/* Binge Watcher - top of overlap stack (centroid: 50%, 43%) */}
             <motion.div
               className="absolute"
-              style={{ left: '44%', top: '26%' }}
+              style={{ left: '44.5%', top: '26.5%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -246,14 +246,14 @@ const Figure3c = () => {
               onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
-                <BingeWatcherIcon size={32} animate={false} />
+                <BingeWatcherIcon size={30} animate={false} />
               </VennIcon>
             </motion.div>
 
-            {/* Avid Viewer - closer to Binge Watcher */}
+            {/* Avid Viewer - bottom of overlap stack */}
             <motion.div
               className="absolute"
-              style={{ left: '44%', top: '42%' }}
+              style={{ left: '44.5%', top: '44.5%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
@@ -262,16 +262,16 @@ const Figure3c = () => {
               onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
-                <AvidViewerIcon size={32} animate={false} />
+                <AvidViewerIcon size={30} animate={false} />
               </VennIcon>
             </motion.div>
 
             {/* ===== RIGHT CIRCLE ICON (Prefers to watch with others) ===== */}
             
-            {/* Social Streamer - centered and larger in right circle */}
+            {/* Social Streamer - centered in right lune (centroid: 76.3%, 43%) */}
             <motion.div
               className="absolute"
-              style={{ right: '14%', top: '34%' }}
+              style={{ left: '71%', top: '36%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
@@ -279,23 +279,9 @@ const Figure3c = () => {
               onMouseEnter={() => setHoveredPersona("Social Streamer")}
               onMouseLeave={() => setHoveredPersona(null)}
             >
-              <motion.div
-                className="relative flex items-center justify-center cursor-pointer"
-                whileHover={{ scale: 1.06 }}
-                transition={{ duration: 0.25 }}
-              >
-                <motion.div 
-                  className="relative"
-                  whileHover={{
-                    filter: "drop-shadow(0 0 10px hsl(35 35% 50% / 0.4))"
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <PersonaMedallion size={72}>
-                    <SocialStreamerIcon size={42} animate={false} />
-                  </PersonaMedallion>
-                </motion.div>
-              </motion.div>
+              <VennIcon>
+                <SocialStreamerIcon size={30} animate={false} />
+              </VennIcon>
             </motion.div>
           </div>
         </div>
