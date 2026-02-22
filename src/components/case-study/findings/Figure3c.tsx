@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ScalingContainer from "../ScalingContainer";
 import {
@@ -39,6 +40,8 @@ const VennIcon = ({ children }: VennIconProps) => (
 
 // ========== MAIN FIGURE 3C COMPONENT ==========
 const Figure3c = () => {
+  const [hoveredPersona, setHoveredPersona] = useState<string | null>(null);
+
   const legendItems = [
     { name: "Platform Surfer", Icon: PlatformSurferIcon },
     { name: "Binge Watcher", Icon: BingeWatcherIcon },
@@ -182,13 +185,15 @@ const Figure3c = () => {
             {/* ===== LEFT CIRCLE ICONS (Prefers to watch alone) ===== */}
             
             {/* Platform Surfer - top left */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '14%', top: '20%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Platform Surfer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <PlatformSurferIcon size={32} animate={false} />
@@ -196,13 +201,15 @@ const Figure3c = () => {
             </motion.div>
 
             {/* Background Streamer - bottom left */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '14%', top: '50%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Background Streamer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <BackgroundStreamerIcon size={32} animate={false} />
@@ -210,13 +217,15 @@ const Figure3c = () => {
             </motion.div>
 
             {/* Rewatcher - middle left */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '24%', top: '35%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.58 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Rewatcher")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <RewatcherIcon size={32} animate={false} />
@@ -226,13 +235,15 @@ const Figure3c = () => {
             {/* ===== OVERLAP ICONS (Center - Where Circles Collide) ===== */}
             
             {/* Binge Watcher - top of overlap */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '44%', top: '26%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Binge Watcher")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <BingeWatcherIcon size={32} animate={false} />
@@ -240,13 +251,15 @@ const Figure3c = () => {
             </motion.div>
 
             {/* Avid Viewer - closer to Binge Watcher */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '44%', top: '42%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Avid Viewer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <AvidViewerIcon size={32} animate={false} />
@@ -256,13 +269,15 @@ const Figure3c = () => {
             {/* ===== RIGHT CIRCLE ICON (Prefers to watch with others) ===== */}
             
             {/* Social Streamer - centered and larger in right circle */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ right: '14%', top: '34%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Social Streamer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <motion.div
                 className="relative flex items-center justify-center cursor-pointer"
@@ -294,9 +309,13 @@ const Figure3c = () => {
           viewport={{ once: true }}
         >
           {legendItems.map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="flex items-center gap-3 cursor-pointer"
+              style={{
+                opacity: hoveredPersona && hoveredPersona !== item.name ? 0.35 : 1,
+                transition: 'opacity 200ms ease',
+              }}
               whileHover={{ x: 3 }}
               transition={{ duration: 0.2 }}
             >
@@ -304,15 +323,15 @@ const Figure3c = () => {
               <PersonaMedallion size={36}>
                 <item.Icon size={20} animate={false} />
               </PersonaMedallion>
-              
+
               {/* Dashed connector line */}
-              <div 
+              <div
                 className="w-10"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
-              
+
               {/* Label text - bold and bigger */}
-              <span 
+              <span
                 className="font-display text-[16px] leading-[1.1] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >

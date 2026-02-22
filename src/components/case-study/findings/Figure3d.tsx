@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ScalingContainer from "../ScalingContainer";
 import {
@@ -14,6 +15,8 @@ import {
 
 // ========== MAIN FIGURE 3D COMPONENT ==========
 const Figure3d = () => {
+  const [hoveredPersona, setHoveredPersona] = useState<string | null>(null);
+
   const legendItems = [
     { name: "Platform Surfer", Icon: PlatformSurferIcon },
     { name: "Binge Watcher", Icon: BingeWatcherIcon },
@@ -40,12 +43,12 @@ const Figure3d = () => {
            */}
           {(() => {
             const scaleIcons = [
-              { key: "avid", Icon: AvidViewerIcon, pos: 4 },
-              { key: "social", Icon: SocialStreamerIcon, pos: 18 },
-              { key: "binge", Icon: BingeWatcherIcon, pos: 34 },
-              { key: "platform", Icon: PlatformSurferIcon, pos: 48 },
-              { key: "rewatcher", Icon: RewatcherIcon, pos: 62 },
-              { key: "background", Icon: BackgroundStreamerIcon, pos: 82 },
+              { key: "avid", name: "Avid Viewer", Icon: AvidViewerIcon, pos: 4 },
+              { key: "social", name: "Social Streamer", Icon: SocialStreamerIcon, pos: 18 },
+              { key: "binge", name: "Binge Watcher", Icon: BingeWatcherIcon, pos: 34 },
+              { key: "platform", name: "Platform Surfer", Icon: PlatformSurferIcon, pos: 48 },
+              { key: "rewatcher", name: "Rewatcher", Icon: RewatcherIcon, pos: 62 },
+              { key: "background", name: "Background Streamer", Icon: BackgroundStreamerIcon, pos: 82 },
             ] as const;
 
             const divisions = [20, 40, 60, 80] as const;
@@ -62,6 +65,8 @@ const Figure3d = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 + i * 0.06 }}
                     viewport={{ once: true }}
+                    onMouseEnter={() => setHoveredPersona(item.name)}
+                    onMouseLeave={() => setHoveredPersona(null)}
                   >
                     <motion.div
                       className="cursor-pointer"
@@ -203,9 +208,13 @@ const Figure3d = () => {
           viewport={{ once: true }}
         >
           {legendItems.map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="flex items-center gap-3 cursor-pointer"
+              style={{
+                opacity: hoveredPersona && hoveredPersona !== item.name ? 0.35 : 1,
+                transition: 'opacity 200ms ease',
+              }}
               whileHover={{ x: 3 }}
               transition={{ duration: 0.2 }}
             >
@@ -213,15 +222,15 @@ const Figure3d = () => {
               <PersonaMedallion size={36}>
                 <item.Icon size={20} animate={false} />
               </PersonaMedallion>
-              
+
               {/* Dashed connector line */}
-              <div 
+              <div
                 className="w-10"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
-              
+
               {/* Label text */}
-              <span 
+              <span
                 className="font-display text-[16px] leading-[1.1] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >

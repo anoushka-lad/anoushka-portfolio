@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ScalingContainer from "../ScalingContainer";
 import {
@@ -40,6 +41,8 @@ const VennIcon = ({ children, hasDashedRing = false }: VennIconProps) => (
 
 // ========== MAIN FIGURE 3E COMPONENT ==========
 const Figure3e = () => {
+  const [hoveredPersona, setHoveredPersona] = useState<string | null>(null);
+
   const legendItems = [
     { name: "Platform Surfer", Icon: PlatformSurferIcon, hasDashedRing: true },
     { name: "Binge Watcher", Icon: BingeWatcherIcon, hasDashedRing: false },
@@ -183,13 +186,15 @@ const Figure3e = () => {
             {/* ===== TV SHOWS ICONS (Left Circle Only) ===== */}
             
             {/* Platform Surfer - left circle, aligned with Background Streamer */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '16%', top: '28%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Platform Surfer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <PlatformSurferIcon size={38} animate={false} />
@@ -197,13 +202,15 @@ const Figure3e = () => {
             </motion.div>
 
             {/* Background Streamer - left circle, same line as Platform Surfer */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '16%', top: '52%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.55 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Background Streamer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <BackgroundStreamerIcon size={38} animate={false} />
@@ -213,13 +220,15 @@ const Figure3e = () => {
             {/* ===== OVERLAP ICONS (Center - Where Circles Collide) ===== */}
             
             {/* Binge Watcher - top of overlap, closer to center */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '44%', top: '28%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Binge Watcher")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <BingeWatcherIcon size={32} animate={false} />
@@ -227,13 +236,15 @@ const Figure3e = () => {
             </motion.div>
 
             {/* Rewatcher - bottom of overlap, closer to Binge Watcher */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ left: '44%', top: '46%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Rewatcher")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <RewatcherIcon size={32} animate={false} />
@@ -243,13 +254,15 @@ const Figure3e = () => {
             {/* ===== MOVIES ICONS (Right Circle Only) ===== */}
             
             {/* Avid Viewer - right circle */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ right: '14%', top: '28%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Avid Viewer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <AvidViewerIcon size={38} animate={false} />
@@ -257,13 +270,15 @@ const Figure3e = () => {
             </motion.div>
 
             {/* Social Streamer - right circle, aligned with Avid Viewer */}
-            <motion.div 
+            <motion.div
               className="absolute"
               style={{ right: '14%', top: '52%' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.75 }}
               viewport={{ once: true }}
+              onMouseEnter={() => setHoveredPersona("Social Streamer")}
+              onMouseLeave={() => setHoveredPersona(null)}
             >
               <VennIcon>
                 <SocialStreamerIcon size={38} animate={false} />
@@ -281,9 +296,13 @@ const Figure3e = () => {
           viewport={{ once: true }}
         >
           {legendItems.map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="flex items-center gap-3 cursor-pointer"
+              style={{
+                opacity: hoveredPersona && hoveredPersona !== item.name ? 0.35 : 1,
+                transition: 'opacity 200ms ease',
+              }}
               whileHover={{ x: 3 }}
               transition={{ duration: 0.2 }}
             >
@@ -291,15 +310,15 @@ const Figure3e = () => {
               <PersonaMedallion size={36}>
                 <item.Icon size={20} animate={false} />
               </PersonaMedallion>
-              
+
               {/* Dashed connector line */}
-              <div 
+              <div
                 className="w-10"
                 style={{ borderTop: '1.5px dashed hsl(35 20% 45% / 0.5)' }}
               />
-              
+
               {/* Label text - bold and bigger */}
-              <span 
+              <span
                 className="font-display text-[16px] leading-[1.1] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >
