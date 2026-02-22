@@ -62,7 +62,7 @@ const MethodSection2 = () => {
             </li>
           </ul>
 
-          <FigureWrapper figureNumber="Figure 2b" caption="Process diagram showing tasks and evaluation criteria">
+          <FigureWrapper figureNumber="Figure 2b" caption="Process diagram showing tasks and evaluation criteria" frameClassName="pt-4 pb-2 md:pt-6 md:pb-4">
             <Figure2bCS2 />
           </FigureWrapper>
 
@@ -157,7 +157,7 @@ const MethodSection2 = () => {
             whether they had enough traction to take forward.
           </p>
 
-          <FigureWrapper figureNumber="Figure 2c" caption="DVF Model representative concept diagram">
+          <FigureWrapper figureNumber="Figure 2c" caption="DVF Model representative concept diagram" frameClassName="pt-4 pb-2 md:pt-6 md:pb-4">
             <Figure2cCS2 />
           </FigureWrapper>
 

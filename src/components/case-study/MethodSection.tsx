@@ -65,7 +65,7 @@ const MethodSection = () => {
             Lastly, we developed a simple analysis framework (Diagram 2d) to pull evidence from interviews to identify differences that emerge through patterns.
           </p>
           
-          <FigureWrapper figureNumber="Figure 2d" caption="Analysis framework">
+          <FigureWrapper figureNumber="Figure 2d" caption="Analysis framework" frameClassName="py-2 md:py-4">
             <Figure2d />
           </FigureWrapper>
 

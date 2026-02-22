@@ -183,7 +183,7 @@ const Figure2d = () => {
     .join(" ");
 
   return (
-    <ScalingContainer designWidth={700} className="py-4">
+    <ScalingContainer designWidth={700} className="py-0">
       <div className="flex justify-center">
       <motion.div
         className="relative"

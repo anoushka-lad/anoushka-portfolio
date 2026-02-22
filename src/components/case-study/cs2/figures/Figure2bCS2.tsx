@@ -78,7 +78,7 @@ const Figure2bCS2 = () => {
   };
 
   return (
-    <ScalingContainer designWidth={880} className="py-6">
+    <ScalingContainer designWidth={880} className="py-0">
       <div className="flex flex-row items-center justify-center gap-2">
       {/* ===== LEFT: Users Circle ===== */}
       <motion.div

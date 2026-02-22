@@ -91,7 +91,7 @@ const Figure2cCS2 = () => {
   ];
 
   return (
-    <ScalingContainer designWidth={W} className="py-6">
+    <ScalingContainer designWidth={W} className="py-0">
       <div className="flex justify-center">
         <div className="relative" style={{ width: W, height: H }}>
           {/* Labels */}

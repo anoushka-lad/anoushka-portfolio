@@ -153,7 +153,7 @@ const Figure3cCS2 = () => {
   };
 
   return (
-    <ScalingContainer designWidth={700} className="py-4">
+    <ScalingContainer designWidth={700} className="py-0">
       <div className="flex justify-center">
       <div className="relative" style={{ width: totalWidth, height: size }}>
         <svg width={totalWidth} height={size} viewBox={`${-padX} 0 ${totalWidth} ${size}`}>

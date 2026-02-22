@@ -1,15 +1,18 @@
+import { cn } from "@/lib/utils";
+
 const rusticPaperBg = "/images/rustic-paper-bg.jpg";
 
 interface FigureWrapperProps {
   children: React.ReactNode;
   caption: string;
   figureNumber: string;
+  frameClassName?: string;
 }
 
-const FigureWrapper = ({ children, caption, figureNumber }: FigureWrapperProps) => {
+const FigureWrapper = ({ children, caption, figureNumber, frameClassName }: FigureWrapperProps) => {
   return (
     <div className="my-6">
-      <div className="relative p-8 md:p-12 rounded-sm overflow-hidden">
+      <div className={cn("relative p-8 md:p-12 rounded-sm overflow-hidden", frameClassName)}>
         {/* Parchment texture — adjust filter values here to tune color tone */}
         <div
           className="absolute inset-0 figure-parchment-bg"

@@ -46,6 +46,7 @@ const FindingsSection3 = () => {
         <FigureWrapper
           figureNumber="Figure 2a"
           caption="Relative impact of ad factors by outlet"
+          frameClassName="pt-4 pb-2 md:pt-6 md:pb-4"
         >
           <Figure2aCS3 />
         </FigureWrapper>

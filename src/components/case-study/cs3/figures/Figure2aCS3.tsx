@@ -62,7 +62,7 @@ const Figure2aCS3 = () => {
   const yPos = (val: number) => baseline - ((val - minVal) / (maxVal - minVal)) * chartHeight;
 
   return (
-    <ScalingContainer designWidth={700} className="py-4">
+    <ScalingContainer designWidth={700} className="py-0">
       {/* Legend */}
       <motion.div
         className="flex items-center justify-center gap-6 md:gap-8 mb-4 flex-wrap"

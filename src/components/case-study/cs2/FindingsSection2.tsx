@@ -40,7 +40,7 @@ const FindingsSection2 = () => {
         </p>
 
         {/* Figure 3c - Priority wheel */}
-        <FigureWrapper figureNumber="Figure 3c" caption="4/10 identified as high priority items">
+        <FigureWrapper figureNumber="Figure 3c" caption="4/10 identified as high priority items" frameClassName="py-2 md:py-4">
           <Figure3cCS2 />
         </FigureWrapper>
 
