@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ScalingContainer from "../ScalingContainer";
 import {
@@ -16,6 +17,7 @@ import {
 type UsageLevel = 0 | 1 | 2 | 3;
 
 const Figure3b = () => {
+  const [hoveredUsageLevel, setHoveredUsageLevel] = useState<UsageLevel | null>(null);
   const devices = ["Phone", "Laptop", "10-ft"] as const;
   
   const personas = [
@@ -105,10 +107,10 @@ const Figure3b = () => {
                 
                 {/* Cells for each persona */}
                 {usageData.map((personaData, pIndex) => (
-                  <motion.div 
-                    key={pIndex} 
+                  <motion.div
+                    key={pIndex}
                     className="flex-1 h-12 mx-0.5"
-                    style={{ 
+                    style={{
                       backgroundColor: getColor(personaData[dIndex]),
                       border: personaData[dIndex] === 0 ? '1px solid hsl(35 18% 70% / 0.3)' : 'none'
                     }}
@@ -116,7 +118,9 @@ const Figure3b = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: dIndex * 0.1 + pIndex * 0.05 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.03 }}
+                    whileHover={{ scale: 1.08 }}
+                    onMouseEnter={() => setHoveredUsageLevel(personaData[dIndex])}
+                    onMouseLeave={() => setHoveredUsageLevel(null)}
                   />
                 ))}
               </div>
@@ -133,9 +137,13 @@ const Figure3b = () => {
           viewport={{ once: true }}
         >
           {legend.map((item, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="flex items-center gap-2"
+              style={{
+                opacity: hoveredUsageLevel !== null && hoveredUsageLevel !== item.level ? 0.35 : 1,
+                transition: 'opacity 200ms ease',
+              }}
               whileHover={{ x: 3 }}
               transition={{ duration: 0.2 }}
             >
