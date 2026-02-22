@@ -96,7 +96,7 @@ const Figure2cCS2 = () => {
         <div className="relative" style={{ width: W, height: H }}>
           {/* Labels */}
           <motion.span
-            className="absolute font-display text-foreground text-[15.9px]"
+            className="absolute font-display text-foreground text-[14px] leading-[1.1]"
             style={{ left: W / 2 - 40, top: 4, transform: "translateX(-50%)" }}
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const Figure2cCS2 = () => {
             Desirability
           </motion.span>
           <motion.span
-            className="absolute font-display text-foreground text-[15.9px]"
+            className="absolute font-display text-foreground text-[14px] leading-[1.1]"
             style={{ left: 20, bottom: 30 }}
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -116,7 +116,7 @@ const Figure2cCS2 = () => {
             Viability
           </motion.span>
           <motion.span
-            className="absolute font-display text-foreground text-[15.9px]"
+            className="absolute font-display text-foreground text-[14px] leading-[1.1]"
             style={{ right: 20, bottom: 30 }}
             initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}

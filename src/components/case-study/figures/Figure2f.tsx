@@ -76,7 +76,7 @@ const Figure2f = () => {
         <thead>
           <tr>
             <motion.th 
-              className="border border-foreground/40 p-2.5 text-left font-display text-[18px] bg-foreground/[0.07] w-[100px]"
+              className="border border-foreground/40 p-2.5 text-left font-display text-[19px] leading-[1.1] bg-foreground/[0.07] w-[100px]"
               whileHover={{ backgroundColor: "rgba(0,0,0,0.1)" }}
             >
               Platform Surfer
@@ -84,7 +84,7 @@ const Figure2f = () => {
             {stages.map((stage, idx) => (
               <motion.th 
                 key={idx} 
-                className={`border border-foreground/40 p-2.5 text-center font-display text-[18px] ${
+                className={`border border-foreground/40 p-2.5 text-center font-display text-[19px] leading-[1.1] ${
                   stage === "Advocacy" ? "text-red-600" : ""
                 }`}
                 whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.05)" }}
@@ -105,7 +105,7 @@ const Figure2f = () => {
               viewport={{ once: true }}
             >
               <motion.td 
-                className={`border border-foreground/40 p-2.5 font-display text-[18px] align-top bg-foreground/[0.04] ${
+                className={`border border-foreground/40 p-2.5 font-display text-[19px] leading-[1.1] align-top bg-foreground/[0.04] ${
                   row.isHighlight ? "text-red-600" : ""
                 }`}
                 whileHover={{ backgroundColor: "rgba(0,0,0,0.08)" }}
@@ -115,7 +115,7 @@ const Figure2f = () => {
               {row.cells.map((cell, cellIdx) => (
                 <motion.td 
                   key={cellIdx} 
-                  className={`border border-foreground/40 p-2.5 font-display text-[18px] align-top leading-relaxed ${
+                  className={`border border-foreground/40 p-2.5 font-display text-[19px] leading-[1.1] align-top ${
                     row.isHighlight ? "text-red-600" : ""
                   }`}
                   whileHover={{ 

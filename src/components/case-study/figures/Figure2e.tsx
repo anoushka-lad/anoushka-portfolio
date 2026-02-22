@@ -96,13 +96,13 @@ const Figure2e = () => {
       viewport={{ once: true }}
       whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}
     >
-      <td className="border border-foreground/40 p-2 font-display text-[18.5px] align-top w-[35%] leading-tight">
+      <td className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] align-top w-[35%]">
         {category}
       </td>
-      <td className="border border-foreground/40 p-2 text-[18.5px] align-top">
+      <td className="border border-foreground/40 p-2 text-[16px] leading-[1.1] align-top">
         <ul className="list-disc list-outside ml-4 space-y-0.5">
           {content.map((item, i) => (
-            <li key={i} className="font-display leading-tight">{item}</li>
+            <li key={i} className="font-display leading-[1.1]">{item}</li>
           ))}
         </ul>
       </td>
@@ -114,7 +114,7 @@ const Figure2e = () => {
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
-      <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[18.5px] bg-foreground/[0.07]">
+      <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] bg-foreground/[0.07]">
         {title}
       </td>
     </motion.tr>
@@ -154,71 +154,71 @@ const Figure2e = () => {
           <table className="w-full border-collapse text-[#343434] h-full">
             <tbody>
               <motion.tr whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[18.5px] bg-foreground/[0.07]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] bg-foreground/[0.07]">
                   Aggregated Watch Experience (Prime Video)
                 </td>
               </motion.tr>
               
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[18.5px] bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] bg-foreground/[0.04]">
                   Key Insights
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-display text-[18.5px] align-top w-[30%]">
+                <td className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] align-top w-[30%]">
                   Key Findings
                 </td>
-                <td className="border border-foreground/40 p-2 text-[18.5px] align-top">
+                <td className="border border-foreground/40 p-2 text-[16px] leading-[1.1] align-top">
                   <ul className="list-disc list-outside ml-4 space-y-0.5">
                     {rightColumnData.keyFindings.map((item, i) => (
-                      <li key={i} className="font-display leading-tight">{item}</li>
+                      <li key={i} className="font-display leading-[1.1]">{item}</li>
                     ))}
                   </ul>
                 </td>
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[18.5px] bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] bg-foreground/[0.04]">
                   Goals for the Aggregated Watch Experience
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-display text-[18.5px] align-top">
+                <td className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] align-top">
                   Goals
                 </td>
-                <td className="border border-foreground/40 p-2 text-[18.5px] align-top">
+                <td className="border border-foreground/40 p-2 text-[16px] leading-[1.1] align-top">
                   <ul className="list-disc list-outside ml-4 space-y-0.5">
                     {rightColumnData.goals.map((item, i) => (
-                      <li key={i} className="font-display leading-tight">{item}</li>
+                      <li key={i} className="font-display leading-[1.1]">{item}</li>
                     ))}
                   </ul>
                 </td>
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[18.5px] bg-foreground/[0.04]">
+                <td colSpan={2} className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] bg-foreground/[0.04]">
                   Opportunities for Improvement
                 </td>
               </motion.tr>
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-display text-[18.5px] align-top">
+                <td className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] align-top">
                   Opportunities
                 </td>
-                <td className="border border-foreground/40 p-2 text-[18.5px] align-top">
+                <td className="border border-foreground/40 p-2 text-[16px] leading-[1.1] align-top">
                   <ul className="list-disc list-outside ml-4 space-y-0.5">
                     {rightColumnData.opportunities.map((item, i) => (
-                      <li key={i} className="font-display leading-tight">{item}</li>
+                      <li key={i} className="font-display leading-[1.1]">{item}</li>
                     ))}
                   </ul>
                 </td>
               </motion.tr>
 
               <motion.tr whileHover={{ backgroundColor: "rgba(0,0,0,0.03)" }}>
-                <td className="border border-foreground/40 p-2 font-display text-[18.5px] align-top bg-foreground/[0.04]">
+                <td className="border border-foreground/40 p-2 font-display text-[16px] leading-[1.1] align-top bg-foreground/[0.04]">
                   Summary
                 </td>
-                <td className="border border-foreground/40 p-2 text-[18.5px] align-top">
-                  <p className="font-display leading-relaxed">{rightColumnData.summary}</p>
+                <td className="border border-foreground/40 p-2 text-[16px] leading-[1.1] align-top">
+                  <p className="font-display leading-[1.1]">{rightColumnData.summary}</p>
                 </td>
               </motion.tr>
             </tbody>

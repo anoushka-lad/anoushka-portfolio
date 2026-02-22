@@ -325,8 +325,7 @@ const Figure2d = () => {
                 textAnchor="middle"
                 dominantBaseline="middle"
                 transform={`rotate(${finalRotation}, ${labelPos.x}, ${labelPos.y})`}
-                className="font-display text-[15px] fill-current text-[#343434]"
-                style={{ letterSpacing: '0.02em' }}
+                className="font-display text-[13px] leading-[1.1] fill-current text-[#343434]"
               >
                 {segment.label}
               </text>

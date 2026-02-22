@@ -205,7 +205,7 @@ const CircularGauge = ({
 
       {/* Label with fade in */}
       <motion.p
-        className="font-display text-[19.5px] text-[#343434] mt-8 text-center max-w-[280px]"
+        className="font-display text-[17px] leading-[1.1] text-[#343434] mt-8 text-center max-w-[280px]"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: delay + 0.8 }}

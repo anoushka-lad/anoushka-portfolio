@@ -417,12 +417,11 @@ const Figure3cCS2 = () => {
                   
                   {/* Curved text label */}
                   <motion.text
-                    className="font-display text-[18px]"
+                    className="font-display text-[16px] leading-[1.1]"
                     fill="#343434"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 1.5 + i * 0.15 }}
-                    style={{ letterSpacing: "0.5px" }}
                   >
                     <textPath
                       href={`#${pathId}`}
@@ -454,7 +453,7 @@ const Figure3cCS2 = () => {
                   y={pos.y}
                   textAnchor={pos.anchor}
                   dominantBaseline="middle"
-                  className="font-display text-[18px]"
+                  className="font-display text-[16px] leading-[1.1]"
                   fill="#343434"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

@@ -149,7 +149,7 @@ const Figure3c = () => {
 
             {/* "Prefers to watch alone" Label - below left circle */}
             <motion.span
-              className="absolute font-display text-[18px]"
+              className="absolute font-display text-[16px] leading-[1.1]"
               style={{ 
                 left: '4%', 
                 bottom: '0%',
@@ -165,7 +165,7 @@ const Figure3c = () => {
 
             {/* "Prefers to watch with others" Label - below right circle */}
             <motion.span
-              className="absolute font-display text-[18px]"
+              className="absolute font-display text-[16px] leading-[1.1]"
               style={{ 
                 right: '0%', 
                 bottom: '0%',
@@ -313,7 +313,7 @@ const Figure3c = () => {
               
               {/* Label text - bold and bigger */}
               <span 
-                className="font-display text-[18px] whitespace-nowrap"
+                className="font-display text-[16px] leading-[1.1] whitespace-nowrap"
                 style={{ color: '#343434' }}
               >
                 {item.name}

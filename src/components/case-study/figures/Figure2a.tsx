@@ -10,10 +10,10 @@ const Figure2a = () => {
         {/* Node 1 - 8-pointed star (left top) */}
         <g transform="translate(140, 100)">
           {/* Label above */}
-          <text x="0" y="-55" textAnchor="middle" className="font-display text-[18px] fill-[#343434]">
+          <text x="0" y="-55" textAnchor="middle" className="font-display text-[16px] leading-[1.1] fill-[#343434]">
             User Demographics and
           </text>
-          <text x="0" y="-38" textAnchor="middle" className="font-display text-[18px] fill-[#343434]">
+          <text x="0" y="-38" textAnchor="middle" className="font-display text-[16px] leading-[1.1] fill-[#343434]">
             Viewing Habits
           </text>
           
@@ -43,7 +43,7 @@ const Figure2a = () => {
           <text y="4" textAnchor="middle" className="text-[10px] fill-background pointer-events-none">2</text>
           
           {/* Label below */}
-          <text x="0" y="42" textAnchor="middle" className="font-display text-[18px] fill-[#343434]">
+          <text x="0" y="42" textAnchor="middle" className="font-display text-[16px] leading-[1.1] fill-[#343434]">
             Engaging in Content
           </text>
         </g>
@@ -51,10 +51,10 @@ const Figure2a = () => {
         {/* Node 3 - Sunburst with rays (right top) */}
         <g transform="translate(560, 100)">
           {/* Label above */}
-          <text x="0" y="-55" textAnchor="middle" className="font-display text-[18px] fill-[#343434]">
+          <text x="0" y="-55" textAnchor="middle" className="font-display text-[16px] leading-[1.1] fill-[#343434]">
             Aggregated Watch
           </text>
-          <text x="0" y="-38" textAnchor="middle" className="font-display text-[18px] fill-[#343434]">
+          <text x="0" y="-38" textAnchor="middle" className="font-display text-[16px] leading-[1.1] fill-[#343434]">
             Experiences
           </text>
           

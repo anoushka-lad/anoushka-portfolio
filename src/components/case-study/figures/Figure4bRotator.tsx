@@ -244,7 +244,7 @@ const Figure4bRotator = () => {
                 {/* Left side - Text content */}
                 <div className="flex flex-col justify-center">
                   <h4
-                    className="font-display text-[18px] mb-3"
+                    className="font-display text-[16px] leading-[1.1] mb-3"
                     style={{ color: '#343434' }}
                   >
                     {currentSlide.category}
@@ -253,13 +253,13 @@ const Figure4bRotator = () => {
                   {currentSlide.bullets ? (
                     <>
                       <p
-                        className="font-display text-[18px] leading-relaxed mb-2"
+                        className="font-display text-[16px] leading-[1.1] mb-2"
                         style={{ color: '#343434' }}
                       >
                         <span>{currentSlide.title}</span>{" "}
                         {currentSlide.description}
                       </p>
-                      <ul className="font-display text-[18px] leading-relaxed mb-4 ml-4 space-y-1" style={{ color: '#343434' }}>
+                      <ul className="font-display text-[16px] leading-[1.1] mb-4 ml-4 space-y-1" style={{ color: '#343434' }}>
                         {currentSlide.bullets.map((bullet, idx) => (
                           <li key={idx} className="list-disc">{bullet}</li>
                         ))}
@@ -267,7 +267,7 @@ const Figure4bRotator = () => {
                     </>
                   ) : (
                     <p
-                      className="font-display text-[18px] leading-relaxed mb-4"
+                      className="font-display text-[16px] leading-[1.1] mb-4"
                       style={{ color: '#343434' }}
                     >
                       <span>{currentSlide.title}</span>{" "}
@@ -276,7 +276,7 @@ const Figure4bRotator = () => {
                   )}
 
                   <p
-                    className="font-display text-[18px]"
+                    className="font-display text-[16px] leading-[1.1]"
                     style={{ color: 'rgba(52, 52, 52, 0.55)' }}
                   >
                     Source: {currentSlide.source}
@@ -299,7 +299,7 @@ const Figure4bRotator = () => {
         {/* Page number */}
         <div className="flex justify-center mt-4">
           <span
-            className="font-display text-[18px]"
+            className="font-display text-[16px] leading-[1.1]"
             style={{ color: '#343434' }}
           >
             {currentIndex + 1}
