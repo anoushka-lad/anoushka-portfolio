@@ -42,8 +42,8 @@ const Figure2b = () => {
   ];
 
   return (
-    <ScalingContainer designWidth={700}>
-      <div className="flex justify-center items-end gap-20 py-4">
+    <ScalingContainer designWidth={720}>
+      <div className="flex justify-center items-end gap-12 py-4">
       {items.map((item, index) => (
         <motion.div 
           key={index}

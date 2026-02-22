@@ -65,7 +65,7 @@ const Figure2f = () => {
   ];
 
   return (
-    <ScalingContainer designWidth={700}>
+    <ScalingContainer designWidth={850}>
       <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

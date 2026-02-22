@@ -50,7 +50,7 @@ const Figure3c = () => {
 
   return (
     <ScalingContainer designWidth={700} className="py-4">
-      <div className="flex flex-row items-center gap-12">
+      <div className="flex flex-row items-center gap-12 px-2">
         {/* ===== VENN DIAGRAM ===== */}
         <div className="flex-1 flex justify-center relative w-full">
           <div className="relative w-full max-w-lg" style={{ aspectRatio: '1.35/1' }}>

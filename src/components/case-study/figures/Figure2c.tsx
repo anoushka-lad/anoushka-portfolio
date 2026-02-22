@@ -167,7 +167,7 @@ const Figure2c = () => {
   ];
 
   return (
-    <ScalingContainer designWidth={752}>
+    <ScalingContainer designWidth={810}>
       <table className="mx-auto text-[19.3px] border-collapse">
         <thead>
           <tr>
