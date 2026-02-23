@@ -7,9 +7,10 @@ interface FigureWrapperProps {
   caption: string;
   figureNumber: string;
   frameClassName?: string;
+  belowContent?: React.ReactNode;
 }
 
-const FigureWrapper = ({ children, caption, figureNumber, frameClassName }: FigureWrapperProps) => {
+const FigureWrapper = ({ children, caption, figureNumber, frameClassName, belowContent }: FigureWrapperProps) => {
   return (
     <div className="my-6">
       <div className={cn("relative p-8 md:p-12 rounded-sm overflow-hidden", frameClassName)}>
@@ -28,7 +29,10 @@ const FigureWrapper = ({ children, caption, figureNumber, frameClassName }: Figu
           {children}
         </div>
       </div>
-      
+
+      {/* Optional content between parchment and caption */}
+      {belowContent}
+
       {/* Caption */}
       <p className="cs-caption text-center mt-3">
         <strong>{figureNumber}:</strong> {caption}
