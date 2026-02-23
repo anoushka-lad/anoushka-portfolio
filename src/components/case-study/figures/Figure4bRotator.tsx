@@ -164,7 +164,7 @@ const Figure4bRotator = ({ currentIndex }: Figure4bRotatorProps) => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-[2fr_3fr] gap-6 min-h-[280px]"
+              className={`grid gap-6 min-h-[280px] ${currentIndex === 8 ? 'grid-cols-[3fr_2fr]' : 'grid-cols-[2fr_3fr]'}`}
             >
               {/* Left side - Text content */}
               <div className="flex flex-col justify-center">
@@ -213,7 +213,7 @@ const Figure4bRotator = ({ currentIndex }: Figure4bRotatorProps) => {
                 <img
                   src={currentSlide.image}
                   alt={currentSlide.title}
-                  className="max-w-full max-h-[384px] object-contain rounded-sm"
+                  className={`max-w-full object-contain rounded-sm ${currentIndex >= 7 ? 'max-h-[261px]' : 'max-h-[384px]'}`}
                 />
               </div>
             </motion.div>
